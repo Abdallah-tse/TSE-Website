@@ -1,11 +1,220 @@
-/* Example of safe, multi-directional CSS */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f8f9fa;
 }
 
 .custom-card {
-    /* Padding on the start side (left for EN, right for AR) */
     padding-inline-start: 20px;
     text-align: start;
+}
+
+/* 1. The starting state (Hidden and pushed down slightly) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1),
+        transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    will-change: opacity, transform;
+    /* Performance optimization */
+}
+
+/* 2. The ending state (Visible and in natural position) */
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Optional: Stagger delays for grids (e.g., listing your products) */
+.delay-100 {
+    transition-delay: 100ms;
+}
+
+.delay-200 {
+    transition-delay: 200ms;
+}
+
+.delay-300 {
+    transition-delay: 300ms;
+}
+
+/* ========================================== */
+/* HEADER NAVBAR LOGO               */
+/* ========================================== */
+
+.navbar-logo {
+    height: 40px;
+    /* Controls the visual scale of your logo in the navbar */
+    width: auto;
+    /* Safely maintains the native aspect ratio */
+    display: block;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* Optional elegant hover effect */
+.navbar-brand:hover .navbar-logo {
+    transform: scale(1.02);
+}
+
+/* Smooth margins when switching reading paths */
+[dir="ltr"] .navbar-logo {
+    margin-right: 0;
+}
+
+[dir="rtl"] .navbar-logo {
+    margin-left: 0;
+}
+
+.transition-card {
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.transition-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--bs-primary) !important;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.08) !important;
+}
+
+.max-w-2xl {
+    max-width: 42rem;
+}
+
+/* ========================================== */
+/* INFINITE LOGO TICKER SCROLL        */
+/* ========================================== */
+
+.logo-slider-container {
+    position: relative;
+    width: 100%;
+    margin-top: 2rem;
+    overflow: hidden;
+    padding: 1.5rem 0;
+    display: flex;
+}
+
+/* Elegant visual gradient fade overlays on the edges */
+.logo-slider-container::before,
+.logo-slider-container::after {
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 15%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.logo-slider-container::before {
+    left: 0;
+    top: 0;
+    background: linear-gradient(to right, #f8f9fa 0%, rgba(248, 249, 250, 0) 100%);
+}
+
+.logo-slider-container::after {
+    right: 0;
+    top: 0;
+    background: linear-gradient(to left, #f8f9fa 0%, rgba(248, 249, 250, 0) 100%);
+}
+
+/* The horizontal strip moving endlessly */
+.logo-slider-track {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: max-content;
+    /* Forces track to be exactly as wide as its total content */
+    animation: scrollLinearTicker 25s linear infinite;
+}
+
+/* Pause scroll interaction on hover */
+.logo-slider-track:hover {
+    animation-play-state: paused;
+}
+
+/* Individual logo wrap containers */
+.logo-slide {
+    width: 200px;
+    /* Explicit uniform container width */
+    height: 80px;
+    /* Explicit uniform container height */
+    flex-shrink: 0;
+    /* CRITICAL: Prevents Flexbox from squishing your boxes */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-slide a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 1rem;
+    /* Even spacing buffer between logos */
+}
+
+/* Premium B2B Grayscale effect styling */
+.client-logo {
+    width: 150px;
+    /* Forces every image to have the exact same width */
+    height: 60px;
+    /* Forces every image to have the exact same height */
+    object-fit: contain;
+    /* CRITICAL: Prevents distortion/stretching, preserves original aspect ratio */
+    display: block;
+    filter: grayscale(100%);
+    opacity: 0.55;
+    transition: filter 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+.client-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* LTR Direction Animation - Moves to the Left */
+@keyframes scrollLinearTicker {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        /* Move exactly half of the total track width (8 items * 220px = 1760px) */
+        transform: translateX(-50%);
+    }
+}
+
+/* ========================================== */
+/* RTL DIRECTION HANDLING          */
+/* ========================================== */
+
+/* Mirror gradient orientation for RTL layouts */
+[dir="rtl"] .logo-slider-container::before {
+    left: auto;
+    right: 0;
+    background: linear-gradient(to left, #f8f9fa 0%, rgba(248, 249, 250, 0) 100%);
+}
+
+[dir="rtl"] .logo-slider-container::after {
+    right: auto;
+    left: 0;
+    background: linear-gradient(to right, #f8f9fa 0%, rgba(248, 249, 250, 0) 100%);
+}
+
+/* Adjust animation direction for natural Arabic reading paths */
+[dir="rtl"] .logo-slider-track {
+    animation: scrollLinearTickerRTL 25s linear infinite;
+}
+
+@keyframes scrollLinearTickerRTL {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        /* FIXED: Changed from 1760px to 50% for dynamic layout stability */
+        transform: translateX(50%);
+    }
 }
