@@ -1,212 +1,221 @@
 /* ========================================== */
-/* DUAL-ACCENT BRAND ARCHITECTURE VARIABLES   */
+/* MERGED BRAND DESIGN SYSTEM & PALETTE       */
 /* ========================================== */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-    /* Brand Color Vectors */
+    /* Colors Extracted Verbatim From 5qfiixwNz4.jpg & ITOMS */
+    --canvas-dark-indigo: #0F1524;
+    --canvas-emerald-glow: #044E44;
     --brand-red: #D31E24;
-    /* From TSE-Logo.png */
-    --brand-red-hover: #F0282F;
+    --brand-red-hover: #B51419;
     --itoms-teal: #00A4A6;
-    /* Extracted from ITOMS-Logo.png */
-    --itoms-teal-glow: rgba(0, 164, 166, 0.08);
+    --itoms-teal-light: rgba(0, 164, 166, 0.06);
 
-    /* Layout Depth System */
-    --space-dark: #05070F;
-    --space-card: #0D1121;
-    --space-border: rgba(255, 255, 255, 0.06);
+    /* Light UI Zones */
     --light-bg: #F8FAFC;
     --light-card: #FFFFFF;
-    --light-border: #E2E8F0;
+    --light-border: #E5E7EB;
 
-    /* Spacious Typography Baselines */
-    --text-dark: #0F172A;
-    --text-light: #F8FAFC;
-    --text-muted-dark: #94A3B8;
-    --text-muted-light: #64748B;
+    /* Typography Overrides */
+    --text-heading: #0F172A;
+    --text-body: #475569;
+    --text-muted: #94A3B8;
 }
 
-/* Global Layout & Spacing Physics */
 body {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
     background-color: var(--light-bg);
-    color: var(--text-dark);
-    overflow-x: hidden;
+    color: var(--text-body);
+    line-height: 1.8 !important;
     -webkit-font-smoothing: antialiased;
-    line-height: 1.75 !important;
-    /* Maximizes reading breathing room */
 }
 
 /* ========================================== */
-/* CINEMATIC HERO & ENVIRONMENT PLACEMENT     */
+/* COHESIVE GRADIENT HERO AREA (IMAGE BLEND)  */
 /* ========================================== */
-.immersive-hero-zone {
+.blended-hero-zone {
     position: relative;
-    background-color: var(--space-dark);
-    /* High-end stock image depicting global logistics routes / premium travel infrastructure */
-    background-image:
-        linear-gradient(to bottom, rgba(5, 7, 15, 0.75) 0%, var(--space-dark) 100%),
+    /* Merges the image's dark indigo-to-emerald gradient directly over deep stock photography */
+    background:
+        linear-gradient(135deg, rgba(15, 21, 36, 0.93) 40%, rgba(4, 78, 68, 0.88) 100%),
         url('https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?q=80&w=2069');
     background-size: cover;
-    background-position: center 30%;
+    background-position: center;
     background-attachment: fixed;
-    /* Creates a premium parallax floating effect */
-    color: var(--text-light);
-    padding: 10rem 0 8rem 0 !important;
-    /* Wide-open structural padding */
+    color: #FFFFFF;
+    padding: 11rem 0 8rem 0 !important;
 }
 
-/* Header Floating Glass Layer */
 .navbar-glass {
-    border-bottom: 1px solid var(--space-border);
-    background-color: rgba(5, 7, 15, 0.65) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: rgba(15, 21, 36, 0.7) !important;
     backdrop-filter: blur(20px);
-    padding: 1.25rem 0 !important;
-    transition: all 0.4s ease;
+    padding: 1rem 0 !important;
 }
 
 .navbar-logo {
-    height: 44px;
-    width: auto;
-    object-fit: contain;
+    height: 40px;
+    transition: all 0.3s ease;
 }
 
-.navbar-glass .nav-link {
-    color: var(--text-muted-dark) !important;
-    font-weight: 500;
-    font-size: 0.95rem;
-    letter-spacing: 0.02em;
-    padding: 0.5rem 1.25rem !important;
-    transition: color 0.3s ease;
+/* Hero Data Counter Metrics Strip */
+.stats-badge-container {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2.5rem;
+    margin-top: 4.5rem;
 }
 
-.navbar-glass .nav-link:hover,
-.navbar-glass .nav-link.active {
-    color: var(--text-light) !important;
+.stat-metric-number {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+    line-height: 1;
 }
 
-/* Context Badges */
-.platform-badge {
-    background: rgba(255, 255, 255, 0.03) !important;
-    color: var(--text-light) !important;
-    border: 1px solid var(--space-border) !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.1em;
-    padding: 0.6rem 1.5rem !important;
-    text-transform: uppercase;
-}
-
-/* Red & Teal Premium Buttons */
-.btn-tse-red {
+/* Premium Button Modules */
+.btn-red-action {
     background: var(--brand-red) !important;
-    color: #ffffff !important;
+    color: #FFFFFF !important;
     border: 1px solid var(--brand-red) !important;
     font-weight: 600;
-    padding: 1rem 2.25rem !important;
-    border-radius: 12px !important;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    padding: 0.9rem 2.25rem !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
 }
 
-.btn-tse-red:hover {
+.btn-red-action:hover {
     background: var(--brand-red-hover) !important;
-    transform: translateY(-3px);
-    box-shadow: 0 12px 24px rgba(211, 30, 36, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(211, 30, 36, 0.3);
 }
 
-.btn-itoms-teal {
-    background: var(--itoms-teal) !important;
-    color: #ffffff !important;
-    border: 1px solid var(--itoms-teal) !important;
-    font-weight: 600;
-    padding: 1rem 2.25rem !important;
-    border-radius: 12px !important;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-}
-
-.btn-itoms-teal:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 24px rgba(0, 164, 166, 0.35);
-}
-
-.btn-outline-glass {
-    background: transparent !important;
-    color: var(--text-light) !important;
+.btn-glass-secondary {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: #FFFFFF !important;
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
     font-weight: 600;
-    padding: 1rem 2.25rem !important;
-    border-radius: 12px !important;
-    transition: all 0.4s ease !important;
+    padding: 0.9rem 2.25rem !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
 }
 
-.btn-outline-glass:hover {
-    background: rgba(255, 255, 255, 0.05) !important;
-    border-color: var(--text-light) !important;
-    transform: translateY(-3px);
-}
-
-/* ========================================== */
-/* FLAGSHIP PRODUCT DEPLOYMENT ROW (ITOMS)   */
-/* ========================================== */
-.flagship-showcase-section {
-    background-color: var(--space-dark);
-    padding: 6rem 0 10rem 0 !important;
-}
-
-.itoms-flagship-card {
-    background: radial-gradient(circle at top left, rgba(0, 164, 166, 0.08), transparent 45%), var(--space-card);
-    border: 1px solid var(--space-border);
-    border-radius: 24px;
-    padding: 4.5rem !important;
-    /* Huge internal space */
-    position: relative;
-    overflow: hidden;
-}
-
-.itoms-promotional-logo {
-    max-height: 55px;
-    width: auto;
-    object-fit: contain;
-    display: block;
+.btn-glass-secondary:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: #FFFFFF !important;
 }
 
 /* ========================================== */
-/* AIR-LIGHT BENTO SYSTEM & TICKER            */
+/* MICRO-FEATURE BOXES & SPACING              */
 /* ========================================== */
-.spacious-section {
-    padding: 10rem 0 !important;
-    /* Maximized outer padding */
+.section-air-padding {
+    padding: 9rem 0 !important;
+}
+
+.feature-micro-card {
+    background: var(--light-card);
+    border: 1px solid var(--light-border);
+    border-radius: 12px;
+    padding: 2.25rem;
+    height: 100%;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.feature-micro-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.03);
+    border-color: var(--itoms-teal);
+}
+
+.feature-mini-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--itoms-teal-light);
+    color: var(--itoms-teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+/* ========================================== */
+/* THE FLAGSHIP BENTO DISPLAY ZONE            */
+/* ========================================== */
+.flagship-bento-card {
+    background: radial-gradient(circle at 100% 100%, rgba(4, 78, 68, 0.15), transparent 60%), var(--light-card);
+    border: 1px solid var(--light-border);
+    border-radius: 20px;
+    padding: 4rem !important;
+}
+
+/* ========================================== */
+/* DETAILED TECH STACK GRID BLOCK             */
+/* ========================================== */
+.tech-stack-showcase {
+    background: #FFFFFF;
+    border-top: 1px solid var(--light-border);
+    border-bottom: 1px solid var(--light-border);
+    padding: 7rem 0;
+}
+
+.tech-grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-top: 3.5rem;
+}
+
+@media (max-width: 991px) {
+    .tech-grid-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.tech-stack-cell {
+    border: 1px solid var(--light-border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    background: var(--light-bg);
+    font-weight: 600;
+    color: var(--text-heading);
+    transition: all 0.25s ease;
+}
+
+.tech-stack-cell:hover {
+    background: #FFFFFF;
+    border-color: var(--brand-red);
+    transform: scale(1.02);
+}
+
+/* ========================================== */
+/* SOLID RED CALL-TO-ACTION BOTTOM BANNER    */
+/* ========================================== */
+.bottom-cta-banner-container {
+    padding-bottom: 8rem;
     background: var(--light-bg);
 }
 
+.solid-red-banner {
+    background: var(--brand-red);
+    background-image: linear-gradient(30deg, var(--brand-red) 0%, #E52E34 100%);
+    border-radius: 20px;
+    padding: 5rem 3rem !important;
+    color: #FFFFFF;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(211, 30, 36, 0.2);
+}
+
+/* Ticker Overrides */
 .brand-ticker-ribbon {
     background: #FFFFFF !important;
-    border-top: 1px solid var(--light-border);
     border-bottom: 1px solid var(--light-border);
-    padding: 2.25rem 0 !important;
-    position: relative;
+    padding: 2.5rem 0 !important;
     overflow: hidden;
-}
-
-.brand-ticker-ribbon::before,
-.brand-ticker-ribbon::after {
-    content: "";
-    height: 100%;
-    position: absolute;
-    width: 20%;
-    z-index: 2;
-    pointer-events: none;
-    top: 0;
-}
-
-.brand-ticker-ribbon::before {
-    left: 0;
-    background: linear-gradient(to right, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.brand-ticker-ribbon::after {
-    right: 0;
-    background: linear-gradient(to left, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+    position: relative;
 }
 
 .logo-slider-track {
@@ -215,115 +224,72 @@ body {
     animation: scrollLinearTicker 35s linear infinite;
 }
 
-.logo-slider-track:hover {
-    animation-play-state: paused;
-}
-
 .logo-slide {
     width: 240px;
-    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-shrink: 0;
 }
 
+.logo-slide a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+/* ========================================== */
+/*  TICKER HOVER INTERACTION ENGINE FIXES     */
+/* ========================================== */
+
+/* 1. Pause the entire timeline animation when mouse enters the track */
+.logo-slider-track:hover {
+    animation-play-state: paused !important;
+}
+
+/* 2. Base state for the logos (grayscale and muted) */
 .client-logo {
-    max-width: 160px;
-    max-height: 46px;
+    max-width: 150px;
+    max-height: 44px;
     object-fit: contain;
     filter: grayscale(100%);
-    opacity: 0.45;
-    transition: all 0.3s ease;
+    opacity: 0.4;
+    /* Smooth transition for all properties including transforms */
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    will-change: filter, opacity, transform;
 }
 
+/* 3. Hover state: Restores full color, full opacity, and an elegant pop scale */
 .logo-slide:hover .client-logo {
-    filter: grayscale(0%);
-    opacity: 1;
-    transform: scale(1.05);
+    filter: grayscale(0%) !important;
+    opacity: 1 !important;
+    transform: scale(1.08);
+    /* Gives it a clean visual lift */
 }
 
-/* Bento Structural Adjustments */
-.bento-matrix {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 2rem;
-    /* Enhanced spatial gap */
-}
-
-.bento-air-box {
-    background: var(--light-card);
-    border: 1px solid var(--light-border);
-    border-radius: 20px;
-    padding: 3rem !important;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+/* 4. Ensure the anchor link tags cleanly pass down alignment properties */
+.logo-slide a {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    outline: none;
 }
 
-.bento-air-box:hover {
-    transform: translateY(-6px);
-    border-color: rgba(0, 164, 166, 0.3);
-    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.04);
-}
-
-.bento-span-7 {
-    grid-column: span 7;
-}
-
-.bento-span-5 {
-    grid-column: span 5;
-}
-
-@media (max-width: 991px) {
-
-    .bento-span-7,
-    .bento-span-5 {
-        grid-column: span 12;
-    }
-
-    .itoms-flagship-card {
-        padding: 2.5rem !important;
-    }
-}
-
-.tech-pill-tag {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--itoms-teal);
-    background: var(--itoms-teal-glow);
-    padding: 0.4rem 1rem;
-    border-radius: 8px;
-    width: fit-content;
-    margin-bottom: 2.5rem;
-    letter-spacing: 0.05em;
-}
-
-/* Scroll Animation Engine Hooks */
+/* Scroll Animation Hooks */
 .animate-on-scroll {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1), transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-    will-change: opacity, transform;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .animate-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-.delay-100 {
-    transition-delay: 100ms;
-}
-
-.delay-200 {
-    transition-delay: 200ms;
-}
-
-.delay-300 {
-    transition-delay: 300ms;
 }
 
 @keyframes scrollLinearTicker {
@@ -336,19 +302,25 @@ body {
     }
 }
 
-[dir="rtl"] .brand-ticker-ribbon::before {
-    left: auto;
-    right: 0;
-    background: linear-gradient(to left, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+/* ========================================== */
+/*     RTL TYPOGRAPHY & FIX OPTIMIZATIONS     */
+/* ========================================== */
+html[dir="rtl"] body {
+    letter-spacing: normal !important;
 }
 
-[dir="rtl"] .brand-ticker-ribbon::after {
-    right: auto;
-    left: 0;
-    background: linear-gradient(to right, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+html[dir="rtl"] .tracking-wider,
+html[dir="rtl"] .tracking-tight {
+    letter-spacing: 0 !important;
 }
 
-[dir="rtl"] .logo-slider-track {
+html[dir="rtl"] .ms-auto {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+html[dir="rtl"] .logo-slider-track {
+    /* Uses a separate keyframe designed to mirror the movement physics perfectly */
     animation: scrollLinearTickerRTL 35s linear infinite;
 }
 
@@ -358,13 +330,7 @@ body {
     }
 
     100% {
+        /* Pulls the duplicated clone strip correctly from the opposite axis */
         transform: translateX(50%);
     }
-}
-
-footer {
-    background-color: #03050A !important;
-    border-top: 1px solid var(--space-border) !important;
-    color: var(--text-muted-dark);
-    padding: 4rem 0 !important;
 }

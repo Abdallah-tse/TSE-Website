@@ -4,67 +4,131 @@ const translations = {
         "nav-products": "Products",
         "nav-faq": "FAQ",
         "nav-contact": "Contact Us",
-        "footer-rights": "All rights reserved.",
-        "footer-tagline": "Providing automation for tour operators since 2003.",
         toggleBtn: "العربية",
 
-        // Homepage Specific Content
-        "hero-badge": "Established 2003",
-        "hero-title": "Next-Generation Travel Automation Architecture.",
-        "hero-desc": "Travel Solutions Egypt, TSE is a leading software company specializing in software development for the travel industry, built to deliver precision and highest quality automation required by incoming tour operators and ground handlers.",
-        "hero-cta-primary": "Explore Our Systems",
+        // Hero Content
+        "hero-subtitle": "Software That Powers Travel",
+        "hero-title": "Software That Powers Travel",
+        "hero-desc": "Travel Solutions Egypt (TSE) is a premier technology partner designing mission-critical automation systems engineered natively for incoming tour operators and global ground handlers.",
+        "hero-cta-primary": "Explore Products",
         "hero-cta-secondary": "Contact Sales",
+        "hero-manifest-title": "system_manifest.v1",
+        "hero-manifest-1": "Optimized Allocation Engine",
+        "hero-manifest-2": "Direct Supplier API Integration",
+        "hero-manifest-3": "Dynamic Multi-Currency Invoicing",
+        "hero-manifest-4": "Real-time Manifest Automation",
+
+        // Metrics
+        "stat-1-num": "20+",
+        "stat-1-text": "Years Enterprise Experience",
+        "stat-2-num": "50+",
+        "stat-2-text": "Tour Operators Automated",
+        "stat-3-num": "99.9%",
+        "stat-3-text": "Operational Environment Uptime",
+
+        // Core Standards Section
+        "standards-badge": "Core Standards",
+        "standards-title": "Engineered for the Travel Industry",
+        "feat-1-title": "High Performance",
+        "feat-1-desc": "Optimized algorithms ensuring rapid database response times under maximum workloads.",
+        "feat-2-title": "Secure by Design",
+        "feat-2-desc": "Multi-tier encryption methodologies securing internal inventory access controls.",
+        "feat-3-title": "Multi-Currency",
+        "feat-3-desc": "Seamless ledger adjustments managing foreign currency differentials effortlessly.",
+        "feat-4-title": "Cloud Ready",
+        "feat-4-desc": "Elastic container scaling designed to match peak operational seasons smoothly.",
+
+        // Bento Display Area
+        "itoms-title": "Built for Dynamic Tour Operators",
+        "itoms-desc": "Our primary ERP suite automates booking requests, client manifest handling, hotel allotments, and field guide distributions within one single application ecosystem.",
+        "itoms-btn": "Explore ITOMS Platform",
+
+        // Verification Strip
         "customers-subtitle": "Trusted Architecture",
-        "customers-title": "Powering Egypt's Leading Tour Operators",
-        "tech-title": "Engineered for Reliability.",
-        "tech-desc": "Our efficient, well-experienced staff offers adequate support and well-thought-of solutions to the tour operator's challenging issues. We utilize enterprise-grade foundations to deploy lightning-fast, secure infrastructure capable of handling large-scale reservation demands seamlessly.",
+        "customers-title": "Our Customers",
 
-        // Added Custom Tech Card Localization Headers
-        "tech-title-net": ".NET Core",
-        "tech-title-winforms": "Windows Forms",
-        "tech-title-mysql": "MySQL Architecture",
-        "tech-title-cloud": "Cloud Ecosystems",
+        // Technical Stack Grid
+        "tech-title-main": "Our Technical Stack",
+        "tech-desc-main": "Enterprise processing engines deployed to maintain transactional stability across systems.",
+        "tech-cell-1": ".NET Core Engine",
+        "tech-cell-2": "Windows Forms UI",
+        "tech-cell-3": "SQL Server Data",
+        "tech-cell-4": "MySQL Instances",
+        "tech-cell-5": "Angular Web Clients",
+        "tech-cell-6": "REST Architecture",
+        "tech-cell-7": "Cloud Environments",
+        "tech-cell-8": "Distributed Storage",
 
-        "tech-net": "Robust enterprise service frameworks built for heavy transaction logic.",
-        "tech-winforms": "Highly efficient, ultra-responsive native systems for high-volume back office operations.",
-        "tech-mysql": "Relational database configurations handling highly distributed travel inventory records stability.",
-        "tech-cloud": "Scalable server structures supporting cross-currency systems seamlessly.",
-        "itoms-title": "Incoming Tour Operators Management System",
-        "itoms-desc": "Our premiere complete mission-critical software application custom-engineered explicitly for back-office and operation teams handling global destination arrivals.",
-        "itoms-btn": "Discover ITOMS Features"
+        // Call to Action & Footer
+        "cta-title": "Ready to Automate Your Travel Business?",
+        "cta-desc": "Get in touch with our engineering deployment teams today to request a comprehensive architectural system demonstration.",
+        "cta-btn": "Contact Us",
+        "footer-text": "© 2026 Travel Solutions Egypt. All rights reserved."
     },
     ar: {
         "nav-home": "الرئيسية",
         "nav-products": "منتجاتنا",
         "nav-faq": "الأسئلة الشائعة",
         "nav-contact": "اتصل بنا",
-        "footer-rights": "جميع الحقوق محفوظة.",
-        "footer-tagline": "تقديم حلول برمجية لمنظمي الرحلات السياحية منذ عام ٢٠٠٣.",
         toggleBtn: "English",
 
-        // Homepage Specific Content
-        "hero-badge": "تأسست عام ٢٠٠٣",
-        "hero-title": "الجيل القادم من أنظمة أتمتة شركات السياحة.",
-        "hero-desc": "شركة ترافيل سوليوشنز إيجيبت (TSE) هي شركة برمجيات رائدة متخصصة في تطوير برامج قطاع السياحة، بهدف تقديم أعلى مستويات الأتمتة والحلول المتكاملة لشركات السياحة الوافدة ومقدمي الخدمات الأرضية.",
-        "hero-cta-primary": "استكشف أنظمتنا",
+        // Hero Content
+        "hero-subtitle": "برمجيات تدير قطاع السياحة",
+        "hero-title": "البرمجيات التي تقود قطاع السياحة",
+        "hero-desc": "ترافيل سوليوشنز إيجيبت (TSE) هي شريك تكنولوجي رائد يقوم بتصميم أنظمة أتمتة بالغة الأهمية تم تطويرها خصيصاً لشركات تنظيم الرحلات السياحية الوافدة ومقدمي الخدمات الأرضية العالميّين.",
+        "hero-cta-primary": "استكشف منتجاتنا",
         "hero-cta-secondary": "اتصل بالمبيعات",
+        "hero-manifest-title": "system_manifest.v1",
+        "hero-manifest-1": "محرك توزيع الحصص المُحسّن",
+        "hero-manifest-2": "ربط مباشر لواجهات الموردين (API)",
+        "hero-manifest-3": "فواتير ديناميكية متعددة العملات",
+        "hero-manifest-4": "أتمتة فورية لكشوفات البيانات",
+
+        // Metrics
+        "stat-1-num": "+٢٠",
+        "stat-1-text": "عاماً من الخبرة في قطاع المؤسسات",
+        "stat-2-num": "+٥٠",
+        "stat-2-text": "شركة سياحة تمت أتمتتها بالكامل",
+        "stat-3-num": "٩٩.٩٪",
+        "stat-3-text": "جاهزية تشغيلية مستمرة للنظام",
+
+        // Core Standards Section
+        "standards-badge": "المعايير الأساسية",
+        "standards-title": "مُصممة خصيصاً لقطاع السياحة والسفر",
+        "feat-1-title": "أداء فائق السرعة",
+        "feat-1-desc": "خوارزميات محسّنة تضمن سرعة استجابة قواعد البيانات تحت أقصى ظروف ضغط العمل.",
+        "feat-2-title": "أمان مدمج بالتصميم",
+        "feat-2-desc": "منهجيات تشفير متعددة المستويات لتأمين ضوابط الوصول إلى المخزون الداخلي.",
+        "feat-3-title": "دعم العملات المتعددة",
+        "feat-3-desc": "تسويات دفاتر حسابية سلسة تدير فروق العملات الأجنبية دون أدنى عناء.",
+        "feat-4-title": "جاهز للبيئات السحابية",
+        "feat-4-desc": "توسع مرن للحاويات البرمجية مصمم ليتناسب مع مواسم الذروة التشغيلية بسلاسة.",
+
+        // Bento Display Area
+        "itoms-title": "مُصمم لمنظمي الرحلات الديناميكية",
+        "itoms-desc": "يقوم نظام إدارة الموارد الأساسي (ERP) لدينا بأتمتة طلبات الحجز، ومعالجة كشوفات العملاء، وحصص الفنادق، وتوزيعات المرشدين الميدانيين ضمن بيئة تطبيق موحدة.",
+        "itoms-btn": "استكشف منصة ITOMS",
+
+        // Verification Strip
         "customers-subtitle": "بنية برمجية موثوقة",
-        "customers-title": "ندعم كبرى شركات السياحة في مصر",
-        "tech-title": "مُصممة خصيصاً للاعتمادية والسرعة.",
-        "tech-desc": "يقدم موظفونا ذوو الكفاءة والخبرة العالية الدعم الكافي والحلول المدروسة للتحديات التي تواجه منظمي الرحلات السياحية. نعتمد على بنية برمجية مخصصة للمؤسسات لنشر أنظمة سريعة وآمنة للغاية.",
+        "customers-title": "عملاؤنا",
 
-        // Added Custom Tech Card Localization Headers
-        "tech-title-net": "بنية .NET Core",
-        "tech-title-winforms": "واجهات Windows Forms",
-        "tech-title-mysql": "قواعد بيانات MySQL",
-        "tech-title-cloud": "الأنظمة السحابية",
+        // Technical Stack Grid
+        "tech-title-main": "بنيتنا التكنولوجية",
+        "tech-desc-main": "محركات معالجة مخصصة للمؤسسات يتم نشرها للحفاظ على استقرار العمليات عبر جميع الأنظمة.",
+        "tech-cell-1": "محرك .NET Core",
+        "tech-cell-2": "واجهات Windows Forms",
+        "tech-cell-3": "بيانات SQL Server",
+        "tech-cell-4": "قواعد بيانات MySQL",
+        "tech-cell-5": "واجهات Angular للويب",
+        "tech-cell-6": "بنية REST البرمجية",
+        "tech-cell-7": "البيئات السحابية المرنة",
+        "tech-cell-8": "وحدات التخزين الموزع",
 
-        "tech-net": "أطر عمل قوية مخصصة للمؤسسات للتعامل مع العمليات المعقدة.",
-        "tech-winforms": "أنظمة محلية عالية الكفاءة وسريعة الاستجابة لإدارة العمليات الخلفية الضخمة.",
-        "tech-mysql": "قواعد بيانات علائقية مهيأة للتعامل مع سجلات المخزون السياحي الموزع بثبات تام.",
-        "tech-cloud": "بيئات خادم مرنة وقابلة للتوسع تدعم الأنظمة متعددة العملات بسلاسة.",
-        "itoms-title": "نظام إدارة تنظيم الرحلات السياحية الوافدة (ITOMS)",
-        "itoms-desc": "تطبيقنا البرمجي الأساسي والمتكامل والمصمم خصيصاً لفرق العمليات والمكاتب الخلفية لإدارة حجوزات ومجموعات السياحة الوافدة بكفاءة تامة.",
-        "itoms-btn": "اكتشف خصائص نظام ITOMS"
+        // Call to Action & Footer
+        "cta-title": "هل أنت مستعد لأتمتة أعمالك السياحية؟",
+        "cta-desc": "تواصل مع فرق النشر الهندسي لدينا اليوم لطلب عرض توضيحي شامل لبنية النظام البرمجي المتكامل.",
+        "cta-btn": "اتصل بنا",
+        "footer-text": "© ٢٠٢٦ ترافيل سوليوشنز إيجيبت. جميع الحقوق محفوظة."
     }
 };
