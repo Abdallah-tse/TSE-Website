@@ -1,30 +1,319 @@
+/* ========================================== */
+/* DUAL-ACCENT BRAND ARCHITECTURE VARIABLES   */
+/* ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    /* Brand Color Vectors */
+    --brand-red: #D31E24;
+    /* From TSE-Logo.png */
+    --brand-red-hover: #F0282F;
+    --itoms-teal: #00A4A6;
+    /* Extracted from ITOMS-Logo.png */
+    --itoms-teal-glow: rgba(0, 164, 166, 0.08);
+
+    /* Layout Depth System */
+    --space-dark: #05070F;
+    --space-card: #0D1121;
+    --space-border: rgba(255, 255, 255, 0.06);
+    --light-bg: #F8FAFC;
+    --light-card: #FFFFFF;
+    --light-border: #E2E8F0;
+
+    /* Spacious Typography Baselines */
+    --text-dark: #0F172A;
+    --text-light: #F8FAFC;
+    --text-muted-dark: #94A3B8;
+    --text-muted-light: #64748B;
+}
+
+/* Global Layout & Spacing Physics */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.75 !important;
+    /* Maximizes reading breathing room */
 }
 
-.custom-card {
-    padding-inline-start: 20px;
-    text-align: start;
+/* ========================================== */
+/* CINEMATIC HERO & ENVIRONMENT PLACEMENT     */
+/* ========================================== */
+.immersive-hero-zone {
+    position: relative;
+    background-color: var(--space-dark);
+    /* High-end stock image depicting global logistics routes / premium travel infrastructure */
+    background-image:
+        linear-gradient(to bottom, rgba(5, 7, 15, 0.75) 0%, var(--space-dark) 100%),
+        url('https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?q=80&w=2069');
+    background-size: cover;
+    background-position: center 30%;
+    background-attachment: fixed;
+    /* Creates a premium parallax floating effect */
+    color: var(--text-light);
+    padding: 10rem 0 8rem 0 !important;
+    /* Wide-open structural padding */
 }
 
-/* 1. The starting state (Hidden and pushed down slightly) */
+/* Header Floating Glass Layer */
+.navbar-glass {
+    border-bottom: 1px solid var(--space-border);
+    background-color: rgba(5, 7, 15, 0.65) !important;
+    backdrop-filter: blur(20px);
+    padding: 1.25rem 0 !important;
+    transition: all 0.4s ease;
+}
+
+.navbar-logo {
+    height: 44px;
+    width: auto;
+    object-fit: contain;
+}
+
+.navbar-glass .nav-link {
+    color: var(--text-muted-dark) !important;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    padding: 0.5rem 1.25rem !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-glass .nav-link:hover,
+.navbar-glass .nav-link.active {
+    color: var(--text-light) !important;
+}
+
+/* Context Badges */
+.platform-badge {
+    background: rgba(255, 255, 255, 0.03) !important;
+    color: var(--text-light) !important;
+    border: 1px solid var(--space-border) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.1em;
+    padding: 0.6rem 1.5rem !important;
+    text-transform: uppercase;
+}
+
+/* Red & Teal Premium Buttons */
+.btn-tse-red {
+    background: var(--brand-red) !important;
+    color: #ffffff !important;
+    border: 1px solid var(--brand-red) !important;
+    font-weight: 600;
+    padding: 1rem 2.25rem !important;
+    border-radius: 12px !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.btn-tse-red:hover {
+    background: var(--brand-red-hover) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(211, 30, 36, 0.35);
+}
+
+.btn-itoms-teal {
+    background: var(--itoms-teal) !important;
+    color: #ffffff !important;
+    border: 1px solid var(--itoms-teal) !important;
+    font-weight: 600;
+    padding: 1rem 2.25rem !important;
+    border-radius: 12px !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+.btn-itoms-teal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0, 164, 166, 0.35);
+}
+
+.btn-outline-glass {
+    background: transparent !important;
+    color: var(--text-light) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    font-weight: 600;
+    padding: 1rem 2.25rem !important;
+    border-radius: 12px !important;
+    transition: all 0.4s ease !important;
+}
+
+.btn-outline-glass:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: var(--text-light) !important;
+    transform: translateY(-3px);
+}
+
+/* ========================================== */
+/* FLAGSHIP PRODUCT DEPLOYMENT ROW (ITOMS)   */
+/* ========================================== */
+.flagship-showcase-section {
+    background-color: var(--space-dark);
+    padding: 6rem 0 10rem 0 !important;
+}
+
+.itoms-flagship-card {
+    background: radial-gradient(circle at top left, rgba(0, 164, 166, 0.08), transparent 45%), var(--space-card);
+    border: 1px solid var(--space-border);
+    border-radius: 24px;
+    padding: 4.5rem !important;
+    /* Huge internal space */
+    position: relative;
+    overflow: hidden;
+}
+
+.itoms-promotional-logo {
+    max-height: 55px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* ========================================== */
+/* AIR-LIGHT BENTO SYSTEM & TICKER            */
+/* ========================================== */
+.spacious-section {
+    padding: 10rem 0 !important;
+    /* Maximized outer padding */
+    background: var(--light-bg);
+}
+
+.brand-ticker-ribbon {
+    background: #FFFFFF !important;
+    border-top: 1px solid var(--light-border);
+    border-bottom: 1px solid var(--light-border);
+    padding: 2.25rem 0 !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.brand-ticker-ribbon::before,
+.brand-ticker-ribbon::after {
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 20%;
+    z-index: 2;
+    pointer-events: none;
+    top: 0;
+}
+
+.brand-ticker-ribbon::before {
+    left: 0;
+    background: linear-gradient(to right, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.brand-ticker-ribbon::after {
+    right: 0;
+    background: linear-gradient(to left, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.logo-slider-track {
+    display: flex;
+    width: max-content;
+    animation: scrollLinearTicker 35s linear infinite;
+}
+
+.logo-slider-track:hover {
+    animation-play-state: paused;
+}
+
+.logo-slide {
+    width: 240px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.client-logo {
+    max-width: 160px;
+    max-height: 46px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.45;
+    transition: all 0.3s ease;
+}
+
+.logo-slide:hover .client-logo {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Bento Structural Adjustments */
+.bento-matrix {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+    /* Enhanced spatial gap */
+}
+
+.bento-air-box {
+    background: var(--light-card);
+    border: 1px solid var(--light-border);
+    border-radius: 20px;
+    padding: 3rem !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bento-air-box:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 164, 166, 0.3);
+    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.04);
+}
+
+.bento-span-7 {
+    grid-column: span 7;
+}
+
+.bento-span-5 {
+    grid-column: span 5;
+}
+
+@media (max-width: 991px) {
+
+    .bento-span-7,
+    .bento-span-5 {
+        grid-column: span 12;
+    }
+
+    .itoms-flagship-card {
+        padding: 2.5rem !important;
+    }
+}
+
+.tech-pill-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--itoms-teal);
+    background: var(--itoms-teal-glow);
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    width: fit-content;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.05em;
+}
+
+/* Scroll Animation Engine Hooks */
 .animate-on-scroll {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1),
-        transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1), transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
     will-change: opacity, transform;
-    /* Performance optimization */
 }
 
-/* 2. The ending state (Visible and in natural position) */
 .animate-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Optional: Stagger delays for grids (e.g., listing your products) */
 .delay-100 {
     transition-delay: 100ms;
 }
@@ -37,175 +326,30 @@ body {
     transition-delay: 300ms;
 }
 
-/* ========================================== */
-/* HEADER NAVBAR LOGO               */
-/* ========================================== */
-
-.navbar-logo {
-    height: 40px;
-    /* Controls the visual scale of your logo in the navbar */
-    width: auto;
-    /* Safely maintains the native aspect ratio */
-    display: block;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-/* Optional elegant hover effect */
-.navbar-brand:hover .navbar-logo {
-    transform: scale(1.02);
-}
-
-/* Smooth margins when switching reading paths */
-[dir="ltr"] .navbar-logo {
-    margin-right: 0;
-}
-
-[dir="rtl"] .navbar-logo {
-    margin-left: 0;
-}
-
-.transition-card {
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05) !important;
-}
-
-.transition-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--bs-primary) !important;
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.08) !important;
-}
-
-.max-w-2xl {
-    max-width: 42rem;
-}
-
-/* ========================================== */
-/* INFINITE LOGO TICKER SCROLL        */
-/* ========================================== */
-
-.logo-slider-container {
-    position: relative;
-    width: 100%;
-    margin-top: 2rem;
-    overflow: hidden;
-    padding: 1.5rem 0;
-    display: flex;
-}
-
-/* Elegant visual gradient fade overlays on the edges */
-.logo-slider-container::before,
-.logo-slider-container::after {
-    content: "";
-    height: 100%;
-    position: absolute;
-    width: 15%;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.logo-slider-container::before {
-    left: 0;
-    top: 0;
-    background: linear-gradient(to right, #f8f9fa 0%, rgba(248, 249, 250, 0) 100%);
-}
-
-.logo-slider-container::after {
-    right: 0;
-    top: 0;
-    background: linear-gradient(to left, #f8f9fa 0%, rgba(248, 249, 250, 0) 100%);
-}
-
-/* The horizontal strip moving endlessly */
-.logo-slider-track {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    width: max-content;
-    /* Forces track to be exactly as wide as its total content */
-    animation: scrollLinearTicker 25s linear infinite;
-}
-
-/* Pause scroll interaction on hover */
-.logo-slider-track:hover {
-    animation-play-state: paused;
-}
-
-/* Individual logo wrap containers */
-.logo-slide {
-    width: 200px;
-    /* Explicit uniform container width */
-    height: 80px;
-    /* Explicit uniform container height */
-    flex-shrink: 0;
-    /* CRITICAL: Prevents Flexbox from squishing your boxes */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo-slide a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    padding: 0 1rem;
-    /* Even spacing buffer between logos */
-}
-
-/* Premium B2B Grayscale effect styling */
-.client-logo {
-    width: 150px;
-    /* Forces every image to have the exact same width */
-    height: 60px;
-    /* Forces every image to have the exact same height */
-    object-fit: contain;
-    /* CRITICAL: Prevents distortion/stretching, preserves original aspect ratio */
-    display: block;
-    filter: grayscale(100%);
-    opacity: 0.55;
-    transition: filter 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
-}
-
-.client-logo:hover {
-    filter: grayscale(0%);
-    opacity: 1;
-    transform: scale(1.05);
-}
-
-/* LTR Direction Animation - Moves to the Left */
 @keyframes scrollLinearTicker {
     0% {
         transform: translateX(0);
     }
 
     100% {
-        /* Move exactly half of the total track width (8 items * 220px = 1760px) */
         transform: translateX(-50%);
     }
 }
 
-/* ========================================== */
-/* RTL DIRECTION HANDLING          */
-/* ========================================== */
-
-/* Mirror gradient orientation for RTL layouts */
-[dir="rtl"] .logo-slider-container::before {
+[dir="rtl"] .brand-ticker-ribbon::before {
     left: auto;
     right: 0;
-    background: linear-gradient(to left, #f8f9fa 0%, rgba(248, 249, 250, 0) 100%);
+    background: linear-gradient(to left, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-[dir="rtl"] .logo-slider-container::after {
+[dir="rtl"] .brand-ticker-ribbon::after {
     right: auto;
     left: 0;
-    background: linear-gradient(to right, #f8f9fa 0%, rgba(248, 249, 250, 0) 100%);
+    background: linear-gradient(to right, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-/* Adjust animation direction for natural Arabic reading paths */
 [dir="rtl"] .logo-slider-track {
-    animation: scrollLinearTickerRTL 25s linear infinite;
+    animation: scrollLinearTickerRTL 35s linear infinite;
 }
 
 @keyframes scrollLinearTickerRTL {
@@ -214,7 +358,13 @@ body {
     }
 
     100% {
-        /* FIXED: Changed from 1760px to 50% for dynamic layout stability */
         transform: translateX(50%);
     }
+}
+
+footer {
+    background-color: #03050A !important;
+    border-top: 1px solid var(--space-border) !important;
+    color: var(--text-muted-dark);
+    padding: 4rem 0 !important;
 }
