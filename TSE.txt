@@ -1,0 +1,160 @@
+##1. Company overview
+Founded in 2003 Travel Solutions Egypt, TSE is a leading software company specializing in software development for the travel industry.
+
+The main target of our company is to provide the highest quality automation required to the incoming tour operators and ground handlers.
+
+TSE efficient, well experienced staff offers adequate support and well-thought-of solutions to the tour operator's challenging issues.
+
+Incoming Tour Operators
+A comprehensive, all in one system that enables the tour operator to perform an entire range of activities required to operate a tour company. Link to Itoms
+
+Archiving
+Save time and space using our archiving system integrated to the travel system. Link to Archiving system
+
+## ITOMS (Incoming Tour Operators Management System)
+ITOMS is a comprehensive sales support, reservation and management system based on state-of-the-art computer technology, advanced concepts in software design and practical experience in the travel industry.
+
+Shipped ready with a comprehensive database, covering almost every conceivable aspect of the tour operating business such as hotels and Nile Cruises in Egypt, different way of transport schedules, information about the majority of the guides in Egypt and more.
+
+The existence of this information makes ITOMS ready to use as soon as contracted rates are fed to the system. Changes and updates to the database, reservations and services can be easily made and are immediately reflected to all relevant records.
+
+Deals with all the operational and managerial aspects of inbound tour activities, providing planning, costing, pricing, operational accounting and control facilities.
+
+An in-house, multi-user system that does not require any on-site programming staff for its operation and maintenance.
+
+Developed in standard travel industry format, thus enabling exchange of information with other reservation systems
+
+A multi-language and multi-currency system
+
+It covers all aspects of incoming tour operating functions, such as management reports, allotment control, traffic department management, accounts payable and accounts receivable and more.
+
+Its research reports and data analysis help the tour operator understand the past, present, and future dynamics of the business.
+
+## Archiving
+View to the current economical crises we believe that cutting cost became a very important issue.
+This is one of the reasons that made us develop the Travel Filing System which we strongly believe it will be a great benefit to your company:
+
+Save time
+Save filing space
+Minimize paper consumption.
+View, download, print any saved document from the internet
+
+Fully integrated with ITOMS the travel filing system main role is:
+
+Agency filing: Drag and drop E-mails to the corresponding agency screen.|
+ 
+Supplier filing: Drag and drop E-mails to the corresponding supplier.
+ 
+PNR filing: Vouchers, service orders, payment orders, itinerary, request forms, invoices, debit and credit notes are automatically attached to the PNR.
+                           - Drag incoming E-mails and drop it in the PNR.
+                           - Scan incoming faxes or any document from the PNR.
+
+In addition to the existing categories such as incoming outgoing, rates, confirmation you can add your own categories to simplify your search.
+
+Retrieving documents:
+There are two ways to display the saved document:
+Directly from the PNR or the agencies and suppliers screen by clicking on the attachment TAB.
+Using the web based search screen from the net.
+
+##B2B
+The B2B System is a web-based application designed to simplify and automate the booking
+ and reservation process for travel and tourism services across Egypt. The platform enables customers to search,
+ book, and manage travel packages, hotel accommodations, transportation services,
+ and tourism activities through a single, user-friendly interface.
+### 2. Core Requirement (Very Important)
+
+The website must be:
+
+* Extremely intuitive and simple to navigate
+* Minimal in structure with no unnecessary complexity
+* Designed for fast decision-making and conversion
+
+Users should immediately understand:
+
+* What the Company is
+* For what Company Products use
+* how to contact us
+
+### 3. Website Structure (Simple Funnel-Based Flow)
+
+We prefer a minimal structure with approximately 4 Landing pages:
+
+1. Homepage
+
+   * Company introduction
+   * Our Customers [Wings - Escapade - Gezira - YouGo - CTT - Traveline - Bright Star - Blue Sky]
+   * Our Technologies [.NET - Windows Form - MySql - etc..]
+
+2. Products [ITOMS - Archiving - B2B]
+
+   * Detailed products overview
+   * Key features and benefits
+   * Our Vision
+
+3. FAQ
+
+4. Contact us
+
+   * Simple contact form mailto (tse@tsegypt.com)
+   * phoneNumber [Call & Whatsapp]: +201555729580
+   * Location (https://maps.app.goo.gl/PY34VGBXzqY2Aspt9)
+
+### 4. Design Direction
+
+We are aiming for a premium, high-end aesthetic inspired by well-designed software house companies
+
+Key design principles:
+
+* Clean and minimal layout
+* Strong typography balancing and modern styles
+* Generous use of white space
+* Clear visual hierarchy
+* Focus on our main product ITOMS and another products
+* No clutter or unnecessary elements
+
+### 5. Visual & Image Direction
+
+We want a consistent and unified visual identity across the website.
+
+* Use our logos images as the primary visual assets
+* Maintain a cohesive and structured layout
+* Avoid generic stock images
+* Ensure alignment with the logo and overall brand tone
+
+Additional direction:
+
+* Present textbooks in a curated, premium manner rather than simple listing
+* Use subtle and refined animations where appropriate
+* Apply clean, grid-based layouts
+
+### 6. User Experience (UX)
+
+* Extremely simple navigation
+* Clear and short conversion paths
+* Minimal number of clicks required
+* Fully optimized for mobile devices
+
+### 7. Technical Notes
+
+* External platform integration:
+  * Our Customers Websites:
+	1- Wings (https://wingsgroup.travel/)
+	2- Escapade (https://www.escapadetravel.com.eg/)
+	3- Gezira (https://geziratravel.com/)
+	4- YouGo (https://yougoegypt.com/)
+	5- CTT (https://cttegypt.com/mini-package)
+	6- Traveline (https://traveline-egypt.com/)
+	7- BrightStar (https://www.brightstartoursworld.com/)
+	8- BlueSky (https://blueskygroup.net/)
+* Fast loading speed and performance optimization
+* SEO-friendly structure
+* Make website support English & arabic language
+
+### 8. Overall Goal
+
+The website should:
+
+* Communicate premium quality and trust immediately
+* Be visually clean and easy to understand at first glance
+* Drive users toward one main conversion action
+* Be comparable to top-tier global software brands

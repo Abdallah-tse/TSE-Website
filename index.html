@@ -4,157 +4,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Travel Solutions Egypt - Premier technology partner for tour operators and ground handlers.">
     <title>TSE | Travel Solutions Egypt</title>
     <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css" id="bootstrap-ltr">
     <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.rtl.min.css" id="bootstrap-rtl" disabled>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<base target="_blank">
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">TSE</div>
+            <div class="preloader-bar">
+                <div class="preloader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
 
     <!-- ========================================== -->
-    <!--  BLENDED INDIGO & EMERALD GLOW HERO AREA   -->
+    <!--  HERO SECTION WITH DYNAMIC BACKGROUND      -->
     <!-- ========================================== -->
     <header class="blended-hero-zone">
+        <!-- Animated Background Elements -->
+        <div class="hero-bg-elements">
+            <div class="hero-orb orb-1"></div>
+            <div class="hero-orb orb-2"></div>
+            <div class="hero-orb orb-3"></div>
+            <div class="hero-grid-overlay"></div>
+        </div>
 
         <!-- Glass Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-glass fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-glass fixed-top" id="main-nav">
             <div class="container">
                 <a class="navbar-brand py-0" href="index.html">
                     <img src="images/TSE-Logo.png" alt="Travel Solutions Egypt" class="navbar-logo">
                 </a>
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav">
+                    data-bs-target="#navbarNav" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
-                        <li class="nav-item"><a class="nav-link active" href="index.html" data-key="nav-home">Home</a>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="products.html"
-                                data-key="nav-products">Products</a></li>
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+                        <li class="nav-item"><a class="nav-link active" href="index.html" data-key="nav-home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="products.html" data-key="nav-products">Products</a></li>
                         <li class="nav-item"><a class="nav-link" href="faq.html" data-key="nav-faq">FAQ</a></li>
-                        <li class="nav-item"><a class="nav-link me-lg-3" href="contact.html"
-                                data-key="nav-contact">Contact Us</a></li>
-                        <li class="nav-item">
-                            <button class="btn btn-outline-light btn-sm px-4 rounded-pill fw-medium"
-                                id="lang-toggler">العربية</button>
+                        <li class="nav-item"><a class="nav-link" href="contact.html" data-key="nav-contact">Contact Us</a></li>
+                        <li class="nav-item ms-lg-3">
+                            <button class="lang-toggle-btn" id="lang-toggler" aria-label="Toggle language">
+                                <span class="lang-toggle-slider">
+                                    <span class="lang-toggle-text" data-key="toggleBtn">العربية</span>
+                                </span>
+                            </button>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <!-- Main Hero Intro Content -->
-        <div class="container mt-5 pt-4">
+        <!-- Main Hero Content -->
+        <div class="container mt-5 pt-5">
             <div class="row align-items-center g-5">
-                <div class="col-lg-7 animate-on-scroll">
-                    <span class="text-uppercase tracking-wider small fw-bold opacity-75 mb-3 d-block"
-                        style="color: var(--itoms-teal);" data-key="hero-subtitle">
+                <div class="col-lg-7 animate-on-scroll" data-animation="fade-up">
+                    <span class="hero-eyebrow" data-key="hero-subtitle">
                         Software That Powers Travel
                     </span>
-                    <h1 class="display-3 fw-extrabold tracking-tight mb-4 text-white lh-sm" data-key="hero-title">
+                    <h1 class="hero-title" data-key="hero-title">
                         Software That Powers Travel
                     </h1>
-                    <p class="lead opacity-80 mb-5 fs-5" style="max-width: 600px;" data-key="hero-desc">
+                    <p class="hero-description" data-key="hero-desc">
                         Travel Solutions Egypt (TSE) is a premier technology partner designing mission-critical
                         automation systems engineered natively for incoming tour operators and global ground handlers.
                     </p>
-                    <div class="d-flex flex-wrap gap-3">
-                        <a href="products.html" class="btn btn-red-action btn-lg" data-key="hero-cta-primary">Explore
-                            Products</a>
-                        <a href="contact.html" class="btn btn-glass-secondary btn-lg"
-                            data-key="hero-cta-secondary">Contact Sales</a>
+                    <div class="hero-cta-group">
+                        <a href="products.html" class="btn btn-red-action btn-lg" data-key="hero-cta-primary">
+                            <span>Explore Products</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="contact.html" class="btn btn-glass-secondary btn-lg" data-key="hero-cta-secondary">
+                            Contact Sales
+                        </a>
                     </div>
                 </div>
 
-                <!-- Right Side Embedded Feature List Layer -->
-                <div class="col-lg-5 animate-on-scroll" style="transition-delay: 150ms;">
-                    <div class="p-4 rounded-3 text-white"
-                        style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px);">
-                        <div class="d-flex align-items-center gap-2 mb-3">
-                            <div style="width:10px; height:10px; background: #EF4444; border-radius:50%;"></div>
-                            <div style="width:10px; height:10px; background: #F59E0B; border-radius:50%;"></div>
-                            <div style="width:10px; height:10px; background: #10B981; border-radius:50%;"></div>
-                            <span class="small opacity-50 ms-2 font-monospace"
-                                data-key="hero-manifest-title">system_manifest.v1</span>
+                <!-- Terminal Window -->
+                <div class="col-lg-5 animate-on-scroll" data-animation="fade-up" style="transition-delay: 200ms;">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <div class="terminal-dots">
+                                <span class="terminal-dot dot-red"></span>
+                                <span class="terminal-dot dot-yellow"></span>
+                                <span class="terminal-dot dot-green"></span>
+                            </div>
+                            <span class="terminal-title font-monospace" data-key="hero-manifest-title">system_manifest.v1</span>
+                            <div class="terminal-spacer"></div>
                         </div>
-                        <ul class="list-unstyled mb-0 font-monospace small opacity-90" style="line-height: 2.2;">
-                            <li><span style="color: var(--itoms-teal);">✓</span> <span
-                                    data-key="hero-manifest-1">Optimized Allocation Engine</span></li>
-                            <li><span style="color: var(--itoms-teal);">✓</span> <span data-key="hero-manifest-2">Direct
-                                    Supplier API Integration</span></li>
-                            <li><span style="color: var(--itoms-teal);">✓</span> <span
-                                    data-key="hero-manifest-3">Dynamic Multi-Currency Invoicing</span></li>
-                            <li><span style="color: var(--itoms-teal);">✓</span> <span
-                                    data-key="hero-manifest-4">Real-time Manifest Automation</span></li>
-                        </ul>
+                        <div class="terminal-body">
+                            <ul class="terminal-list">
+                                <li class="terminal-line">
+                                    <span class="terminal-check">✓</span>
+                                    <span data-key="hero-manifest-1">Optimized Allocation Engine</span>
+                                </li>
+                                <li class="terminal-line">
+                                    <span class="terminal-check">✓</span>
+                                    <span data-key="hero-manifest-2">Direct Supplier API Integration</span>
+                                </li>
+                                <li class="terminal-line">
+                                    <span class="terminal-check">✓</span>
+                                    <span data-key="hero-manifest-3">Dynamic Multi-Currency Invoicing</span>
+                                </li>
+                                <li class="terminal-line">
+                                    <span class="terminal-check">✓</span>
+                                    <span data-key="hero-manifest-4">Real-time Manifest Automation</span>
+                                </li>
+                            </ul>
+                            <div class="terminal-cursor">
+                                <span class="cursor-text">_</span>
+                                <span class="cursor-blink">|</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Merged Stats Metric Ribbon Row -->
-            <div class="row stats-badge-container text-center text-md-start g-4">
+            <!-- Stats Row -->
+            <div class="row stats-badge-container g-4">
                 <div class="col-md-4 col-6">
-                    <div class="stat-metric-number" data-key="stat-1-num">20+</div>
-                    <div class="small opacity-60 mt-1" data-key="stat-1-text">Years Enterprise Experience</div>
+                    <div class="stat-item">
+                        <div class="stat-metric-number" data-count="20" data-suffix="+" data-key="stat-1-num">0</div>
+                        <div class="stat-metric-label" data-key="stat-1-text">Years Enterprise Experience</div>
+                    </div>
                 </div>
                 <div class="col-md-4 col-6">
-                    <div class="stat-metric-number" data-key="stat-2-num">50+</div>
-                    <div class="small opacity-60 mt-1" data-key="stat-2-text">Tour Operators Automated</div>
+                    <div class="stat-item">
+                        <div class="stat-metric-number" data-count="50" data-suffix="+" data-key="stat-2-num">0</div>
+                        <div class="stat-metric-label" data-key="stat-2-text">Tour Operators Automated</div>
+                    </div>
                 </div>
                 <div class="col-md-4 col-12">
-                    <div class="stat-metric-number" data-key="stat-3-num">99.9%</div>
-                    <div class="small opacity-60 mt-1" data-key="stat-3-text">Operational Environment Uptime</div>
+                    <div class="stat-item">
+                        <div class="stat-metric-number" data-count="99.9" data-suffix="%" data-key="stat-3-num">0</div>
+                        <div class="stat-metric-label" data-key="stat-3-text">Operational Environment Uptime</div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- ========================================== -->
-    <!--     ENGINEERED MICRO-FEATURES SECTION      -->
+    <!--     CORE STANDARDS / FEATURES SECTION      -->
     <!-- ========================================== -->
     <section class="section-air-padding">
         <div class="container">
-            <div class="text-center max-w-2xl mx-auto mb-5">
-                <span class="badge text-uppercase mb-2 px-3 py-2"
-                    style="background: var(--itoms-teal-light); color: var(--itoms-teal);"
-                    data-key="standards-badge">Core Standards</span>
-                <h2 class="display-6 fw-bold text-dark" data-key="standards-title">Engineered for the Travel Industry
-                </h2>
+            <div class="section-header text-center max-w-2xl mx-auto mb-5">
+                <span class="section-eyebrow" data-key="standards-badge">Core Standards</span>
+                <h2 class="section-title" data-key="standards-title">Engineered for the Travel Industry</h2>
+                <p class="section-subtitle">Built with enterprise-grade architecture to handle the complexities of modern travel operations.</p>
             </div>
 
             <div class="row g-4 mt-2">
-                <div class="col-lg-3 col-sm-6 animate-on-scroll">
+                <div class="col-lg-3 col-sm-6 animate-on-scroll" data-animation="fade-up">
                     <div class="feature-micro-card">
-                        <div class="feature-mini-icon">⚡</div>
-                        <h4 class="h6 fw-bold text-dark mb-2" data-key="feat-1-title">High Performance</h4>
-                        <p class="small text-muted mb-0" data-key="feat-1-desc">Optimized algorithms ensuring rapid
-                            database response times under maximum workloads.</p>
+                        <div class="feature-icon-wrap">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                            </svg>
+                        </div>
+                        <h4 class="feature-title" data-key="feat-1-title">High Performance</h4>
+                        <p class="feature-desc" data-key="feat-1-desc">Optimized algorithms ensuring rapid database response times under maximum workloads.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 animate-on-scroll" style="transition-delay: 100ms;">
+                <div class="col-lg-3 col-sm-6 animate-on-scroll" data-animation="fade-up" style="transition-delay: 100ms;">
                     <div class="feature-micro-card">
-                        <div class="feature-mini-icon">🛡️</div>
-                        <h4 class="h6 fw-bold text-dark mb-2" data-key="feat-2-title">Secure by Design</h4>
-                        <p class="small text-muted mb-0" data-key="feat-2-desc">Multi-tier encryption methodologies
-                            securing internal inventory access controls.</p>
+                        <div class="feature-icon-wrap">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h4 class="feature-title" data-key="feat-2-title">Secure by Design</h4>
+                        <p class="feature-desc" data-key="feat-2-desc">Multi-tier encryption methodologies securing internal inventory access controls.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 animate-on-scroll" style="transition-delay: 200ms;">
+                <div class="col-lg-3 col-sm-6 animate-on-scroll" data-animation="fade-up" style="transition-delay: 200ms;">
                     <div class="feature-micro-card">
-                        <div class="feature-mini-icon">🌐</div>
-                        <h4 class="h6 fw-bold text-dark mb-2" data-key="feat-3-title">Multi-Currency</h4>
-                        <p class="small text-muted mb-0" data-key="feat-3-desc">Seamless ledger adjustments managing
-                            foreign currency differentials effortlessly.</p>
+                        <div class="feature-icon-wrap">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </div>
+                        <h4 class="feature-title" data-key="feat-3-title">Multi-Currency</h4>
+                        <p class="feature-desc" data-key="feat-3-desc">Seamless ledger adjustments managing foreign currency differentials effortlessly.</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 animate-on-scroll" style="transition-delay: 300ms;">
+                <div class="col-lg-3 col-sm-6 animate-on-scroll" data-animation="fade-up" style="transition-delay: 300ms;">
                     <div class="feature-micro-card">
-                        <div class="feature-mini-icon">☁️</div>
-                        <h4 class="h6 fw-bold text-dark mb-2" data-key="feat-4-title">Cloud Ready</h4>
-                        <p class="small text-muted mb-0" data-key="feat-4-desc">Elastic container scaling designed to
-                            match peak operational seasons smoothly.</p>
+                        <div class="feature-icon-wrap">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+                            </svg>
+                        </div>
+                        <h4 class="feature-title" data-key="feat-4-title">Cloud Ready</h4>
+                        <p class="feature-desc" data-key="feat-4-desc">Elastic container scaling designed to match peak operational seasons smoothly.</p>
                     </div>
                 </div>
             </div>
@@ -162,140 +226,210 @@
     </section>
 
     <!-- ========================================== -->
-    <!--  BUILT FOR TOUR OPERATORS: BENTO SHOWCASE  -->
+    <!--  BENTO GRID SHOWCASE SECTION               -->
     <!-- ========================================== -->
     <section class="pb-5 mb-5">
         <div class="container">
-            <div class="flagship-bento-card animate-on-scroll">
-                <div class="row align-items-center g-5">
-                    <div class="col-lg-6">
-                        <img src="images/ITOMS-Logo.png" alt="ITOMS Logo" class="mb-4"
-                            style="max-height: 48px; width: auto; object-fit: contain;">
-                        <h3 class="h2 fw-bold text-dark mb-3" data-key="itoms-title">Built for Dynamic Tour Operators
-                        </h3>
-                        <p class="text-muted mb-4" data-key="itoms-desc">
-                            Our primary ERP suite automates booking requests, client manifest handling, hotel
-                            allotments, and field guide distributions within one single application ecosystem.
+            <div class="bento-grid animate-on-scroll" data-animation="fade-up">
+                <div class="bento-card bento-main">
+                    <div class="bento-content">
+                        <img src="images/ITOMS-Logo.png" alt="ITOMS Logo" class="bento-logo">
+                        <h3 class="bento-title" data-key="itoms-title">Built for Dynamic Tour Operators</h3>
+                        <p class="bento-desc" data-key="itoms-desc">
+                            Our primary ERP suite automates booking requests, client manifest handling, hotel allotments, and field guide distributions within one single application ecosystem.
                         </p>
-                        <a href="products.html" class="btn btn-red-action" data-key="itoms-btn">Explore ITOMS
-                            Platform</a>
+                        <a href="products.html" class="btn btn-red-action" data-key="itoms-btn">
+                            <span>Explore ITOMS Platform</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="rounded-3 overflow-hidden shadow"
-                            style="height: 280px; background: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074') center; background-size: cover;">
-                        </div>
+                    <div class="bento-visual">
+                        <div class="bento-image" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074')"></div>
+                        <div class="bento-image-overlay"></div>
                     </div>
+                </div>
+                <div class="bento-card bento-side bento-side-top">
+                    <div class="bento-mini-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="3" y1="9" x2="21" y2="9"/>
+                            <line x1="9" y1="21" x2="9" y2="9"/>
+                        </svg>
+                    </div>
+                    <h4 class="bento-mini-title">Modular Architecture</h4>
+                    <p class="bento-mini-desc">Deploy only the modules your operation needs. Scale effortlessly as you grow.</p>
+                </div>
+                <div class="bento-card bento-side bento-side-bottom">
+                    <div class="bento-mini-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <h4 class="bento-mini-title">Real-time Analytics</h4>
+                    <p class="bento-mini-desc">Live dashboards tracking bookings, revenue, and operational metrics.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ========================================== -->
-    <!--       B2B CLIENT VERIFICATION STRIP        -->
+    <!--       CLIENT LOGO TICKER SECTION           -->
     <!-- ========================================== -->
-    <section class="py-5 bg-white border-bottom border-top" style="border-color: var(--light-border) !important;">
-        <div class="container mb-5 text-center animate-on-scroll">
-            <span class="badge text-uppercase mb-2 px-3 py-2"
-                style="background: var(--itoms-teal-light); color: var(--itoms-teal);" data-key="customers-subtitle">
-                Trusted Architecture
-            </span>
-            <h2 class="display-6 fw-bold text-dark mb-0" data-key="customers-title">
-                Our Customers
-            </h2>
+    <section class="client-section">
+        <div class="container mb-5 text-center animate-on-scroll" data-animation="fade-up">
+            <span class="section-eyebrow" data-key="customers-subtitle">Trusted Architecture</span>
+            <h2 class="section-title" data-key="customers-title">Our Customers</h2>
         </div>
 
         <div class="brand-ticker-ribbon">
+            <div class="ticker-fade ticker-fade-left"></div>
+            <div class="ticker-fade ticker-fade-right"></div>
             <div class="logo-slider-track">
-                <!-- Cycle Array A -->
-                <div class="logo-slide"><a href="https://wingsgroup.travel/" target="_blank"><img src="images/Wings.png"
-                            alt="Wings" class="client-logo"></a></div>
-                <div class="logo-slide"><a href="https://www.escapadetravel.com.eg/" target="_blank"><img
-                            src="images/Escapade.png" alt="Escapade" class="client-logo"></a></div>
-                <div class="logo-slide"><a href="https://geziratravel.com/" target="_blank"><img src="images/Gezira.jpg"
-                            alt="Gezira" class="client-logo"></a></div>
-                <div class="logo-slide"><a href="https://yougoegypt.com/" target="_blank"><img src="images/YouGo.png"
-                            alt="YouGo" class="client-logo"></a></div>
-                <div class="logo-slide"><a href="https://cttegypt.com/mini-package" target="_blank"><img
-                            src="images/CTT.jpg" alt="CTT" class="client-logo"></a></div>
-                <div class="logo-slide"><a href="https://traveline-egypt.com/" target="_blank"><img
-                            src="images/Traveline.png" alt="Traveline" class="client-logo"></a></div>
-                <div class="logo-slide"><a href="https://www.brightstartoursworld.com/" target="_blank"><img
-                            src="images/BrightStar.png" alt="Bright Star" class="client-logo"></a></div>
-                <div class="logo-slide"><a href="https://blueskygroup.net/" target="_blank"><img
-                            src="images/BlueSky.jpg" alt="Blue Sky" class="client-logo"></a></div>
-                <!-- Cycle Array B (Mirror for Infinite Loop) -->
-                <div class="logo-slide"><a href="https://wingsgroup.travel/" target="_blank"><img src="images/Wings.png"
-                            alt="Wings" class="client-logo"></a></div>
-                <div class="logo-slide"><a href="https://www.escapadetravel.com.eg/" target="_blank"><img
-                            src="images/Escapade.png" alt="Escapade" class="client-logo"></a></div>
-                <div class="logo-slide"><a href="https://geziratravel.com/" target="_blank"><img src="images/Gezira.jpg"
-                            alt="Gezira" class="client-logo"></a></div>
-                <div class="logo-slide"><a href="https://yougoegypt.com/" target="_blank"><img src="images/YouGo.png"
-                            alt="YouGo" class="client-logo"></a></div>
-                <div class="logo-slide"><a href="https://cttegypt.com/mini-package" target="_blank"><img
-                            src="images/CTT.jpg" alt="CTT" class="client-logo"></a></div>
-                <div class="logo-slide"><a href="https://traveline-egypt.com/" target="_blank"><img
-                            src="images/Traveline.png" alt="Traveline" class="client-logo"></a></div>
-                <div class="logo-slide"><a href="https://www.brightstartoursworld.com/" target="_blank"><img
-                            src="images/BrightStar.png" alt="Bright Star" class="client-logo"></a></div>
-                <div class="logo-slide"><a href="https://blueskygroup.net/" target="_blank"><img
-                            src="images/BlueSky.jpg" alt="Blue Sky" class="client-logo"></a></div>
+                <!-- Set 1 -->
+                <div class="logo-slide"><a href="https://wingsgroup.travel/" target="_blank" rel="noopener"><img src="images/Wings.png" alt="Wings" class="client-logo" loading="lazy"></a></div>
+                <div class="logo-slide"><a href="https://www.escapadetravel.com.eg/" target="_blank" rel="noopener"><img src="images/Escapade.png" alt="Escapade" class="client-logo" loading="lazy"></a></div>
+                <div class="logo-slide"><a href="https://geziratravel.com/" target="_blank" rel="noopener"><img src="images/Gezira.jpg" alt="Gezira" class="client-logo" loading="lazy"></a></div>
+                <div class="logo-slide"><a href="https://yougoegypt.com/" target="_blank" rel="noopener"><img src="images/YouGo.png" alt="YouGo" class="client-logo" loading="lazy"></a></div>
+                <div class="logo-slide"><a href="https://cttegypt.com/mini-package" target="_blank" rel="noopener"><img src="images/CTT.jpg" alt="CTT" class="client-logo" loading="lazy"></a></div>
+                <div class="logo-slide"><a href="https://traveline-egypt.com/" target="_blank" rel="noopener"><img src="images/Traveline.png" alt="Traveline" class="client-logo" loading="lazy"></a></div>
+                <div class="logo-slide"><a href="https://www.brightstartoursworld.com/" target="_blank" rel="noopener"><img src="images/BrightStar.png" alt="Bright Star" class="client-logo" loading="lazy"></a></div>
+                <div class="logo-slide"><a href="https://blueskygroup.net/" target="_blank" rel="noopener"><img src="images/BlueSky.jpg" alt="Blue Sky" class="client-logo" loading="lazy"></a></div>
+                <!-- Set 2 (Duplicate for infinite loop) -->
+                <div class="logo-slide"><a href="https://wingsgroup.travel/" target="_blank" rel="noopener"><img src="images/Wings.png" alt="Wings" class="client-logo" loading="lazy"></a></div>
+                <div class="logo-slide"><a href="https://www.escapadetravel.com.eg/" target="_blank" rel="noopener"><img src="images/Escapade.png" alt="Escapade" class="client-logo" loading="lazy"></a></div>
+                <div class="logo-slide"><a href="https://geziratravel.com/" target="_blank" rel="noopener"><img src="images/Gezira.jpg" alt="Gezira" class="client-logo" loading="lazy"></a></div>
+                <div class="logo-slide"><a href="https://yougoegypt.com/" target="_blank" rel="noopener"><img src="images/YouGo.png" alt="YouGo" class="client-logo" loading="lazy"></a></div>
+                <div class="logo-slide"><a href="https://cttegypt.com/mini-package" target="_blank" rel="noopener"><img src="images/CTT.jpg" alt="CTT" class="client-logo" loading="lazy"></a></div>
+                <div class="logo-slide"><a href="https://traveline-egypt.com/" target="_blank" rel="noopener"><img src="images/Traveline.png" alt="Traveline" class="client-logo" loading="lazy"></a></div>
+                <div class="logo-slide"><a href="https://www.brightstartoursworld.com/" target="_blank" rel="noopener"><img src="images/BrightStar.png" alt="Bright Star" class="client-logo" loading="lazy"></a></div>
+                <div class="logo-slide"><a href="https://blueskygroup.net/" target="_blank" rel="noopener"><img src="images/BlueSky.jpg" alt="Blue Sky" class="client-logo" loading="lazy"></a></div>
             </div>
         </div>
     </section>
 
     <!-- ========================================== -->
-    <!--      THE EXPLICIT TECH STACK GRID BLOCK     -->
+    <!--      TECH STACK GRID SECTION               -->
     <!-- ========================================== -->
     <section class="tech-stack-showcase">
         <div class="container">
-            <div class="row justify-content-between align-items-end g-4">
-                <div class="col-lg-6 animate-on-scroll">
-                    <h2 class="display-6 fw-bold text-dark mb-0" data-key="tech-title-main">Our Technical Stack</h2>
-                    <p class="text-muted mt-2 mb-0" data-key="tech-desc-main">Enterprise processing engines deployed to
-                        maintain transactional stability across systems.</p>
+            <div class="row justify-content-between align-items-end g-4 mb-5">
+                <div class="col-lg-6 animate-on-scroll" data-animation="fade-right">
+                    <span class="section-eyebrow">Technology</span>
+                    <h2 class="section-title mb-2" data-key="tech-title-main">Our Technical Stack</h2>
+                    <p class="section-subtitle mb-0" data-key="tech-desc-main">Enterprise processing engines deployed to maintain transactional stability across systems.</p>
                 </div>
             </div>
 
-            <div class="tech-grid-wrapper animate-on-scroll">
-                <div class="tech-stack-cell" data-key="tech-cell-1">.NET Core Engine</div>
-                <div class="tech-stack-cell" data-key="tech-cell-2">Windows Forms UI</div>
-                <div class="tech-stack-cell" data-key="tech-cell-3">SQL Server Data</div>
-                <div class="tech-stack-cell" data-key="tech-cell-4">MySQL Instances</div>
-                <div class="tech-stack-cell" data-key="tech-cell-5">Angular Web Clients</div>
-                <div class="tech-stack-cell" data-key="tech-cell-6">REST Architecture</div>
-                <div class="tech-stack-cell" data-key="tech-cell-7">Cloud Environments</div>
-                <div class="tech-stack-cell" data-key="tech-cell-8">Distributed Storage</div>
+            <div class="tech-grid-wrapper animate-on-scroll" data-animation="fade-up">
+                <div class="tech-stack-cell" data-key="tech-cell-1">
+                    <div class="tech-icon">.NET</div>
+                    <span>.NET Core Engine</span>
+                </div>
+                <div class="tech-stack-cell" data-key="tech-cell-2">
+                    <div class="tech-icon">WF</div>
+                    <span>Windows Forms UI</span>
+                </div>
+                <div class="tech-stack-cell" data-key="tech-cell-3">
+                    <div class="tech-icon">SQL</div>
+                    <span>SQL Server Data</span>
+                </div>
+                <div class="tech-stack-cell" data-key="tech-cell-4">
+                    <div class="tech-icon">MY</div>
+                    <span>MySQL Instances</span>
+                </div>
+                <div class="tech-stack-cell" data-key="tech-cell-5">
+                    <div class="tech-icon">NG</div>
+                    <span>Angular Web Clients</span>
+                </div>
+                <div class="tech-stack-cell" data-key="tech-cell-6">
+                    <div class="tech-icon">API</div>
+                    <span>REST Architecture</span>
+                </div>
+                <div class="tech-stack-cell" data-key="tech-cell-7">
+                    <div class="tech-icon">CL</div>
+                    <span>Cloud Environments</span>
+                </div>
+                <div class="tech-stack-cell" data-key="tech-cell-8">
+                    <div class="tech-icon">DS</div>
+                    <span>Distributed Storage</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- ========================================== -->
-    <!--      SOLID RED CALL-TO-ACTION BANNER       -->
+    <!--      CALL-TO-ACTION BANNER                  -->
     <!-- ========================================== -->
     <section class="bottom-cta-banner-container">
         <div class="container">
-            <div class="solid-red-banner animate-on-scroll">
-                <h2 class="display-5 fw-extrabold mb-3" data-key="cta-title">Ready to Automate Your Travel Business?
-                </h2>
-                <p class="lead opacity-90 mb-4 mx-auto" style="max-width: 650px;" data-key="cta-desc">
-                    Get in touch with our engineering deployment teams today to request a comprehensive architectural
-                    system demonstration.
+            <div class="solid-red-banner animate-on-scroll" data-animation="scale-up">
+                <div class="cta-decoration cta-dot-1"></div>
+                <div class="cta-decoration cta-dot-2"></div>
+                <div class="cta-decoration cta-ring"></div>
+                <h2 class="cta-title" data-key="cta-title">Ready to Automate Your Travel Business?</h2>
+                <p class="cta-desc" data-key="cta-desc">
+                    Get in touch with our engineering deployment teams today to request a comprehensive architectural system demonstration.
                 </p>
-                <div class="d-flex justify-content-center gap-3 flex-sm-row flex-column">
-                    <a href="contact.html" class="btn btn-light btn-lg text-dark fw-bold px-4"
-                        data-key="cta-btn">Contact Us</a>
-                </div>
+                <a href="contact.html" class="btn btn-light btn-lg cta-btn" data-key="cta-btn">
+                    <span>Contact Us</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- ========================================== -->
-    <!--                 FOOTER                     -->
+    <!--                 FOOTER                       -->
     <!-- ========================================== -->
-    <footer class="py-4 bg-dark text-white-50 border-top border-secondary">
-        <div class="container text-center small" data-key="footer-text">
-            &copy; 2026 Travel Solutions Egypt. All rights reserved.
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/TSE-Logo.png" alt="Travel Solutions Egypt" class="footer-logo">
+                    <p class="footer-tagline">Software that powers travel.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="LinkedIn" class="social-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="social-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Email" class="social-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4 class="footer-heading" data-key="footer-products">Products</h4>
+                    <ul>
+                        <li><a href="products.html" data-key="footer-itoms">ITOMS Platform</a></li>
+                        <li><a href="products.html" data-key="footer-api">API Integration</a></li>
+                        <li><a href="products.html" data-key="footer-cloud">Cloud Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 class="footer-heading" data-key="footer-company">Company</h4>
+                    <ul>
+                        <li><a href="index.html" data-key="nav-home">Home</a></li>
+                        <li><a href="faq.html" data-key="nav-faq">FAQ</a></li>
+                        <li><a href="contact.html" data-key="nav-contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4 class="footer-heading" data-key="footer-contact">Contact</h4>
+                    <ul>
+                        <li><a href="mailto:info@tse.com.eg">info@tse.com.eg</a></li>
+                        <li><span>Cairo, Egypt</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-key="footer-text">&copy; 2026 Travel Solutions Egypt. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
