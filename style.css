@@ -1,0 +1,11 @@
+/* Example of safe, multi-directional CSS */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.custom-card {
+    /* Padding on the start side (left for EN, right for AR) */
+    padding-inline-start: 20px;
+    text-align: start;
+}
