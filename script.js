@@ -1,33 +1,16 @@
 // ==========================================
-// TSE INTERACTIVE ENGINE v2.0
+// TSE INTERACTIVE ENGINE v3.0
 // ==========================================
 
 const langToggler = document.getElementById('lang-toggler');
 const htmlTag = document.getElementById('theme-html');
 const ltrCss = document.getElementById('bootstrap-ltr');
 const rtlCss = document.getElementById('bootstrap-rtl');
-const preloader = document.getElementById('preloader');
-const backToTop = document.getElementById('back-to-top');
 const navbar = document.getElementById('main-nav');
+const backToTop = document.getElementById('back-to-top');
 
 // ==========================================
-// 1. PRELOADER
-// ==========================================
-function hidePreloader() {
-    if (!preloader) return;
-    setTimeout(() => {
-        preloader.classList.add('hidden');
-        // Remove from DOM after transition
-        setTimeout(() => {
-            if (preloader.parentNode) {
-                preloader.parentNode.removeChild(preloader);
-            }
-        }, 600);
-    }, 1400);
-}
-
-// ==========================================
-// 2. LANGUAGE SYSTEM
+// 1. LANGUAGE SYSTEM
 // ==========================================
 function setLanguage(lang) {
     if (typeof translations === 'undefined') {
@@ -40,7 +23,6 @@ function setLanguage(lang) {
         return;
     }
 
-    // Update HTML attributes
     if (lang === 'ar') {
         htmlTag.setAttribute('lang', 'ar');
         htmlTag.setAttribute('dir', 'rtl');
@@ -53,14 +35,11 @@ function setLanguage(lang) {
         if (rtlCss) rtlCss.setAttribute('disabled', 'true');
     }
 
-    // Update all data-key elements with fade transition
     document.querySelectorAll('[data-key]').forEach(element => {
         const key = element.getAttribute('data-key');
         if (translations[lang][key]) {
-            // Add subtle fade effect
             element.style.opacity = '0.7';
             element.style.transition = 'opacity 0.15s ease';
-            
             setTimeout(() => {
                 element.textContent = translations[lang][key];
                 element.style.opacity = '1';
@@ -68,7 +47,6 @@ function setLanguage(lang) {
         }
     });
 
-    // Save preference
     localStorage.setItem('selectedLang', lang);
 }
 
@@ -81,7 +59,7 @@ if (langToggler) {
 }
 
 // ==========================================
-// 3. SCROLL OBSERVER & ANIMATIONS
+// 2. SCROLL OBSERVER & ANIMATIONS
 // ==========================================
 function initScrollAnimations() {
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
@@ -105,23 +83,19 @@ function initScrollAnimations() {
 }
 
 // ==========================================
-// 4. NAVBAR SCROLL BEHAVIOR
+// 3. NAVBAR SCROLL BEHAVIOR
 // ==========================================
 let lastScrollY = window.scrollY;
 let ticking = false;
 
 function handleNavbarScroll() {
     if (!navbar) return;
-    
     const currentScrollY = window.scrollY;
-    
-    // Add/remove scrolled class
     if (currentScrollY > 50) {
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
     }
-    
     lastScrollY = currentScrollY;
     ticking = false;
 }
@@ -134,11 +108,55 @@ window.addEventListener('scroll', () => {
 });
 
 // ==========================================
+// 4. COUNTER ANIMATION FOR STATS
+// ==========================================
+function animateCounter(element) {
+    const target = parseFloat(element.getAttribute('data-count'));
+    const suffix = element.getAttribute('data-suffix') || '';
+    const duration = 2000;
+    const startTime = performance.now();
+    const startValue = 0;
+
+    function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+        const currentValue = startValue + (target - startValue) * easeProgress;
+
+        if (Number.isInteger(target)) {
+            element.textContent = Math.floor(currentValue) + suffix;
+        } else {
+            element.textContent = currentValue.toFixed(1) + suffix;
+        }
+
+        if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+        }
+    }
+
+    requestAnimationFrame(updateCounter);
+}
+
+function initCounterAnimations() {
+    const counters = document.querySelectorAll('[data-count]');
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => counterObserver.observe(counter));
+}
+
+// ==========================================
 // 5. BACK TO TOP BUTTON
 // ==========================================
 function handleBackToTop() {
     if (!backToTop) return;
-    
     if (window.scrollY > 600) {
         backToTop.classList.add('visible');
     } else {
@@ -148,102 +166,46 @@ function handleBackToTop() {
 
 if (backToTop) {
     backToTop.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
 
 window.addEventListener('scroll', handleBackToTop);
 
 // ==========================================
-// 6. COUNTER ANIMATION FOR STATS
-// ==========================================
-function animateCounter(element) {
-    const target = parseFloat(element.getAttribute('data-count'));
-    const suffix = element.getAttribute('data-suffix') || '';
-    const duration = 2000;
-    const startTime = performance.now();
-    const startValue = 0;
-    
-    function updateCounter(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        
-        // Ease out cubic
-        const easeProgress = 1 - Math.pow(1 - progress, 3);
-        
-        const currentValue = startValue + (target - startValue) * easeProgress;
-        
-        if (Number.isInteger(target)) {
-            element.textContent = Math.floor(currentValue) + suffix;
-        } else {
-            element.textContent = currentValue.toFixed(1) + suffix;
-        }
-        
-        if (progress < 1) {
-            requestAnimationFrame(updateCounter);
-        }
-    }
-    
-    requestAnimationFrame(updateCounter);
-}
-
-function initCounterAnimations() {
-    const counters = document.querySelectorAll('[data-count]');
-    
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                counterObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    counters.forEach(counter => counterObserver.observe(counter));
-}
-
-// ==========================================
-// 7. SMOOTH SCROLL FOR ANCHOR LINKS
+// 6. SMOOTH SCROLL FOR ANCHOR LINKS
 // ==========================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
         if (href === '#') return;
-        
         const target = document.querySelector(href);
         if (target) {
             e.preventDefault();
             const offsetTop = target.getBoundingClientRect().top + window.scrollY - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
         }
     });
 });
 
 // ==========================================
-// 8. ACTIVE NAV LINK HIGHLIGHTING
+// 7. ACTIVE NAV LINK HIGHLIGHTING
 // ==========================================
 function highlightActiveNav() {
     const sections = document.querySelectorAll('section[id], header[id]');
     const navLinks = document.querySelectorAll('.nav-link');
-    
     let currentSection = '';
-    
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop - 100;
         if (window.scrollY >= sectionTop) {
             currentSection = section.getAttribute('id');
         }
     });
-    
+
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + currentSection || 
+        if (link.getAttribute('href') === '#' + currentSection ||
             (currentSection === '' && link.getAttribute('href') === 'index.html')) {
             link.classList.add('active');
         }
@@ -253,18 +215,16 @@ function highlightActiveNav() {
 window.addEventListener('scroll', highlightActiveNav);
 
 // ==========================================
-// 9. PARALLAX HERO EFFECT (subtle)
+// 8. PARALLAX HERO EFFECT
 // ==========================================
 function initParallax() {
     const hero = document.querySelector('.blended-hero-zone');
     if (!hero) return;
-    
     const orbs = hero.querySelectorAll('.hero-orb');
-    
+
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
         const rate = scrollY * 0.3;
-        
         orbs.forEach((orb, index) => {
             const speed = (index + 1) * 0.1;
             orb.style.transform = `translateY(${rate * speed}px)`;
@@ -273,7 +233,7 @@ function initParallax() {
 }
 
 // ==========================================
-// 10. MOBILE MENU ENHANCEMENT
+// 9. MOBILE MENU ENHANCEMENT
 // ==========================================
 const navbarToggler = document.querySelector('.navbar-toggler');
 const navbarCollapse = document.querySelector('.navbar-collapse');
@@ -283,8 +243,7 @@ if (navbarToggler && navbarCollapse) {
         const isExpanded = navbarToggler.getAttribute('aria-expanded') === 'true';
         navbarToggler.setAttribute('aria-expanded', !isExpanded);
     });
-    
-    // Close mobile menu when clicking a link
+
     document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
         link.addEventListener('click', () => {
             if (window.innerWidth < 992) {
@@ -298,25 +257,15 @@ if (navbarToggler && navbarCollapse) {
 }
 
 // ==========================================
-// 11. INITIALIZE EVERYTHING
+// 10. INITIALIZE EVERYTHING
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
-    // Hide preloader
-    hidePreloader();
-    
-    // Initialize scroll animations
     initScrollAnimations();
-    
-    // Initialize counter animations
     initCounterAnimations();
-    
-    // Initialize parallax
     initParallax();
-    
-    // Set language
+
     const savedLang = localStorage.getItem('selectedLang') || 'en';
     setLanguage(savedLang);
-    
-    // Initial navbar state
+
     handleNavbarScroll();
 });

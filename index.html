@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
 <html lang="en" dir="ltr" id="theme-html">
 
 <head>
@@ -15,25 +22,8 @@
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="preloader-content">
-            <div class="preloader-logo">TSE</div>
-            <div class="preloader-bar">
-                <div class="preloader-progress"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6"/>
-        </svg>
-    </button>
-
     <!-- ========================================== -->
-    <!--  HERO SECTION WITH DYNAMIC BACKGROUND      -->
+    <!--  HERO SECTION                                -->
     <!-- ========================================== -->
     <header class="blended-hero-zone">
         <!-- Animated Background Elements -->
@@ -62,9 +52,7 @@
                         <li class="nav-item"><a class="nav-link" href="contact.html" data-key="nav-contact">Contact Us</a></li>
                         <li class="nav-item ms-lg-3">
                             <button class="lang-toggle-btn" id="lang-toggler" aria-label="Toggle language">
-                                <span class="lang-toggle-slider">
-                                    <span class="lang-toggle-text" data-key="toggleBtn">العربية</span>
-                                </span>
+                                <span class="lang-toggle-text" data-key="toggleBtn">العربية</span>
                             </button>
                         </li>
                     </ul>
@@ -99,56 +87,139 @@
                     </div>
                 </div>
 
-                <!-- Coding Laptop with Travel Objects -->
+                <!-- Hero Visual - ITOMS Dashboard Mockup -->
                 <div class="col-lg-5 animate-on-scroll" data-animation="fade-up" style="transition-delay: 200ms;">
-                    <div class="laptop-scene">
-                        <!-- Travel Objects Bursting Out (Real Images) -->
-                        <div class="travel-object obj-passport" aria-hidden="true">
-                            <img src="Images/Passport.png" alt="Passport" loading="lazy">
-                        </div>
-                        <div class="travel-object obj-plane" aria-hidden="true">
-                            <img src="Images/Plane.png" alt="Airplane" loading="lazy">
-                        </div>
-                        <div class="travel-object obj-camera" aria-hidden="true">
-                            <img src="Images/Camera.png" alt="Camera" loading="lazy">
-                        </div>
-                        <div class="travel-object obj-suitcase" aria-hidden="true">
-                            <img src="Images/SuitCase.png" alt="Suitcase" loading="lazy">
-                        </div>
-                        <div class="travel-object obj-photos" aria-hidden="true">
-                            <img src="Images/Photos.png" alt="Travel Photos" loading="lazy">
-                        </div>
-                        <div class="travel-object obj-eiffel" aria-hidden="true">
-                            <img src="Images/Eiffel.png" alt="Eiffel Tower" loading="lazy">
-                        </div>
-                        <div class="travel-object obj-liberty" aria-hidden="true">
-                            <img src="Images/Liberty.png" alt="Statue of Liberty" loading="lazy">
-                        </div>
-                        <div class="travel-object obj-bigben" aria-hidden="true">
-                            <img src="Images/BigBen.png" alt="Big Ben" loading="lazy">
-                        </div>
-                        <div class="travel-object obj-pyramids" aria-hidden="true">
-                            <img src="Images/Pyramids.png" alt="Pyramids" loading="lazy">
-                        </div>
-                        <div class="travel-object obj-map" aria-hidden="true">
-                            <img src="Images/Map.png" alt="World Map" loading="lazy">
-                        </div>
-                        <div class="travel-object obj-balloon" aria-hidden="true">
-                            <img src="Images/Balloon.png" alt="Hot Air Balloon" loading="lazy">
-                        </div>
-                        <div class="travel-object obj-compass" aria-hidden="true">
-                            <img src="Images/Compass.png" alt="Compass" loading="lazy">
-                        </div>
+                    <div class="dashboard-mockup-wrap">
+                        <div class="dashboard-device">
+                            <!-- Browser Chrome -->
+                            <div class="dashboard-browser">
+                                <div class="browser-header">
+                                    <div class="browser-dots">
+                                        <span class="b-dot red"></span>
+                                        <span class="b-dot yellow"></span>
+                                        <span class="b-dot green"></span>
+                                    </div>
+                                    <div class="browser-url">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                        <span>app.itoms.io/dashboard</span>
+                                    </div>
+                                    <div class="browser-spacer"></div>
+                                </div>
 
-                        <!-- Laptop Body -->
-                        <div class="laptop-body">
-                            <img 
-                                src="Images/Laptop.png" 
-                                alt="Laptop with code" 
-                                class="laptop-image"
-                                loading="lazy"
-                            >
-                        </div><!-- Stats Row -->
+                                <!-- Dashboard Content -->
+                                <div class="dashboard-content">
+                                    <!-- Top Bar -->
+                                    <div class="dash-topbar">
+                                        <div class="dash-brand">
+                                            <span class="dash-logo">ITOMS</span>
+                                            <span class="dash-divider">/</span>
+                                            <span class="dash-page">dashboard</span>
+                                        </div>
+                                        <div class="dash-user">
+                                            <div class="user-avatar">TSE</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Stats Cards -->
+                                    <div class="dash-stats-row">
+                                        <div class="dash-stat-card">
+                                            <div class="stat-label">BOOKINGS</div>
+                                            <div class="stat-value">1,284</div>
+                                            <div class="stat-change up">+12%</div>
+                                        </div>
+                                        <div class="dash-stat-card">
+                                            <div class="stat-label">ACTIVE</div>
+                                            <div class="stat-value">342</div>
+                                            <div class="stat-change up">+5%</div>
+                                        </div>
+                                        <div class="dash-stat-card">
+                                            <div class="stat-label">REVENUE</div>
+                                            <div class="stat-value">$84K</div>
+                                            <div class="stat-change up">+18%</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Chart Area -->
+                                    <div class="dash-chart-card">
+                                        <div class="chart-bars">
+                                            <div class="c-bar" style="height: 35%"></div>
+                                            <div class="c-bar" style="height: 55%"></div>
+                                            <div class="c-bar" style="height: 40%"></div>
+                                            <div class="c-bar" style="height: 70%"></div>
+                                            <div class="c-bar" style="height: 50%"></div>
+                                            <div class="c-bar" style="height: 85%"></div>
+                                            <div class="c-bar" style="height: 60%"></div>
+                                            <div class="c-bar" style="height: 75%"></div>
+                                            <div class="c-bar" style="height: 65%"></div>
+                                            <div class="c-bar" style="height: 90%"></div>
+                                            <div class="c-bar" style="height: 80%"></div>
+                                            <div class="c-bar" style="height: 70%"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Activity List -->
+                                    <div class="dash-activity">
+                                        <div class="activity-item">
+                                            <div class="activity-dot"></div>
+                                            <div class="activity-text">
+                                                <span class="act-client">Wings Group</span>
+                                                <span class="act-sep">—</span>
+                                                <span class="act-action">Hotel allocation</span>
+                                            </div>
+                                            <span class="act-time">2m</span>
+                                        </div>
+                                        <div class="activity-item">
+                                            <div class="activity-dot"></div>
+                                            <div class="activity-text">
+                                                <span class="act-client">Escapade Travel</span>
+                                                <span class="act-sep">—</span>
+                                                <span class="act-action">Nile cruise booking</span>
+                                            </div>
+                                            <span class="act-time">5m</span>
+                                        </div>
+                                        <div class="activity-item">
+                                            <div class="activity-dot"></div>
+                                            <div class="activity-text">
+                                                <span class="act-client">Gezira Travel</span>
+                                                <span class="act-sep">—</span>
+                                                <span class="act-action">Transport request</span>
+                                            </div>
+                                            <span class="act-time">12m</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Floating Notification Card -->
+                            <div class="float-card float-notify">
+                                <div class="float-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                </div>
+                                <div class="float-body">
+                                    <div class="float-label">BOOKING #4821</div>
+                                    <div class="float-value">Confirmed</div>
+                                </div>
+                            </div>
+
+                            <!-- Floating Uptime Card -->
+                            <div class="float-card float-uptime">
+                                <div class="float-icon uptime-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                                </div>
+                                <div class="float-body">
+                                    <div class="float-label">UPTIME</div>
+                                    <div class="float-value">99.98%</div>
+                                </div>
+                            </div>
+
+                            <!-- Glow Effect -->
+                            <div class="device-glow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Row -->
             <div class="row stats-badge-container g-4">
                 <div class="col-md-4 col-6">
                     <div class="stat-item">
