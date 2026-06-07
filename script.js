@@ -191,7 +191,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ==========================================
 // 7. ACTIVE NAV LINK HIGHLIGHTING
 // ==========================================
+
+// If the page declares a fixed active nav link via data-active-page on <body>,
+// skip scroll-based highlighting entirely and honour that declaration.
+const activePageHref = document.body.getAttribute('data-active-page');
+
 function highlightActiveNav() {
+    if (activePageHref) return; // fixed active page — don't override on scroll
+
     const sections = document.querySelectorAll('section[id], header[id]');
     const navLinks = document.querySelectorAll('.nav-link');
     let currentSection = '';
@@ -209,6 +216,13 @@ function highlightActiveNav() {
             (currentSection === '' && link.getAttribute('href') === 'index.html')) {
             link.classList.add('active');
         }
+    });
+}
+
+function setFixedActiveNav() {
+    if (!activePageHref) return;
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === activePageHref);
     });
 }
 
@@ -268,4 +282,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setLanguage(savedLang);
 
     handleNavbarScroll();
+    setFixedActiveNav();
 });
