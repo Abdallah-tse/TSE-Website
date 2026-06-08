@@ -4,15 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ | Travel Solutions Egypt</title>
-    <meta name="description"
-        content="Frequently asked questions about TSE's travel software systems — ITOMS, Archiving, and B2B platform.">
+    <meta name="description" content="Travel Solutions Egypt - Frequently Asked Questions about ITOMS, Archiving System, B2B Portal and our services.">
+    <title>TSE | FAQ</title>
 
     <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css" id="bootstrap-ltr">
     <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.rtl.min.css" id="bootstrap-rtl" disabled>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="faq.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <script>
         (function () {
             const savedLang = localStorage.getItem('selectedLang') || 'en';
@@ -38,710 +40,546 @@
             transition: none !important;
         }
     </style>
-    <style>
-        /* ================================================ */
-        /* FAQ PAGE — THEME MATCHING STYLES               */
-        /* ================================================ */
-
-        .faq-hero-zone {
-            min-height: 45vh !important;
-            padding: 12rem 0 5rem 0 !important;
-            align-items: flex-end !important;
-        }
-
-        .faq-main-section {
-            padding: 5rem 0 4rem;
-            background: var(--light-bg);
-        }
-
-        /* Section Titles */
-        .faq-section-title {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid var(--light-border);
-        }
-
-        /* ---- Accordion overrides ---- */
-        .faq-accordion .accordion-item {
-            border: none;
-            border-bottom: 1px solid var(--light-border);
-            background: transparent;
-            border-radius: 0 !important;
-        }
-
-        .faq-accordion .accordion-item:last-child {
-            border-bottom: none;
-        }
-
-        .faq-accordion .accordion-button {
-            background: transparent;
-            color: var(--text-heading);
-            font-weight: 600;
-            font-size: 0.97rem;
-            padding: 1.35rem 0;
-            padding-inline-end: 2.5rem;
-            box-shadow: none;
-            border-radius: 0 !important;
-            transition: color 0.2s ease;
-            line-height: 1.5;
-        }
-
-        .faq-accordion .accordion-button:not(.collapsed) {
-            color: var(--itoms-teal);
-            background: transparent;
-            box-shadow: none;
-        }
-
-        .faq-accordion .accordion-button::after {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2394A3B8'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            flex-shrink: 0;
-            position: absolute;
-            inset-inline-end: 0;
-        }
-
-        .faq-accordion .accordion-button:not(.collapsed)::after {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2300A4A6'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-        }
-
-        .faq-accordion .accordion-body {
-            color: var(--text-body);
-            font-size: 0.93rem;
-            line-height: 1.8;
-            padding: 0 0 1.5rem;
-            padding-inline-end: 2.5rem;
-        }
-
-        /* ---- Sidebar nav (category pills) ---- */
-        .faq-sidebar-panel {
-            background: var(--light-card);
-            border: 1px solid var(--light-border);
-            border-radius: var(--radius-xl);
-            padding: 1.5rem;
-            box-shadow: var(--shadow-lg);
-            position: sticky;
-            top: 100px;
-            max-height: calc(100vh - 120px);
-            overflow-y: auto;
-            scrollbar-width: thin;
-            scrollbar-color: var(--light-border) transparent;
-        }
-
-        .faq-sidebar-panel::-webkit-scrollbar {
-            width: 4px;
-        }
-
-        .faq-sidebar-panel::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .faq-sidebar-panel::-webkit-scrollbar-thumb {
-            background: var(--light-border);
-            border-radius: var(--radius-full);
-        }
-
-        .faq-sidebar .nav-link {
-            color: var(--text-body) !important;
-            font-size: 0.875rem;
-            font-weight: 500;
-            padding: 0.6rem 0.85rem;
-            border-radius: var(--radius-md);
-            transition: all 0.2s ease;
-            cursor: pointer;
-            border: 1px solid transparent;
-        }
-
-        .faq-sidebar .nav-link:hover {
-            background: var(--itoms-teal-light);
-            color: var(--itoms-teal) !important;
-            border-color: rgba(0, 164, 166, 0.15);
-        }
-
-        .faq-sidebar .nav-link.active {
-            background: var(--itoms-teal-light);
-            color: var(--itoms-teal) !important;
-            font-weight: 700;
-            border-color: rgba(0, 164, 166, 0.25);
-            box-shadow: 0 0 0 3px rgba(0, 164, 166, 0.08);
-        }
-
-        /* ---- CTA card at bottom ---- */
-        .faq-cta-card {
-            background: linear-gradient(135deg, var(--brand-red) 0%, #E52E34 50%, #C41E24 100%);
-            border-radius: var(--radius-xl);
-            padding: 3.5rem 2.5rem;
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-glow-red);
-        }
-
-        .faq-cta-card .btn-light {
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            color: var(--brand-red) !important;
-            border: none;
-            padding: 0.9rem 2rem !important;
-            border-radius: var(--radius-md) !important;
-            transition: all var(--duration-fast) ease;
-        }
-
-        .faq-cta-card .btn-light:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        /* ---- Tag chips on questions ---- */
-        .faq-tag {
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 0.25rem 0.7rem;
-            border-radius: var(--radius-full);
-            display: inline-block;
-            margin-inline-end: 0.6rem;
-            vertical-align: middle;
-            flex-shrink: 0;
-        }
-
-        .tag-itoms {
-            background: var(--itoms-teal-light);
-            color: var(--itoms-teal);
-        }
-
-        .tag-archive {
-            background: rgba(0, 164, 166, 0.1);
-            color: #007d7e;
-        }
-
-        .tag-b2b {
-            background: var(--brand-red-light);
-            color: var(--brand-red);
-        }
-
-        .tag-general {
-            background: rgba(15, 23, 42, 0.06);
-            color: var(--text-muted);
-        }
-
-        /* Sidebar label */
-        .sidebar-label {
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
-
-        /* RTL */
-        html[dir="rtl"] .faq-accordion .accordion-button::after {
-            margin-right: auto;
-            margin-left: 0;
-        }
-
-        /* ================================================ */
-        /* MOBILE SIDEBAR — HORIZONTAL SCROLLABLE         */
-        /* ================================================ */
-        @media (max-width: 991px) {
-            .faq-hero-zone {
-                min-height: 40vh !important;
-                padding: 10rem 0 4rem 0 !important;
-            }
-
-            .faq-sidebar-panel {
-                position: relative !important;
-                top: auto !important;
-                max-height: none !important;
-                overflow-y: visible !important;
-                margin-bottom: 1.5rem;
-                padding: 1rem;
-            }
-
-            .sidebar-label {
-                text-align: center;
-                margin-bottom: 0.75rem;
-            }
-
-            .faq-sidebar {
-                display: flex;
-                flex-wrap: nowrap;
-                gap: 0.5rem;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                padding-bottom: 0.5rem;
-            }
-
-            .faq-sidebar::-webkit-scrollbar {
-                display: none;
-            }
-
-            .faq-sidebar .nav-link {
-                flex: 0 0 auto;
-                white-space: nowrap;
-                text-align: center;
-                padding: 0.55rem 1.1rem;
-                font-size: 0.82rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .faq-cta-card {
-                padding: 2.5rem 1.5rem;
-            }
-
-            .faq-accordion .accordion-button {
-                font-size: 0.9rem;
-                padding-inline-end: 2rem;
-            }
-
-            .faq-sidebar .nav-link {
-                font-size: 0.78rem;
-                padding: 0.5rem 0.9rem;
-            }
-        }
-    </style>
 </head>
 
 <body data-active-page="faq.html">
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6" />
-        </svg>
-    </button>
+    <!-- ══════════════════════════════════════════ -->
+    <!--  NAVIGATION                                -->
+    <!-- ══════════════════════════════════════════ -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-glass fixed-top" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand py-0" href="index.html">
+                <img src="images/TSE-Logo.png" alt="Travel Solutions Egypt" class="navbar-logo">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html"           data-key="nav-home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html"        data-key="nav-products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="faq.html"      data-key="nav-faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html"         data-key="nav-contact">Contact Us</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="lang-toggle-btn" id="lang-toggler" aria-label="Toggle language">
+                            <span class="lang-toggle-text" data-key="toggleBtn">العربية</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <!-- ========================================== -->
-    <!--  FAQ HERO                                  -->
-    <!-- ========================================== -->
-    <header class="blended-hero-zone faq-hero-zone">
-        <!-- Animated Background Elements -->
+    <!-- ══════════════════════════════════════════ -->
+    <!--  HERO                                      -->
+    <!-- ══════════════════════════════════════════ -->
+    <header class="faq-hero">
         <div class="hero-bg-elements">
             <div class="hero-orb orb-1"></div>
             <div class="hero-orb orb-2"></div>
             <div class="hero-orb orb-3"></div>
-            <div class="hero-orb orb-4"></div>
-            <div class="hero-orb orb-5"></div>
-            <div class="hero-grid-overlay"></div>
         </div>
-
-        <!-- Glass Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-glass fixed-top" id="main-nav">
-            <div class="container">
-                <a class="navbar-brand py-0" href="index.html">
-                    <img src="images/TSE-Logo.png" alt="Travel Solutions Egypt" class="navbar-logo">
-                </a>
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
-                        <li class="nav-item"><a class="nav-link" href="index.html" data-key="nav-home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="products.html"
-                                data-key="nav-products">Products</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="faq.html" data-key="nav-faq">FAQ</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html" data-key="nav-contact">Contact
-                                Us</a></li>
-                        <li class="nav-item ms-lg-3">
-                            <button class="lang-toggle-btn" id="lang-toggler" aria-label="Toggle language">
-                                <span class="lang-toggle-text" data-key="toggleBtn">العربية</span>
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Hero Text -->
         <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="col-lg-7 animate-on-scroll" data-animation="fade-up">
-                    <span class="hero-eyebrow" data-key="faq-badge">Frequently Asked Questions</span>
-                    <h1 class="hero-title" data-key="faq-title">Everything You Need to Know</h1>
-                    <p class="hero-description mx-auto" data-key="faq-desc">
-                        Can’t find what you’re looking for? Reach out to our team directly.
+            <div class="row">
+                <div class="col-lg-7">
+                    <span class="faq-hero-eyebrow">
+                        <i class="bi bi-question-circle-fill"></i>
+                        <span data-key="faq-hero-badge">Help Center</span>
+                    </span>
+                    <h1 class="faq-hero-title" data-key="faq-hero-title">Frequently Asked<br>Questions</h1>
+                    <p class="faq-hero-desc" data-key="faq-hero-desc">
+                        Everything you need to know about TSE's products, implementation process, and support options.
                     </p>
+                    <div class="faq-search-wrap position-relative">
+                        <i class="bi bi-search faq-search-icon"></i>
+                        <input
+                            type="text"
+                            class="faq-search-input"
+                            id="faq-search"
+                            placeholder="Search questions…"
+                            autocomplete="off"
+                        >
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- ========================================== -->
-    <!--               MAIN CONTENT                 -->
-    <!-- ========================================== -->
-    <main class="faq-main-section">
+    <!-- ══════════════════════════════════════════ -->
+    <!--  FAQ BODY                                  -->
+    <!-- ══════════════════════════════════════════ -->
+    <section class="faq-page-body">
         <div class="container">
-            <div class="row g-4 g-lg-5 align-items-start">
+            <div class="faq-layout">
 
-                <!-- Sidebar — visible on all screens -->
-                <div class="col-lg-3 animate-on-scroll" data-animation="fade-right">
-                    <div class="faq-sidebar-panel" id="faq-sidebar-panel">
-                        <p class="sidebar-label" data-key="faq-sidebar-label">Categories</p>
-                        <nav class="faq-sidebar nav flex-column gap-1">
-                            <a class="nav-link active" data-key="faq-cat-general"
-                                onclick="scrollToSection('general')">General</a>
-                            <a class="nav-link" data-key="faq-cat-itoms" onclick="scrollToSection('itoms')">ITOMS</a>
-                            <a class="nav-link" data-key="faq-cat-archive"
-                                onclick="scrollToSection('archive')">Archiving</a>
-                            <a class="nav-link" data-key="faq-cat-b2b" onclick="scrollToSection('b2b')">B2B</a>
-                        </nav>
+                <!-- ── SIDEBAR ── -->
+                <aside class="faq-sidebar">
+                    <p class="sidebar-label" data-key="faq-sidebar-label">Categories</p>
+                    <ul class="sidebar-nav" id="faq-sidebar-nav">
+                        <li>
+                            <button class="sidebar-nav-btn active" data-target="cat-general">
+                                <span class="s-icon"><i class="bi bi-building"></i></span>
+                                <span data-key="faq-cat-general">About TSE</span>
+                                <span class="sidebar-count">4</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="sidebar-nav-btn" data-target="cat-itoms">
+                                <span class="s-icon"><i class="bi bi-layers"></i></span>
+                                <span data-key="faq-cat-itoms">ITOMS</span>
+                                <span class="sidebar-count">6</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="sidebar-nav-btn" data-target="cat-archiving">
+                                <span class="s-icon"><i class="bi bi-archive"></i></span>
+                                <span data-key="faq-cat-archiving">Archiving System</span>
+                                <span class="sidebar-count">4</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="sidebar-nav-btn" data-target="cat-b2b">
+                                <span class="s-icon"><i class="bi bi-globe2"></i></span>
+                                <span data-key="faq-cat-b2b">B2B Portal</span>
+                                <span class="sidebar-count">4</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="sidebar-nav-btn" data-target="cat-tech">
+                                <span class="s-icon"><i class="bi bi-cpu"></i></span>
+                                <span data-key="faq-cat-tech">Technical &amp; Support</span>
+                                <span class="sidebar-count">5</span>
+                            </button>
+                        </li>
+                    </ul>
+
+                    <!-- Sidebar mini CTA -->
+                    <div style="background:var(--light-card);border:1px solid var(--light-border);border-radius:var(--radius-lg);padding:1.25rem;">
+                        <p style="font-size:0.8rem;font-weight:700;color:var(--text-heading);margin-bottom:0.4rem;" data-key="faq-sidebar-cta-title">Still have questions?</p>
+                        <p style="font-size:0.78rem;color:var(--text-muted);margin-bottom:1rem;" data-key="faq-sidebar-cta-desc">Our team is ready to help you.</p>
+                        <a href="contact.html" class="btn btn-red-action btn-sm w-100 justify-content-center" style="font-size:0.82rem;" data-key="faq-sidebar-cta-btn">
+                            <span>Contact Us</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
                     </div>
-                </div>
+                </aside>
 
-                <!-- Accordion Content -->
-                <div class="col-lg-9 animate-on-scroll" data-animation="fade-up">
+                <!-- ── MAIN CONTENT ── -->
+                <main id="faq-main">
 
-                    <!-- GENERAL -->
-                    <div id="general" class="mb-5">
-                        <p class="faq-section-title" data-key="faq-cat-general">General</p>
-                        <div class="accordion faq-accordion" id="accordionGeneral">
+                    <!-- No Results -->
+                    <div class="faq-no-results" id="faq-no-results">
+                        <div class="no-results-icon"><i class="bi bi-search"></i></div>
+                        <h3 data-key="faq-noresult-title">No results found</h3>
+                        <p data-key="faq-noresult-desc">Try a different keyword or browse a category.</p>
+                    </div>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#g1">
-                                        <span class="faq-tag tag-general" data-key="faq-tag-general">General</span>
-                                        <span data-key="faq-g1-q">What is Travel Solutions Egypt (TSE)?</span>
-                                    </button>
-                                </h2>
-                                <div id="g1" class="accordion-collapse collapse show"
-                                    data-bs-parent="#accordionGeneral">
-                                    <div class="accordion-body" data-key="faq-g1-a">
-                                        Founded in 2003, TSE is a leading software company specializing in
-                                        development for the travel industry. We build comprehensive systems for
-                                        incoming tour operators and ground handlers across Egypt, providing
-                                        automation, reservations management, and digital archiving solutions.
-                                    </div>
+                    <!-- ── CATEGORY: ABOUT TSE ── -->
+                    <div class="faq-section-group animate-on-scroll" data-animation="fade-up" id="cat-general">
+                        <div class="faq-group-header">
+                            <div class="faq-group-icon icon-teal"><i class="bi bi-building"></i></div>
+                            <h2 class="faq-group-title" data-key="faq-cat-general">About TSE</h2>
+                            <span class="faq-group-count">4 questions</span>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">01</span>
+                                <span class="faq-q-text" data-key="faq-g1-q">What is Travel Solutions Egypt (TSE)?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-g1-a">Founded in 2003 and headquartered in Cairo, Egypt, Travel Solutions Egypt (TSE) is a leading technology company specialising in software solutions for the travel industry. With over two decades of combined experience in travel operations and software development, TSE delivers reliable, efficient, and scalable systems for tour operators and ground handlers.</p>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#g2">
-                                        <span class="faq-tag tag-general" data-key="faq-tag-general">General</span>
-                                        <span data-key="faq-g2-q">Who are TSE's products designed for?</span>
-                                    </button>
-                                </h2>
-                                <div id="g2" class="accordion-collapse collapse" data-bs-parent="#accordionGeneral">
-                                    <div class="accordion-body" data-key="faq-g2-a">
-                                        Our systems are purpose-built for incoming tour operators and ground
-                                        handlers operating in Egypt. They are particularly suited to companies
-                                        managing high-volume reservations, multi-currency transactions,
-                                        multi-language operations, and complex allotment management.
-                                    </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">02</span>
+                                <span class="faq-q-text" data-key="faq-g2-q">Who are TSE's target customers?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-g2-a">TSE primarily serves incoming tour operators and global ground handlers who need mission-critical automation systems. Our clients include companies such as Wings, Escapade, Gezira, YouGo, CTT, Traveline, Bright Star, and Blue Sky — all leading names in the Egyptian inbound travel market.</p>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#g3">
-                                        <span class="faq-tag tag-general" data-key="faq-tag-general">General</span>
-                                        <span data-key="faq-g3-q">How long does implementation take?</span>
-                                    </button>
-                                </h2>
-                                <div id="g3" class="accordion-collapse collapse" data-bs-parent="#accordionGeneral">
-                                    <div class="accordion-body" data-key="faq-g3-a">
-                                        ITOMS ships with a comprehensive pre-loaded database covering hotels, Nile
-                                        Cruises, transport schedules, and guide information across Egypt. The system
-                                        is ready to use as soon as your contracted rates are fed in — which
-                                        significantly reduces setup time compared to building from scratch.
-                                    </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">03</span>
+                                <span class="faq-q-text" data-key="faq-g3-q">What products does TSE offer?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-g3-a">TSE offers three core products:</p>
+                                    <ul>
+                                        <li data-key="faq-g3-a1"><strong>ITOMS</strong> — a comprehensive incoming tour operator management system covering reservations, accounting, allotments, and reporting.</li>
+                                        <li data-key="faq-g3-a2"><strong>Archiving System</strong> — a document filing and retrieval platform fully integrated with ITOMS.</li>
+                                        <li data-key="faq-g3-a3"><strong>B2B Portal</strong> — a web-based booking and reservation platform for travel and tourism services across Egypt.</li>
+                                    </ul>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#g4">
-                                        <span class="faq-tag tag-general" data-key="faq-tag-general">General</span>
-                                        <span data-key="faq-g4-q">Do I need on-site technical staff to operate TSE
-                                            systems?</span>
-                                    </button>
-                                </h2>
-                                <div id="g4" class="accordion-collapse collapse" data-bs-parent="#accordionGeneral">
-                                    <div class="accordion-body" data-key="faq-g4-a">
-                                        No. Our systems are designed as in-house, multi-user platforms that do not
-                                        require any on-site programming staff for day-to-day operation and
-                                        maintenance. TSE provides ongoing support and handles updates remotely.
-                                    </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">04</span>
+                                <span class="faq-q-text" data-key="faq-g4-q">How do I get in touch with TSE?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-g4-a">You can reach us by email at <strong>tse@tsegypt.com</strong>, by phone or WhatsApp at <strong>+201555729580</strong>, or visit our <a href="contact.html" style="color:var(--itoms-teal);">contact page</a> to send us a message directly. Our team is based in Cairo, Egypt.</p>
                                 </div>
                             </div>
-
                         </div>
                     </div>
 
-                    <!-- ITOMS -->
-                    <div id="itoms" class="mb-5">
-                        <p class="faq-section-title" data-key="faq-cat-itoms">ITOMS</p>
-                        <div class="accordion faq-accordion" id="accordionITOMS">
+                    <!-- ── CATEGORY: ITOMS ── -->
+                    <div class="faq-section-group animate-on-scroll" data-animation="fade-up" id="cat-itoms">
+                        <div class="faq-group-header">
+                            <div class="faq-group-icon icon-red"><i class="bi bi-layers"></i></div>
+                            <h2 class="faq-group-title" data-key="faq-cat-itoms">ITOMS</h2>
+                            <span class="faq-group-count">6 questions</span>
+                        </div>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#i1">
-                                        <span class="faq-tag tag-itoms">ITOMS</span>
-                                        <span data-key="faq-i1-q">What does ITOMS stand for and what does it
-                                            do?</span>
-                                    </button>
-                                </h2>
-                                <div id="i1" class="accordion-collapse collapse" data-bs-parent="#accordionITOMS">
-                                    <div class="accordion-body" data-key="faq-i1-a">
-                                        ITOMS stands for Incoming Tour Operators Management System. It is a
-                                        comprehensive sales support, reservation, and management platform covering
-                                        every aspect of tour operating — including costing, pricing, planning,
-                                        allotment control, traffic department management, accounts payable and
-                                        receivable, and detailed management reports.
-                                    </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">01</span>
+                                <span class="faq-q-text" data-key="faq-i1-q">What is ITOMS?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-i1-a">ITOMS (Incoming Tour Operators Management System) is a comprehensive sales support, reservation, and management system built on state-of-the-art computer technology and advanced software design concepts. It covers every aspect of the tour-operating business — from costing and pricing to operational accounting and management reporting.</p>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#i2">
-                                        <span class="faq-tag tag-itoms">ITOMS</span>
-                                        <span data-key="faq-i2-q">Does ITOMS support multiple currencies and
-                                            languages?</span>
-                                    </button>
-                                </h2>
-                                <div id="i2" class="accordion-collapse collapse" data-bs-parent="#accordionITOMS">
-                                    <div class="accordion-body" data-key="faq-i2-a">
-                                        Yes. ITOMS is a fully multi-language and multi-currency system. This enables
-                                        tour operators serving international clients to process reservations and
-                                        financial records in the currencies and languages relevant to each market.
-                                    </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">02</span>
+                                <span class="faq-q-text" data-key="faq-i2-q">What data comes pre-loaded with ITOMS?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-i2-a">ITOMS ships with a comprehensive database covering hotels and Nile Cruises in Egypt, transport schedules, and information about the majority of guides in Egypt. The system is ready to use almost immediately once contracted rates are fed in — no extensive data-entry setup is required.</p>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#i3">
-                                        <span class="faq-tag tag-itoms">ITOMS</span>
-                                        <span data-key="faq-i3-q">Can ITOMS connect to external reservation
-                                            systems?</span>
-                                    </button>
-                                </h2>
-                                <div id="i3" class="accordion-collapse collapse" data-bs-parent="#accordionITOMS">
-                                    <div class="accordion-body" data-key="faq-i3-a">
-                                        Yes. ITOMS is developed in standard travel industry format, which enables
-                                        the exchange of information with other reservation systems. This
-                                        interoperability makes it practical to integrate with partner systems and
-                                        global distribution channels.
-                                    </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">03</span>
+                                <span class="faq-q-text" data-key="faq-i3-q">Is ITOMS a multi-user system?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-i3-a">Yes. ITOMS is an in-house, multi-user system. It does not require on-site programming staff for its daily operation and maintenance. Multiple team members can work simultaneously across reservations, traffic, accounts, and management reporting modules.</p>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#i4">
-                                        <span class="faq-tag tag-itoms">ITOMS</span>
-                                        <span data-key="faq-i4-q">What reporting capabilities does ITOMS
-                                            provide?</span>
-                                    </button>
-                                </h2>
-                                <div id="i4" class="accordion-collapse collapse" data-bs-parent="#accordionITOMS">
-                                    <div class="accordion-body" data-key="faq-i4-a">
-                                        ITOMS includes research reports and data analysis tools designed to help
-                                        tour operators understand past, present, and future dynamics of their
-                                        business. Reports cover management overviews, allotment status, traffic
-                                        department operations, and full financial summaries.
-                                    </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">04</span>
+                                <span class="faq-q-text" data-key="faq-i4-q">Does ITOMS support multiple currencies and languages?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-i4-a">Yes. ITOMS is a fully multi-language and multi-currency system. It manages foreign currency differentials seamlessly and produces invoices and reports in the required currency, making it ideal for operators handling international clients.</p>
                                 </div>
                             </div>
+                        </div>
 
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">05</span>
+                                <span class="faq-q-text" data-key="faq-i5-q">What operational modules does ITOMS include?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-i5-a">ITOMS covers the full spectrum of inbound tour operations, including:</p>
+                                    <ul>
+                                        <li>Booking &amp; reservation management</li>
+                                        <li>Allotment control (hotels, guides, transport)</li>
+                                        <li>Traffic department management</li>
+                                        <li>Accounts payable and receivable</li>
+                                        <li>Planning, costing, and pricing</li>
+                                        <li>Management and research reports</li>
+                                        <li>Client manifest and itinerary generation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">06</span>
+                                <span class="faq-q-text" data-key="faq-i6-q">Can ITOMS exchange data with other reservation systems?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-i6-a">Yes. ITOMS is developed in standard travel industry format, which enables the exchange of information with other reservation systems. It also supports direct Web API integrations for supplier connectivity and real-time data sync.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- ARCHIVING -->
-                    <div id="archive" class="mb-5">
-                        <p class="faq-section-title" data-key="faq-cat-archive">Archiving</p>
-                        <div class="accordion faq-accordion" id="accordionArchive">
+                    <!-- ── CATEGORY: ARCHIVING ── -->
+                    <div class="faq-section-group animate-on-scroll" data-animation="fade-up" id="cat-archiving">
+                        <div class="faq-group-header">
+                            <div class="faq-group-icon icon-blue"><i class="bi bi-archive"></i></div>
+                            <h2 class="faq-group-title" data-key="faq-cat-archiving">Archiving System</h2>
+                            <span class="faq-group-count">4 questions</span>
+                        </div>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#a1">
-                                        <span class="faq-tag tag-archive" data-key="faq-tag-archive">Archiving</span>
-                                        <span data-key="faq-a1-q">What is the Travel Filing System and how does it
-                                            save costs?</span>
-                                    </button>
-                                </h2>
-                                <div id="a1" class="accordion-collapse collapse" data-bs-parent="#accordionArchive">
-                                    <div class="accordion-body" data-key="faq-a1-a">
-                                        The Travel Filing System (Archiving module) is designed to reduce
-                                        operational costs by eliminating physical filing. It saves time, minimizes
-                                        paper consumption, and frees up physical office space. Documents can be
-                                        viewed, downloaded, and printed from anywhere via the internet.
-                                    </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">01</span>
+                                <span class="faq-q-text" data-key="faq-a1-q">What is the TSE Archiving System?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-a1-a">The TSE Archiving System (also called Travel Filing System) is a digital document management solution fully integrated with ITOMS. It eliminates physical filing by letting staff drag-and-drop emails, scan faxes, and attach documents directly to agencies, suppliers, and booking records (PNRs).</p>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#a2">
-                                        <span class="faq-tag tag-archive" data-key="faq-tag-archive">Archiving</span>
-                                        <span data-key="faq-a2-q">How does the archiving system integrate with
-                                            ITOMS?</span>
-                                    </button>
-                                </h2>
-                                <div id="a2" class="accordion-collapse collapse" data-bs-parent="#accordionArchive">
-                                    <div class="accordion-body" data-key="faq-a2-a">
-                                        The archiving module is fully integrated with ITOMS. Vouchers, service
-                                        orders, payment orders, itineraries, invoices, debit and credit notes are
-                                        automatically attached to their corresponding PNR. You can also drag
-                                        incoming emails directly into a PNR, or scan incoming faxes and documents
-                                        straight from the PNR screen.
-                                    </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">02</span>
+                                <span class="faq-q-text" data-key="faq-a2-q">What types of documents can be archived?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-a2-a">The system handles a wide range of travel documents, including:</p>
+                                    <ul>
+                                        <li>Vouchers, service orders, and payment orders</li>
+                                        <li>Itineraries and request forms</li>
+                                        <li>Invoices, debit notes, and credit notes</li>
+                                        <li>Incoming and outgoing emails</li>
+                                        <li>Scanned faxes and physical documents</li>
+                                        <li>Rate confirmations and supplier correspondence</li>
+                                    </ul>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#a3">
-                                        <span class="faq-tag tag-archive" data-key="faq-tag-archive">Archiving</span>
-                                        <span data-key="faq-a3-q">How can I retrieve archived documents?</span>
-                                    </button>
-                                </h2>
-                                <div id="a3" class="accordion-collapse collapse" data-bs-parent="#accordionArchive">
-                                    <div class="accordion-body" data-key="faq-a3-a">
-                                        There are two ways to access saved documents: directly from the PNR or
-                                        agency/supplier screen by clicking the Attachments tab inside ITOMS, or by
-                                        using the web-based search screen accessible from any internet connection.
-                                        You can also create custom categories beyond the default ones (incoming,
-                                        outgoing, rates, confirmation) to simplify retrieval.
-                                    </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">03</span>
+                                <span class="faq-q-text" data-key="faq-a3-q">How are archived documents retrieved?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-a3-a">There are two retrieval methods. First, directly from within ITOMS by opening the relevant PNR, agency, or supplier screen and clicking the attachment tab. Second, via a web-based search interface accessible from any browser — allowing staff to view, download, or print saved documents remotely.</p>
                                 </div>
                             </div>
+                        </div>
 
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">04</span>
+                                <span class="faq-q-text" data-key="faq-a4-q">Can I add custom document categories?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-a4-a">Yes. In addition to the built-in categories (incoming, outgoing, rates, confirmation), you can create your own custom categories to organise documents in a way that best suits your company's workflow — making search and retrieval faster and more intuitive.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- B2B -->
-                    <div id="b2b" class="mb-5">
-                        <p class="faq-section-title">B2B</p>
-                        <div class="accordion faq-accordion" id="accordionB2B">
+                    <!-- ── CATEGORY: B2B ── -->
+                    <div class="faq-section-group animate-on-scroll" data-animation="fade-up" id="cat-b2b">
+                        <div class="faq-group-header">
+                            <div class="faq-group-icon icon-indigo"><i class="bi bi-globe2"></i></div>
+                            <h2 class="faq-group-title" data-key="faq-cat-b2b">B2B Portal</h2>
+                            <span class="faq-group-count">4 questions</span>
+                        </div>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#b1">
-                                        <span class="faq-tag tag-b2b">B2B</span>
-                                        <span data-key="faq-b1-q">What is the TSE B2B platform?</span>
-                                    </button>
-                                </h2>
-                                <div id="b1" class="accordion-collapse collapse" data-bs-parent="#accordionB2B">
-                                    <div class="accordion-body" data-key="faq-b1-a">
-                                        The B2B System is a web-based application that simplifies and automates
-                                        booking and reservation management for travel and tourism services across
-                                        Egypt. It allows customers to search, book, and manage travel packages,
-                                        hotel accommodations, transportation, and tourism activities — all through a
-                                        single, user-friendly interface.
-                                    </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">01</span>
+                                <span class="faq-q-text" data-key="faq-b1-q">What is the TSE B2B Portal?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-b1-a">The B2B Portal is a web-based application designed to simplify and automate the booking and reservation process for travel and tourism services across Egypt. It gives customers a single, user-friendly interface to search, book, and manage travel packages, hotels, transport, and tourism activities.</p>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#b2">
-                                        <span class="faq-tag tag-b2b">B2B</span>
-                                        <span data-key="faq-b2-q">Is the B2B platform accessible online?</span>
-                                    </button>
-                                </h2>
-                                <div id="b2" class="accordion-collapse collapse" data-bs-parent="#accordionB2B">
-                                    <div class="accordion-body" data-key="faq-b2-a">
-                                        Yes. The B2B platform is entirely web-based, meaning your partners and
-                                        clients can access it from any device with an internet connection — without
-                                        needing to install any software.
-                                    </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">02</span>
+                                <span class="faq-q-text" data-key="faq-b2-q">Who can use the B2B Portal?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-b2-a">The portal is designed for travel trade partners — including agencies, operators, and resellers — who need to access and book Egypt-based travel products on behalf of their clients. It streamlines the B2B booking workflow and reduces manual communication between parties.</p>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#b3">
-                                        <span class="faq-tag tag-b2b">B2B</span>
-                                        <span data-key="faq-b3-q">Can the B2B platform manage hotel and transport
-                                            bookings simultaneously?</span>
-                                    </button>
-                                </h2>
-                                <div id="b3" class="accordion-collapse collapse" data-bs-parent="#accordionB2B">
-                                    <div class="accordion-body" data-key="faq-b3-a">
-                                        Yes. The B2B platform is designed to handle multiple service types in a
-                                        single booking flow — including hotel accommodations, transportation,
-                                        packaged tours, and tourism activities — reducing the friction of using
-                                        separate systems for each service category.
-                                    </div>
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">03</span>
+                                <span class="faq-q-text" data-key="faq-b3-q">What services can be booked through the portal?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-b3-a">Through the B2B Portal, users can book and manage:</p>
+                                    <ul>
+                                        <li>Travel packages and tour programs</li>
+                                        <li>Hotel accommodations</li>
+                                        <li>Transportation services</li>
+                                        <li>Tourism activities and excursions</li>
+                                    </ul>
                                 </div>
                             </div>
+                        </div>
 
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">04</span>
+                                <span class="faq-q-text" data-key="faq-b4-q">Is the B2B Portal integrated with ITOMS?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-b4-a">Yes. The B2B Portal connects directly to ITOMS, meaning bookings made through the portal flow into the same back-office system used by your operations team — ensuring live availability, consistent pricing, and automatic record creation without double-entry.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- CTA Card -->
-                    <div class="faq-cta-card animate-on-scroll" data-animation="scale-up">
-                        <h3 class="fw-bold mb-3 fs-4" data-key="faq-cta-title">Still have questions?</h3>
-                        <p class="mb-4 opacity-75 lh-lg" data-key="faq-cta-desc">
-                            Our team is available to walk you through any of our systems in detail.
-                        </p>
-                        <a href="contact.html" class="btn btn-light btn-lg px-5 rounded-3 fw-semibold"
-                            data-key="faq-cta-btn">
-                            Contact Us
+                    <!-- ── CATEGORY: TECHNICAL & SUPPORT ── -->
+                    <div class="faq-section-group animate-on-scroll" data-animation="fade-up" id="cat-tech">
+                        <div class="faq-group-header">
+                            <div class="faq-group-icon icon-amber"><i class="bi bi-cpu"></i></div>
+                            <h2 class="faq-group-title" data-key="faq-cat-tech">Technical &amp; Support</h2>
+                            <span class="faq-group-count">5 questions</span>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">01</span>
+                                <span class="faq-q-text" data-key="faq-t1-q">What technology stack does ITOMS run on?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-t1-a">ITOMS is built on the .NET Framework with Windows Forms for the desktop interface, MySQL as the database engine, and IIS Server for web components. The system is locally hosted and secured with SSL/TLS encryption. Reporting is handled through Crystal Reports and supplemented by Web APIs for external integrations.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">02</span>
+                                <span class="faq-q-text" data-key="faq-t2-q">Is ITOMS cloud-based or locally hosted?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-t2-a">ITOMS is currently deployed as a locally hosted system, giving clients full control over their data on their own infrastructure. TSE also offers cloud-ready containerised deployments with elastic scaling designed to match peak operational seasons — please contact us to discuss the best deployment model for your organisation.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">03</span>
+                                <span class="faq-q-text" data-key="faq-t3-q">What is the system's uptime guarantee?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-t3-a">TSE targets a 99.9% operational environment uptime across its deployed systems. Our architecture is designed for high availability, with optimised algorithms ensuring rapid database response times even under maximum workloads.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">04</span>
+                                <span class="faq-q-text" data-key="faq-t4-q">Do I need technical staff to maintain ITOMS?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-t4-a">No on-site programming staff are required for ITOMS's day-to-day operation and maintenance. The system is designed to be fully managed by travel operations staff without technical expertise. TSE provides ongoing support and updates as part of our service agreement.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button class="faq-question" aria-expanded="false">
+                                <span class="faq-q-num">05</span>
+                                <span class="faq-q-text" data-key="faq-t5-q">How do I request a demo or get started?</span>
+                                <span class="faq-toggle-icon"><i class="bi bi-plus"></i></span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    <p data-key="faq-t5-a">To request a comprehensive architectural system demonstration, contact our engineering deployment team via email at <strong>tse@tsegypt.com</strong>, call or WhatsApp <strong>+201555729580</strong>, or submit a message on our <a href="contact.html" style="color:var(--itoms-teal);">contact page</a>. We will schedule a session tailored to your company's specific operational requirements.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ── BOTTOM CTA ── -->
+                    <div class="faq-cta-strip animate-on-scroll" data-animation="fade-up">
+                        <div>
+                            <h3 data-key="faq-cta-title">Didn't find your answer?</h3>
+                            <p data-key="faq-cta-desc">Our engineering team is available to answer any specific questions about your use case.</p>
+                        </div>
+                        <a href="contact.html" class="btn btn-red-action btn-lg flex-shrink-0" data-key="cta-btn">
+                            <span>Contact Us</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </a>
                     </div>
 
-                </div>
+                </main>
             </div>
         </div>
-    </main>
+    </section>
 
-    <!-- ========================================== -->
-    <!--  FOOTER  (identical to index.html)         -->
-    <!-- ========================================== -->
-    <!-- ========================================== -->
-    <!--                 FOOTER                       -->
-    <!-- ========================================== -->
+    <!-- ══════════════════════════════════════════ -->
+    <!--  FOOTER                                    -->
+    <!-- ══════════════════════════════════════════ -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <img src="images/TSE-Logo.png" alt="Travel Solutions Egypt" class="footer-logo">
-                    <p class="footer-tagline">Software that powers travel.</p>
+                    <p class="footer-tagline" data-key="footer-tagline">Software House Specialised in Travel Solutions.</p>
                     <div class="footer-social">
-                        <a href="https://www.linkedin.com/company/travel-solutions-egypt" aria-label="LinkedIn"
-                            class="social-link">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                                <rect x="2" y="9" width="4" height="12" />
-                                <circle cx="4" cy="4" r="2" />
-                            </svg>
+                        <a href="https://www.linkedin.com/company/travel-solutions-egypt" aria-label="LinkedIn" class="social-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                         </a>
-
                         <a href="mailto:tse@tsegypt.com" aria-label="Email" class="social-link">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                <polyline points="22,6 12,13 2,6" />
-                            </svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                         </a>
                     </div>
                 </div>
@@ -756,8 +594,8 @@
                 <div class="footer-links">
                     <h4 class="footer-heading" data-key="footer-company">Company</h4>
                     <ul>
-                        <li><a href="index.html" data-key="nav-home">Home</a></li>
-                        <li><a href="faq.html" data-key="nav-faq">FAQ</a></li>
+                        <li><a href="index.html"   data-key="nav-home">Home</a></li>
+                        <li><a href="faq.html"     data-key="nav-faq">FAQ</a></li>
                         <li><a href="contact.html" data-key="nav-contact">Contact Us</a></li>
                     </ul>
                 </div>
@@ -775,50 +613,13 @@
         </div>
     </footer>
 
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
     <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
     <script src="translations.js"></script>
     <script src="script.js"></script>
-
-    <script>
-        // Sidebar category active state on scroll
-        function scrollToSection(id) {
-            const el = document.getElementById(id);
-            if (el) {
-                const offset = 100;
-                const top = el.getBoundingClientRect().top + window.scrollY - offset;
-                window.scrollTo({ top, behavior: 'smooth' });
-            }
-        }
-
-        // Highlight sidebar link based on scroll position
-        const sections = ['general', 'itoms', 'archive', 'b2b'];
-        const sidebarLinks = document.querySelectorAll('.faq-sidebar .nav-link');
-
-        function updateSidebarActive() {
-            let current = sections[0];
-            sections.forEach(id => {
-                const el = document.getElementById(id);
-                if (el && el.getBoundingClientRect().top <= 120) {
-                    current = id;
-                }
-            });
-            sidebarLinks.forEach(link => {
-                link.classList.remove('active');
-                const key = link.getAttribute('data-key');
-                if (
-                    (current === 'general' && key === 'faq-cat-general') ||
-                    (current === 'itoms' && key === 'faq-cat-itoms') ||
-                    (current === 'archive' && key === 'faq-cat-archive') ||
-                    (current === 'b2b' && !key)
-                ) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', updateSidebarActive, { passive: true });
-        
-    </script>
+    <script src="faq.js"></script>
 </body>
-
 </html>
