@@ -121,7 +121,8 @@ document.addEventListener('DOMContentLoaded', () => {
             "form-success-title": "Message Sent!",
             "form-success-desc": "Thank you for reaching out. Our team will get back to you within one business day.",
             "map-label": "Cairo, Egypt",
-            "map-open": "Open in Maps ↗"
+            "map-open": "Open in Maps ↗",
+            "footer-tagline": "Software House Specialized In Travel Solutions"
         };
 
         const contactAr = {
@@ -150,7 +151,8 @@ document.addEventListener('DOMContentLoaded', () => {
             "form-success-title": "تم إرسال الرسالة!",
             "form-success-desc": "شكراً لتواصلك معنا. سيعاود فريقنا الاتصال بك خلال يوم عمل واحد.",
             "map-label": "القاهرة، مصر",
-            "map-open": "فتح في الخرائط ↗"
+            "map-open": "فتح في الخرائط ↗",
+            "footer-tagline": "شركة برمجيات متخصصة في حلول السفر"
         };
 
         Object.assign(translations.en, contactEn);
