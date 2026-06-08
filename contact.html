@@ -223,7 +223,7 @@
                                         <label class="tse-label" for="contact-name" data-key="form-name-label">Full
                                             Name</label>
                                         <input type="text" id="contact-name" name="name" class="tse-input"
-                                            placeholder="John Smith" required autocomplete="name">
+                                            placeholder="Your Name" required autocomplete="name">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -231,7 +231,7 @@
                                         <label class="tse-label" for="contact-company"
                                             data-key="form-company-label">Company / Agency</label>
                                         <input type="text" id="contact-company" name="company" class="tse-input"
-                                            placeholder="Wings Travel" autocomplete="organization">
+                                            placeholder="Your Company" autocomplete="organization">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -276,6 +276,12 @@
                                             required></textarea>
                                     </div>
                                 </div>
+                                <!-- Honeypot: hidden from real users, bots fill it -->
+                                <div class="tse-hp-field" aria-hidden="true">
+                                    <label for="tse-website">Website</label>
+                                    <input type="text" id="tse-website" name="website" tabindex="-1" autocomplete="off">
+                                </div>
+
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-red-action btn-lg w-100 contact-submit-btn"
                                         id="submit-btn">
@@ -366,7 +372,7 @@
                     <p class="footer-tagline" data-key="footer-tagline">Software House Specialized In Travel Solutions</p>
                     <div class="footer-social">
                         <a href="https://www.linkedin.com/company/travel-solutions-egypt" aria-label="LinkedIn"
-                            class="social-link">
+                            class="social-link" target="_blank" rel="noopener noreferrer">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path
                                     d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -387,9 +393,9 @@
                 <div class="footer-links">
                     <h4 class="footer-heading" data-key="footer-products">Products</h4>
                     <ul>
-                        <li><a href="products.html" data-key="footer-itoms">ITOMS</a></li>
-                        <li><a href="products.html" data-key="footer-Archiving-System">Archiving System</a></li>
-                        <li><a href="products.html" data-key="footer-B2B-Portal">B2B Portal</a></li>
+                        <li><a href="products.html#itoms" data-key="footer-itoms">ITOMS</a></li>
+                        <li><a href="products.html#archiving" data-key="footer-Archiving-System">Archiving System</a></li>
+                        <li><a href="products.html#b2b" data-key="footer-B2B-Portal">B2B Portal</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -404,7 +410,7 @@
                     <h4 class="footer-heading" data-key="footer-contact">Contact</h4>
                     <ul>
                         <li><a href="mailto:tse@tsegypt.com">tse@tsegypt.com</a></li>
-                        <li><span>Cairo, Egypt</span></li>
+                        <li><span data-key="footer-address">Cairo, Egypt</span></li>
                     </ul>
                 </div>
             </div>

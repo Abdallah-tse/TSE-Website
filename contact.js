@@ -25,6 +25,27 @@ if (form) {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
+        // ---- Honeypot check: bots fill hidden fields, real users don't ----
+        const honeypot = document.getElementById('tse-website');
+        if (honeypot && honeypot.value.trim() !== '') {
+            // Silently pretend to succeed — don't alert bots that they were caught
+            if (submitBtn) submitBtn.disabled = true;
+            setTimeout(() => {
+                form.style.transition = 'opacity 0.3s ease';
+                form.style.opacity = '0';
+                setTimeout(() => {
+                    form.hidden = true;
+                    if (successState) {
+                        successState.hidden = false;
+                        successState.style.opacity = '0';
+                        successState.style.transition = 'opacity 0.4s ease';
+                        requestAnimationFrame(() => { successState.style.opacity = '1'; });
+                    }
+                }, 300);
+            }, 400);
+            return; // bail out — no mailto fired
+        }
+
         const name    = document.getElementById('contact-name');
         const email   = document.getElementById('contact-email');
         const message = document.getElementById('contact-message');
@@ -122,7 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
             "form-success-desc": "Thank you for reaching out. Our team will get back to you within one business day.",
             "map-label": "Cairo, Egypt",
             "map-open": "Open in Maps ↗",
-            "footer-tagline": "Software House Specialized In Travel Solutions"
+            "footer-tagline": "Software House Specialized In Travel Solutions",
+            "footer-address": "Cairo, Egypt"
         };
 
         const contactAr = {
@@ -152,7 +174,8 @@ document.addEventListener('DOMContentLoaded', () => {
             "form-success-desc": "شكراً لتواصلك معنا. سيعاود فريقنا الاتصال بك خلال يوم عمل واحد.",
             "map-label": "القاهرة، مصر",
             "map-open": "فتح في الخرائط ↗",
-            "footer-tagline": "شركة برمجيات متخصصة في حلول السفر"
+            "footer-tagline": "شركة برمجيات متخصصة في حلول السفر",
+            "footer-address": "القاهرة، مصر"
         };
 
         Object.assign(translations.en, contactEn);

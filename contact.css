@@ -558,3 +558,17 @@ html[dir="rtl"] .map-clickable-overlay {
         padding: 0.5rem 0.75rem;
     }
 }
+/* ========================================== */
+/* HONEYPOT FIELD — invisible to real users   */
+/* ========================================== */
+.tse-hp-field {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    tab-index: -1;
+}
