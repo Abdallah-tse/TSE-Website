@@ -230,6 +230,7 @@ const faqEn = {
         "faq-t4-a": "No on-site programming staff are required for day-to-day operation and maintenance. ITOMS is designed to be managed by travel operations staff without technical expertise. TSE provides ongoing support and updates.",
         "faq-t5-q": "How do I request a demo or get started?",
         "faq-t5-a": "Contact our engineering team at tse@tsegypt.com, call or WhatsApp +201555729580, or submit a message on our contact page. We'll schedule a session tailored to your operational requirements.",
+        "footer-address": "Cairo, Egypt"
 };
 
 const faqAr = {
@@ -310,6 +311,7 @@ const faqAr = {
         "faq-t4-a": "لا. لا يستلزم ITOMS وجود مبرمجين في الموقع للتشغيل اليومي والصيانة. النظام مصمم ليُدار من قِبل موظفي عمليات السفر دون خبرة تقنية، وتوفر TSE الدعم المستمر والتحديثات.",
         "faq-t5-q": "كيف أطلب عرضاً توضيحياً أو أبدأ؟",
         "faq-t5-a": "تواصل مع الفريق الهندسي عبر tse@tsegypt.com أو الهاتف/واتساب +201555729580 أو عبر صفحة التواصل. سنحدد موعداً مخصصاً لمتطلبات مؤسستك التشغيلية.",
+        "footer-address": "القاهرة، مصر"
     
 };
 

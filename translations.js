@@ -88,7 +88,8 @@ const translations = {
         "footer-Archiving-System": "Archiving System",
         "footer-B2B-Portal": "B2B Portal",
         "footer-company": "Company",
-        "footer-contact": "Contact"
+        "footer-contact": "Contact",
+        "footer-address": "Cairo, Egypt"
     },
     ar: {
         "nav-home": "الرئيسية",
@@ -179,6 +180,7 @@ const translations = {
         "footer-B2B-Portal": "بوابة B2B",
         "footer-cloud": "حلول سحابية",
         "footer-company": "الشركة",
-        "footer-contact": "تواصل معنا"
+        "footer-contact": "تواصل معنا",
+        "footer-address": "القاهرة، مصر"
     }
 };
