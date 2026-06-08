@@ -45,7 +45,38 @@
     </style>
 </head>
 
-<body>
+<body data-active-page="index.html">
+
+    <!-- Glass Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-glass fixed-top" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand py-0" href="index.html" target="_self">
+                <img src="images/TSE-Logo.png" alt="Travel Solutions Egypt" class="navbar-logo">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+                    <li class="nav-item"><a class="nav-link active" href="index.html" data-key="nav-home"
+                            target="_self">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html" data-key="nav-products"
+                            target="_self">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html" data-key="nav-faq" target="_self">FAQ</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-key="nav-contact"
+                            target="_self">Contact Us</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="lang-toggle-btn" id="lang-toggler" aria-label="Toggle language">
+                            <span class="lang-toggle-text" data-key="toggleBtn">العربية</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <!-- ========================================== -->
     <!--  HERO SECTION                                -->
     <!-- ========================================== -->
@@ -60,35 +91,7 @@
             <div class="hero-grid-overlay"></div>
         </div>
 
-        <!-- Glass Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-glass fixed-top" id="main-nav">
-            <div class="container">
-                <a class="navbar-brand py-0" href="index.html" target="_self">
-                    <img src="images/TSE-Logo.png" alt="Travel Solutions Egypt" class="navbar-logo">
-                </a>
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
-                        <li class="nav-item"><a class="nav-link active" href="index.html" data-key="nav-home"
-                                target="_self">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="products.html" data-key="nav-products"
-                                target="_self">Products</a></li>
-                        <li class="nav-item"><a class="nav-link" href="faq.html" data-key="nav-faq"
-                                target="_self">FAQ</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html" data-key="nav-contact"
-                                target="_self">Contact Us</a></li>
-                        <li class="nav-item ms-lg-3">
-                            <button class="lang-toggle-btn" id="lang-toggler" aria-label="Toggle language">
-                                <span class="lang-toggle-text" data-key="toggleBtn">العربية</span>
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+
 
         <!-- Main Hero Content -->
         <div class="container mt-5 pt-5">

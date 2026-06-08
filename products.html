@@ -42,6 +42,34 @@
 
 <body data-active-page="products.html">
 
+    <!-- Glass Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-glass fixed-top" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand py-0" href="index.html">
+                <img src="images/TSE-Logo.png" alt="Travel Solutions Egypt" class="navbar-logo">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html" data-key="nav-home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="products.html"
+                            data-key="nav-products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html" data-key="nav-faq">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" data-key="nav-contact">Contact
+                            Us</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <button class="lang-toggle-btn" id="lang-toggler" aria-label="Toggle language">
+                            <span class="lang-toggle-text" data-key="toggleBtn">العربية</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <!-- Back to Top Button -->
     <button id="back-to-top" class="back-to-top" aria-label="Back to top">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -63,33 +91,7 @@
             <div class="hero-grid-overlay"></div>
         </div>
 
-        <!-- Glass Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-glass fixed-top" id="main-nav">
-            <div class="container">
-                <a class="navbar-brand py-0" href="index.html">
-                    <img src="images/TSE-Logo.png" alt="Travel Solutions Egypt" class="navbar-logo">
-                </a>
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
-                        <li class="nav-item"><a class="nav-link" href="index.html" data-key="nav-home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="products.html"
-                                data-key="nav-products">Products</a></li>
-                        <li class="nav-item"><a class="nav-link" href="faq.html" data-key="nav-faq">FAQ</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html" data-key="nav-contact">Contact
-                                Us</a></li>
-                        <li class="nav-item ms-lg-3">
-                            <button class="lang-toggle-btn" id="lang-toggler" aria-label="Toggle language">
-                                <span class="lang-toggle-text" data-key="toggleBtn">العربية</span>
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+
 
         <!-- Hero Text -->
         <div class="container">
@@ -670,7 +672,8 @@
                     <h4 class="footer-heading" data-key="footer-products">Products</h4>
                     <ul>
                         <li><a href="products.html#itoms" data-key="footer-itoms">ITOMS</a></li>
-                        <li><a href="products.html#archiving" data-key="footer-Archiving-System">Archiving System</a></li>
+                        <li><a href="products.html#archiving" data-key="footer-Archiving-System">Archiving System</a>
+                        </li>
                         <li><a href="products.html#b2b" data-key="footer-B2B-Portal">B2B Portal</a></li>
                     </ul>
                 </div>

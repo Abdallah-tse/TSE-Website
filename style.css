@@ -100,6 +100,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
+    max-width: 100vw;
 }
 
 .blended-hero-zone .container {
@@ -2143,6 +2144,16 @@ html[dir="rtl"] .logo-slider-track {
     .solid-red-banner {
         padding: 3rem 1.5rem !important;
     }
+
+    .navbar-collapse {
+        background: rgba(10, 17, 31, 0.95);
+        /* Matches your dark hero theme */
+        backdrop-filter: blur(10px);
+        padding: 1rem;
+        border-radius: var(--radius-lg);
+        margin-top: 0.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
 }
 
 @media (max-width: 576px) {
@@ -2237,4 +2248,12 @@ html[dir="rtl"] .logo-slider-track {
 html[dir="rtl"] #whatsappNo {
 
     text-align: right;
+}
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
