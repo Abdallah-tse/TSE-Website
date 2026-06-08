@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap');
+
 :root {
     --canvas-dark-indigo: #0F1524;
     --canvas-emerald-glow: #044E44;
@@ -1060,7 +1061,8 @@ body {
 
 .float-notify {
     top: -15px;
-    inset-inline-end: -20px;             /* Automatically maps to right in LTR, left in RTL */
+    inset-inline-end: -20px;
+    /* Automatically maps to right in LTR, left in RTL */
     border-inline-start: 3px solid #4ade80;
     /* right: -20px;
     animation-delay: 2.2s;
@@ -1591,10 +1593,99 @@ html[dir="rtl"] .logo-slider-track:hover {
 }
 
 /* ========================================== */
+/* COMPANY PROFILE STYLING                    */
+/* ========================================== */
+.about-us-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-narrative .about-lead {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-weight: 1.6;
+    color: var(--text-heading);
+}
+
+.about-narrative .about-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-body);
+}
+
+/* Side Card Layout Container */
+.about-visual-panel {
+    padding: 1rem;
+    position: relative;
+}
+
+.about-pill-card {
+    display: flex;
+    background: var(--light-card, #ffffff);
+    border: 1px solid var(--light-border, #E2E8F0);
+    border-radius: 16px;
+    padding: 1.5rem 1.75rem;
+    box-shadow: 0 4px 20px rgba(15, 21, 36, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-pill-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(15, 21, 36, 0.06);
+}
+
+/* Accent Markers */
+.pill-accent {
+    width: 5px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-right: 1.25rem;
+}
+
+/* Handle layout shift cleanly on RTL environments */
+html[lang="ar"] .pill-accent {
+    margin-right: 0;
+    margin-left: 1.25rem;
+}
+
+.pill-accent.accent-red {
+    background-color: var(--brand-red, #D31E24);
+}
+
+.pill-accent.accent-teal {
+    background-color: var(--itoms-teal, #00A4A6);
+}
+
+.pill-body h4 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    margin-bottom: 0.5rem;
+}
+
+.pill-body p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-body);
+    margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .about-us-section .text-lg-start {
+        text-align: center !important;
+    }
+
+    .about-visual-panel {
+        margin-top: 2rem;
+    }
+}
+
+/* ========================================== */
 /* TECH STACK                                 */
 /* ========================================== */
 .tech-stack-showcase {
-    background: var(--light-bg);
+    background: white;
     border-top: 1px solid var(--light-border);
     border-bottom: 1px solid var(--light-border);
     padding: var(--space-xl) 0;
@@ -2140,9 +2231,10 @@ html[dir="rtl"] .logo-slider-track {
     html {
         scroll-behavior: auto;
     }
-    
+
 }
+
 html[dir="rtl"] #whatsappNo {
-        
-        text-align: right;
-    }
+
+    text-align: right;
+}
