@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="ltr" id="theme-html">
 
 <head>
@@ -13,7 +13,31 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script>
+        (function () {
+            const savedLang = localStorage.getItem('selectedLang') || 'en';
+            if (savedLang === 'ar') {
+                // 1. Set document attributes immediately
+                document.documentElement.setAttribute('lang', 'ar');
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.classList.add('lang-loading');
 
+                // 2. Disable LTR and enable RTL CSS immediately before layout builds
+                const ltrCss = document.getElementById('bootstrap-ltr');
+                const rtlCss = document.getElementById('bootstrap-rtl');
+                if (ltrCss) ltrCss.setAttribute('disabled', 'true');
+                if (rtlCss) rtlCss.removeAttribute('disabled');
+            }
+        })();
+    </script>
+
+    <style>
+        .lang-loading body {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transition: none !important;
+        }
+    </style>
     <style>
         /* ================================================ */
         /* FAQ PAGE — THEME MATCHING STYLES               */
@@ -170,7 +194,7 @@
 
         .faq-cta-card .btn-light:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
         /* ---- Tag chips on questions ---- */
@@ -273,10 +297,12 @@
             .faq-cta-card {
                 padding: 2.5rem 1.5rem;
             }
+
             .faq-accordion .accordion-button {
                 font-size: 0.9rem;
                 padding-inline-end: 2rem;
             }
+
             .faq-sidebar .nav-link {
                 font-size: 0.78rem;
                 padding: 0.5rem 0.9rem;
@@ -289,8 +315,9 @@
 
     <!-- Back to Top Button -->
     <button id="back-to-top" class="back-to-top" aria-label="Back to top">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 15l-6-6-6 6"/>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6" />
         </svg>
     </button>
 
@@ -321,9 +348,11 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
                         <li class="nav-item"><a class="nav-link" href="index.html" data-key="nav-home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="products.html" data-key="nav-products">Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="products.html"
+                                data-key="nav-products">Products</a></li>
                         <li class="nav-item"><a class="nav-link active" href="faq.html" data-key="nav-faq">FAQ</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html" data-key="nav-contact">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html" data-key="nav-contact">Contact
+                                Us</a></li>
                         <li class="nav-item ms-lg-3">
                             <button class="lang-toggle-btn" id="lang-toggler" aria-label="Toggle language">
                                 <span class="lang-toggle-text" data-key="toggleBtn">العربية</span>
@@ -360,9 +389,11 @@
                     <div class="faq-sidebar-panel" id="faq-sidebar-panel">
                         <p class="sidebar-label" data-key="faq-sidebar-label">Categories</p>
                         <nav class="faq-sidebar nav flex-column gap-1">
-                            <a class="nav-link active" data-key="faq-cat-general" onclick="scrollToSection('general')">General</a>
+                            <a class="nav-link active" data-key="faq-cat-general"
+                                onclick="scrollToSection('general')">General</a>
                             <a class="nav-link" data-key="faq-cat-itoms" onclick="scrollToSection('itoms')">ITOMS</a>
-                            <a class="nav-link" data-key="faq-cat-archive" onclick="scrollToSection('archive')">Archiving</a>
+                            <a class="nav-link" data-key="faq-cat-archive"
+                                onclick="scrollToSection('archive')">Archiving</a>
                             <a class="nav-link" data-key="faq-cat-b2b" onclick="scrollToSection('b2b')">B2B</a>
                         </nav>
                     </div>
@@ -397,8 +428,8 @@
 
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#g2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#g2">
                                         <span class="faq-tag tag-general" data-key="faq-tag-general">General</span>
                                         <span data-key="faq-g2-q">Who are TSE's products designed for?</span>
                                     </button>
@@ -415,8 +446,8 @@
 
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#g3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#g3">
                                         <span class="faq-tag tag-general" data-key="faq-tag-general">General</span>
                                         <span data-key="faq-g3-q">How long does implementation take?</span>
                                     </button>
@@ -433,8 +464,8 @@
 
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#g4">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#g4">
                                         <span class="faq-tag tag-general" data-key="faq-tag-general">General</span>
                                         <span data-key="faq-g4-q">Do I need on-site technical staff to operate TSE
                                             systems?</span>
@@ -459,8 +490,8 @@
 
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#i1">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#i1">
                                         <span class="faq-tag tag-itoms">ITOMS</span>
                                         <span data-key="faq-i1-q">What does ITOMS stand for and what does it
                                             do?</span>
@@ -479,8 +510,8 @@
 
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#i2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#i2">
                                         <span class="faq-tag tag-itoms">ITOMS</span>
                                         <span data-key="faq-i2-q">Does ITOMS support multiple currencies and
                                             languages?</span>
@@ -497,8 +528,8 @@
 
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#i3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#i3">
                                         <span class="faq-tag tag-itoms">ITOMS</span>
                                         <span data-key="faq-i3-q">Can ITOMS connect to external reservation
                                             systems?</span>
@@ -516,8 +547,8 @@
 
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#i4">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#i4">
                                         <span class="faq-tag tag-itoms">ITOMS</span>
                                         <span data-key="faq-i4-q">What reporting capabilities does ITOMS
                                             provide?</span>
@@ -543,10 +574,9 @@
 
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#a1">
-                                        <span class="faq-tag tag-archive"
-                                            data-key="faq-tag-archive">Archiving</span>
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#a1">
+                                        <span class="faq-tag tag-archive" data-key="faq-tag-archive">Archiving</span>
                                         <span data-key="faq-a1-q">What is the Travel Filing System and how does it
                                             save costs?</span>
                                     </button>
@@ -563,10 +593,9 @@
 
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#a2">
-                                        <span class="faq-tag tag-archive"
-                                            data-key="faq-tag-archive">Archiving</span>
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#a2">
+                                        <span class="faq-tag tag-archive" data-key="faq-tag-archive">Archiving</span>
                                         <span data-key="faq-a2-q">How does the archiving system integrate with
                                             ITOMS?</span>
                                     </button>
@@ -584,10 +613,9 @@
 
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#a3">
-                                        <span class="faq-tag tag-archive"
-                                            data-key="faq-tag-archive">Archiving</span>
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#a3">
+                                        <span class="faq-tag tag-archive" data-key="faq-tag-archive">Archiving</span>
                                         <span data-key="faq-a3-q">How can I retrieve archived documents?</span>
                                     </button>
                                 </h2>
@@ -612,8 +640,8 @@
 
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#b1">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#b1">
                                         <span class="faq-tag tag-b2b">B2B</span>
                                         <span data-key="faq-b1-q">What is the TSE B2B platform?</span>
                                     </button>
@@ -631,8 +659,8 @@
 
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#b2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#b2">
                                         <span class="faq-tag tag-b2b">B2B</span>
                                         <span data-key="faq-b2-q">Is the B2B platform accessible online?</span>
                                     </button>
@@ -648,8 +676,8 @@
 
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#b3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#b3">
                                         <span class="faq-tag tag-b2b">B2B</span>
                                         <span data-key="faq-b3-q">Can the B2B platform manage hotel and transport
                                             bookings simultaneously?</span>
@@ -688,6 +716,9 @@
     <!-- ========================================== -->
     <!--  FOOTER  (identical to index.html)         -->
     <!-- ========================================== -->
+    <!-- ========================================== -->
+    <!--                 FOOTER                       -->
+    <!-- ========================================== -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
@@ -695,23 +726,31 @@
                     <img src="images/TSE-Logo.png" alt="Travel Solutions Egypt" class="footer-logo">
                     <p class="footer-tagline">Software that powers travel.</p>
                     <div class="footer-social">
-                        <a href="#" aria-label="LinkedIn" class="social-link">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        <a href="https://www.linkedin.com/company/travel-solutions-egypt" aria-label="LinkedIn"
+                            class="social-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect x="2" y="9" width="4" height="12" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
                         </a>
-                        <a href="#" aria-label="Twitter" class="social-link">
-                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
-                        </a>
-                        <a href="#" aria-label="Email" class="social-link">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+
+                        <a href="mailto:tse@tsegypt.com" aria-label="Email" class="social-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
                         </a>
                     </div>
                 </div>
                 <div class="footer-links">
                     <h4 class="footer-heading" data-key="footer-products">Products</h4>
                     <ul>
-                        <li><a href="products.html" data-key="footer-itoms">ITOMS Platform</a></li>
-                        <li><a href="products.html" data-key="footer-api">API Integration</a></li>
-                        <li><a href="products.html" data-key="footer-cloud">Cloud Solutions</a></li>
+                        <li><a href="products.html" data-key="footer-itoms">ITOMS</a></li>
+                        <li><a href="products.html" data-key="footer-Archiving-System">Archiving System</a></li>
+                        <li><a href="products.html" data-key="footer-B2B-Portal">B2B Portal</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -725,13 +764,13 @@
                 <div class="footer-links">
                     <h4 class="footer-heading" data-key="footer-contact">Contact</h4>
                     <ul>
-                        <li><a href="mailto:info@tse.com.eg">info@tse.com.eg</a></li>
+                        <li><a href="mailto:tse@tsegypt.com">tse@tsegypt.com</a></li>
                         <li><span>Cairo, Egypt</span></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p data-key="footer-text">&copy; 2026 Travel Solutions Egypt. All rights reserved.</p>
+                <p data-key="footer-text">&copy; 2003 Travel Solutions Egypt. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -778,6 +817,7 @@
         }
 
         window.addEventListener('scroll', updateSidebarActive, { passive: true });
+        
     </script>
 </body>
 

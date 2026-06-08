@@ -2,7 +2,8 @@
 /* TSE DESIGN SYSTEM v3.0                     */
 /* ========================================== */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap');
 :root {
     --canvas-dark-indigo: #0F1524;
     --canvas-emerald-glow: #044E44;
@@ -93,7 +94,7 @@ body {
     position: relative;
     background: linear-gradient(180deg, #060a14 0%, #080d18 25%, #0a111f 50%, #0c1422 75%, #0a1520 100%);
     color: var(--text-white);
-    padding: 14rem 0 8rem 0 !important;
+    padding: 8rem 0 8rem 0 !important;
     overflow: hidden;
     min-height: 100vh;
     display: flex;
@@ -558,7 +559,7 @@ body {
 }
 
 .hero-title {
-    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-size: clamp(2.8rem, 6vw, 3.5rem);
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.03em;
@@ -1654,10 +1655,15 @@ html[dir="rtl"] .logo-slider-track:hover {
     transition: all var(--duration-fast) ease;
 }
 
-.tech-icon svg {
+.tech-icon svg,
+.tech-icon i.bi {
     width: 100%;
     height: 100%;
     stroke-width: 1.8;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tech-stack-cell:hover .tech-icon {
@@ -1911,6 +1917,7 @@ html[dir="rtl"] .logo-slider-track:hover {
 /* ========================================== */
 html[dir="rtl"] body {
     letter-spacing: normal !important;
+    font-family: 'Noto Sans Arabic', sans-serif !important;
 }
 
 html[dir="rtl"] .tracking-wider,
@@ -1989,7 +1996,7 @@ html[dir="rtl"] .logo-slider-track {
 /* ========================================== */
 @media (max-width: 991px) {
     .blended-hero-zone {
-        padding: 10rem 0 5rem 0 !important;
+        padding: 8rem 0 5rem 0 !important;
         background-attachment: scroll;
     }
 
@@ -2133,4 +2140,9 @@ html[dir="rtl"] .logo-slider-track {
     html {
         scroll-behavior: auto;
     }
+    
 }
+html[dir="rtl"] #whatsappNo {
+        
+        text-align: right;
+    }

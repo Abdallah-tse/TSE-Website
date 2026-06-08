@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "contact-info-desc": "Whether you need a product demo, pricing information, or technical support — we respond fast.",
             "channel-email-label": "Email Us",
             "channel-phone-label": "Call & WhatsApp",
+            "phone-number": "+20 155 572 9580",
             "channel-location-label": "Our Location",
             "channel-location-value": "Cairo, Egypt",
             "contact-response-time": "Typical response within 1 business day",
@@ -132,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "contact-info-desc": "سواء كنت بحاجة إلى عرض توضيحي للمنتج، أو معلومات تسعير، أو دعم تقني — نحن نستجيب بسرعة.",
             "channel-email-label": "راسلنا",
             "channel-phone-label": "اتصل بنا أو واتساب",
+            "phone-number": "+20 155 572 9580",
             "channel-location-label": "موقعنا",
             "channel-location-value": "القاهرة، مصر",
             "contact-response-time": "وقت الاستجابة المعتاد خلال يوم عمل واحد",
@@ -157,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Re-apply current language to pick up new keys
         const currentLang = document.getElementById('theme-html')?.getAttribute('lang') || 'en';
         if (typeof setLanguage === 'function') {
-            setLanguage(currentLang);
+            setLanguage(currentLang, true);
         }
     }
 });

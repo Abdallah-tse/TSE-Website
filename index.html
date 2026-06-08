@@ -10,22 +10,39 @@
         content="Travel Solutions Egypt - Premier technology partner for tour operators and ground handlers.">
     <title>TSE | Travel Solutions Egypt</title>
 
+    
+
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css" id="bootstrap-ltr">
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.rtl.min.css" id="bootstrap-rtl" disabled>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script>
         (function () {
             const savedLang = localStorage.getItem('selectedLang') || 'en';
             if (savedLang === 'ar') {
+                // 1. Set document attributes immediately
                 document.documentElement.setAttribute('lang', 'ar');
                 document.documentElement.setAttribute('dir', 'rtl');
-                // Synchronously switch link tags before render
+                document.documentElement.classList.add('lang-loading');
+
+                // 2. Disable LTR and enable RTL CSS immediately before layout builds
+                const ltrCss = document.getElementById('bootstrap-ltr');
+                const rtlCss = document.getElementById('bootstrap-rtl');
+                if (ltrCss) ltrCss.setAttribute('disabled', 'true');
+                if (rtlCss) rtlCss.removeAttribute('disabled');
             }
         })();
     </script>
 
-    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css" id="bootstrap-ltr">
-    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.rtl.min.css" id="bootstrap-rtl" disabled>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        .lang-loading body {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transition: none !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -326,87 +343,49 @@
             <div class="tech-grid-wrapper">
                 <div class="tech-stack-cell">
                     <div class="tech-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="16 18 22 12 16 6"></polyline>
-                            <polyline points="8 6 2 12 8 18"></polyline>
-                        </svg>
+                        <i class="bi bi-code-slash"></i>
                     </div>
                     <span data-key="tech-cell-1">.NET Framework</span>
                 </div>
                 <div class="tech-stack-cell">
                     <div class="tech-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                            <line x1="8" y1="21" x2="16" y2="21"></line>
-                            <line x1="12" y1="17" x2="12" y2="21"></line>
-                        </svg>
+                        <i class="bi bi-display"></i>
                     </div>
                     <span data-key="tech-cell-2">Windows Forms</span>
                 </div>
                 <div class="tech-stack-cell">
                     <div class="tech-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                        </svg>
+                        <i class="bi bi-database"></i>
                     </div>
                     <span data-key="tech-cell-3">MySQL</span>
                 </div>
                 <div class="tech-stack-cell">
                     <div class="tech-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                            <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                            <line x1="6" y1="18" x2="6.01" y2="18"></line>
-                        </svg>
+                        <i class="bi bi-hdd-stack"></i>
                     </div>
                     <span data-key="tech-cell-4">IIS Server</span>
                 </div>
                 <div class="tech-stack-cell">
                     <div class="tech-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
-                        </svg>
+                        <i class="bi bi-hdd"></i>
                     </div>
                     <span data-key="tech-cell-5">Locally Hosted</span>
                 </div>
                 <div class="tech-stack-cell">
                     <div class="tech-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
+                        <i class="bi bi-shield-shaded"></i>
                     </div>
                     <span data-key="tech-cell-6">SSL/TLS</span>
                 </div>
                 <div class="tech-stack-cell">
                     <div class="tech-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="18" y1="20" x2="18" y2="10"></line>
-                            <line x1="12" y1="20" x2="12" y2="4"></line>
-                            <line x1="6" y1="20" x2="6" y2="14"></line>
-                        </svg>
+                        <i class="bi bi-clipboard-data"></i>
                     </div>
                     <span data-key="tech-cell-7">Crystal Reports</span>
                 </div>
                 <div class="tech-stack-cell">
                     <div class="tech-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="2" y1="12" x2="22" y2="12"></line>
-                            <path
-                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                            </path>
-                        </svg>
+                        <i class="bi bi-globe2"></i>
                     </div>
                     <span data-key="tech-cell-8">Web APIs</span>
                 </div>
@@ -449,7 +428,7 @@
                     <img src="images/TSE-Logo.png" alt="Travel Solutions Egypt" class="footer-logo">
                     <p class="footer-tagline">Software that powers travel.</p>
                     <div class="footer-social">
-                        <a href="#" aria-label="LinkedIn" class="social-link">
+                        <a href="https://www.linkedin.com/company/travel-solutions-egypt" aria-label="LinkedIn" class="social-link">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path
                                     d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -457,13 +436,8 @@
                                 <circle cx="4" cy="4" r="2" />
                             </svg>
                         </a>
-                        <a href="#" aria-label="Twitter" class="social-link">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Email" class="social-link">
+                        
+                        <a href="mailto:tse@tsegypt.com" aria-label="Email" class="social-link">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -475,9 +449,9 @@
                 <div class="footer-links">
                     <h4 class="footer-heading" data-key="footer-products">Products</h4>
                     <ul>
-                        <li><a href="products.html" data-key="footer-itoms">ITOMS Platform</a></li>
-                        <li><a href="products.html" data-key="footer-api">API Integration</a></li>
-                        <li><a href="products.html" data-key="footer-cloud">Cloud Solutions</a></li>
+                        <li><a href="products.html" data-key="footer-itoms">ITOMS</a></li>
+                        <li><a href="products.html" data-key="footer-Archiving-System">Archiving System</a></li>
+                        <li><a href="products.html" data-key="footer-B2B-Portal">B2B Portal</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -491,13 +465,13 @@
                 <div class="footer-links">
                     <h4 class="footer-heading" data-key="footer-contact">Contact</h4>
                     <ul>
-                        <li><a href="mailto:info@tse.com.eg">info@tse.com.eg</a></li>
+                        <li><a href="mailto:tse@tsegypt.com">tse@tsegypt.com</a></li>
                         <li><span>Cairo, Egypt</span></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p data-key="footer-text">&copy; 2026 Travel Solutions Egypt. All rights reserved.</p>
+                <p data-key="footer-text">&copy; 2003 Travel Solutions Egypt. All rights reserved.</p>
             </div>
         </div>
     </footer>

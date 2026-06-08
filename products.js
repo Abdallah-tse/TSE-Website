@@ -206,6 +206,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Re-apply current language
     const currentLang = document.getElementById('theme-html')?.getAttribute('lang') || 'en';
     if (typeof setLanguage === 'function') {
-        setLanguage(currentLang);
+        setLanguage(currentLang, true);
     }
 });

@@ -63,13 +63,13 @@ const translations = {
         "cta-title": "Ready to Automate Your Travel Business?",
         "cta-desc": "Get in touch with our engineering deployment teams today to request a comprehensive architectural system demonstration.",
         "cta-btn": "Contact Us",
-        "footer-text": "© 2026 Travel Solutions Egypt. All rights reserved.",
+        "footer-text": "© 2003 Travel Solutions Egypt. All rights reserved.",
 
         // Footer Links
         "footer-products": "Products",
-        "footer-itoms": "ITOMS Platform",
-        "footer-api": "API Integration",
-        "footer-cloud": "Cloud Solutions",
+        "footer-itoms": "ITOMS",
+        "footer-Archiving-System": "Archiving System",
+        "footer-B2B-Portal": "B2B Portal",
         "footer-company": "Company",
         "footer-contact": "Contact"
     },
@@ -137,12 +137,13 @@ const translations = {
         "cta-title": "هل أنت مستعد لأتمتة أعمالك السياحية؟",
         "cta-desc": "تواصل مع فرق النشر الهندسي لدينا اليوم لطلب عرض توضيحي شامل لبنية النظام البرمجي المتكامل.",
         "cta-btn": "اتصل بنا",
-        "footer-text": "© ٢٠٢٦ ترافيل سوليوشنز إيجيبت. جميع الحقوق محفوظة.",
+        "footer-text": "© ٢٠٠٣ ترافيل سوليوشنز إيجيبت. جميع الحقوق محفوظة.",
 
         // Footer Links
         "footer-products": "منتجاتنا",
-        "footer-itoms": "منصة ITOMS",
-        "footer-api": "تكامل API",
+        "footer-itoms": "ITOMS",
+        "footer-Archiving-System": "نظام الأرشفة",
+        "footer-B2B-Portal": "بوابة B2B",
         "footer-cloud": "حلول سحابية",
         "footer-company": "الشركة",
         "footer-contact": "تواصل معنا"

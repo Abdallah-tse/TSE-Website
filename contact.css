@@ -453,7 +453,68 @@ html[dir="rtl"] .map-open-link {
 html[dir="rtl"] .channel-arrow svg {
     transform: rotate(180deg);
 }
+/* ========================================== */
+/* CLICKABLE MAP OVERLAY                      */
+/* ========================================== */
+.map-clickable-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(15, 21, 36, 0);
+    transition: background var(--duration-fast) ease;
+    text-decoration: none;
+    border-radius: var(--radius-xl);
+}
 
+.map-clickable-overlay:hover {
+    background: rgba(15, 21, 36, 0.25);
+}
+
+.map-overlay-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: white;
+    border: 1px solid var(--light-border);
+    border-radius: var(--radius-full);
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+    transition: all var(--duration-fast) var(--ease-out-expo);
+    pointer-events: none;
+}
+
+.map-clickable-overlay:hover .map-overlay-hint {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.map-overlay-hint svg {
+    color: var(--itoms-teal);
+    flex-shrink: 0;
+}
+
+/* RTL */
+html[dir="rtl"] .map-clickable-overlay {
+    /* No directional changes needed */
+}
+
+/* Mobile: always show hint since hover doesn't exist */
+@media (max-width: 576px) {
+    .map-overlay-hint {
+        opacity: 0.9;
+        transform: translateY(0) scale(1);
+        font-size: 0.85rem;
+        padding: 0.6rem 1rem;
+    }
+}
 /* ========================================== */
 /* RESPONSIVE                                 */
 /* ========================================== */

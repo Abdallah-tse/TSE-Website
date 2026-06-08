@@ -12,7 +12,7 @@ const backToTop = document.getElementById('back-to-top');
 // ==========================================
 // 1. LANGUAGE SYSTEM
 // ==========================================
-function setLanguage(lang) {
+function setLanguage(lang, immediate = false) {
     if (typeof translations === 'undefined') {
         console.error("TSE Engine Error: translations.js failed to load.");
         return;
@@ -38,12 +38,18 @@ function setLanguage(lang) {
     document.querySelectorAll('[data-key]').forEach(element => {
         const key = element.getAttribute('data-key');
         if (translations[lang][key]) {
-            element.style.opacity = '0.7';
-            element.style.transition = 'opacity 0.15s ease';
-            setTimeout(() => {
+            if (immediate) {
+                // Initial load: inject text instantly with zero flash/animation
                 element.textContent = translations[lang][key];
-                element.style.opacity = '1';
-            }, 150);
+            } else {
+                // Button click toggle: apply smooth visual transition
+                element.style.opacity = '0.7';
+                element.style.transition = 'opacity 0.15s ease';
+                setTimeout(() => {
+                    element.textContent = translations[lang][key];
+                    element.style.opacity = '1';
+                }, 150);
+            }
         }
     });
 
@@ -54,9 +60,10 @@ if (langToggler) {
     langToggler.addEventListener('click', () => {
         const currentLang = htmlTag.getAttribute('lang') || 'en';
         const newLang = currentLang === 'en' ? 'ar' : 'en';
-        setLanguage(newLang);
+        setLanguage(newLang, false); // false = animate the change
     });
 }
+
 
 // ==========================================
 // 2. SCROLL OBSERVER & ANIMATIONS
@@ -110,48 +117,22 @@ window.addEventListener('scroll', () => {
 // ==========================================
 // 4. COUNTER ANIMATION FOR STATS
 // ==========================================
-function animateCounter(element) {
-    const target = parseFloat(element.getAttribute('data-count'));
-    const suffix = element.getAttribute('data-suffix') || '';
-    const duration = 2000;
-    const startTime = performance.now();
-    const startValue = 0;
-
-    function updateCounter(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const easeProgress = 1 - Math.pow(1 - progress, 3);
-        const currentValue = startValue + (target - startValue) * easeProgress;
-
-        if (Number.isInteger(target)) {
-            element.textContent = Math.floor(currentValue) + suffix;
-        } else {
-            element.textContent = currentValue.toFixed(1) + suffix;
-        }
-
-        if (progress < 1) {
-            requestAnimationFrame(updateCounter);
-        }
-    }
-
-    requestAnimationFrame(updateCounter);
-}
-
-function initCounterAnimations() {
+function initStatsDisplay() {
     const counters = document.querySelectorAll('[data-count]');
 
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                counterObserver.unobserve(entry.target);
+    counters.forEach(element => {
+        const target = parseFloat(element.getAttribute('data-count'));
+        const suffix = element.getAttribute('data-suffix') || '';
+
+        if (!isNaN(target)) {
+            if (Number.isInteger(target)) {
+                element.textContent = target + suffix;
+            } else {
+                element.textContent = target.toFixed(1) + suffix;
             }
-        });
-    }, { threshold: 0.5 });
-
-    counters.forEach(counter => counterObserver.observe(counter));
+        }
+    });
 }
-
 // ==========================================
 // 5. BACK TO TOP BUTTON
 // ==========================================
@@ -275,12 +256,14 @@ if (navbarToggler && navbarCollapse) {
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
-    initCounterAnimations();
+    // initCounterAnimations();
     initParallax();
 
     const savedLang = localStorage.getItem('selectedLang') || 'en';
-    setLanguage(savedLang);
+    setLanguage(savedLang, true); // true = set immediately without animation
 
     handleNavbarScroll();
     setFixedActiveNav();
+    document.documentElement.classList.remove('lang-loading');
 });
+
