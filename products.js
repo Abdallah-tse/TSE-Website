@@ -112,7 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
         "vision-eyebrow": "Our Vision",
         "vision-title": "One Platform. Every Touchpoint.",
         "vision-desc": "We believe tour operators should spend their time crafting unforgettable experiences — not wrestling with software. TSE's integrated suite eliminates friction at every operational touchpoint, from first booking inquiry to final invoice.",
-        "vision-cta": "Start the Conversation"
+        "vision-cta": "Start the Conversation",
+
+        "footer-tagline": "Software House Specialized In Travel Solutions"
     };
 
     const productsAr = {
@@ -197,7 +199,9 @@ document.addEventListener('DOMContentLoaded', () => {
         "vision-eyebrow": "رؤيتنا",
         "vision-title": "منصة واحدة. كل نقطة تواصل.",
         "vision-desc": "نؤمن بأن منظمي الرحلات يجب أن يقضوا وقتهم في صياغة تجارب لا تُنسى — لا في الكفاح مع البرامج. تُزيل مجموعة TSE المتكاملة الاحتكاك عند كل نقطة تشغيلية، من أول استفسار حجز وحتى الفاتورة النهائية.",
-        "vision-cta": "ابدأ المحادثة"
+        "vision-cta": "ابدأ المحادثة",
+        
+        "footer-tagline": "شركة برمجيات متخصصة في حلول السفر"
     };
 
     Object.assign(translations.en, productsEn);
