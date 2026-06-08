@@ -1059,16 +1059,20 @@ body {
 
 .float-notify {
     top: -15px;
-    right: -20px;
+    inset-inline-end: -20px;             /* Automatically maps to right in LTR, left in RTL */
+    border-inline-start: 3px solid #4ade80;
+    /* right: -20px;
     animation-delay: 2.2s;
-    border-left: 3px solid #4ade80;
+    border-left: 3px solid #4ade80; */
 }
 
 .float-uptime {
     bottom: 20px;
-    left: -25px;
+    inset-inline-start: -25px;
+    border-inline-start: 3px solid var(--itoms-teal);
+    /* left: -25px;
     animation-delay: 2.6s;
-    border-left: 3px solid var(--itoms-teal);
+    border-left: 3px solid var(--itoms-teal); */
 }
 
 @keyframes floatCardIn {
