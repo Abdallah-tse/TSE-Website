@@ -16,7 +16,7 @@ chips.forEach(chip => {
     });
 });
 
-// ---- Client-side form validation & mailto submit ----
+// ---- Client-side form validation & Web3Forms submission ----
 const form = document.getElementById('contact-form');
 const successState = document.getElementById('form-success');
 const submitBtn = document.getElementById('submit-btn');
@@ -43,9 +43,10 @@ if (form) {
                     }
                 }, 300);
             }, 400);
-            return; // bail out — no mailto fired
+            return; // bail out
         }
 
+        // ---- Form Validation ----
         const name = document.getElementById('contact-name');
         const email = document.getElementById('contact-email');
         const message = document.getElementById('contact-message');
@@ -71,38 +72,46 @@ if (form) {
 
         if (!valid) return;
 
-        // Build mailto href
-        const product = hiddenProductInput ? hiddenProductInput.value : '';
-        const company = document.getElementById('contact-company')?.value || '';
-        const phone = document.getElementById('contact-phone')?.value || '';
-        const nameVal = name?.value || '';
-        const emailVal = email?.value || '';
-        const msgVal = message?.value || '';
-
-        const subject = encodeURIComponent(`TSE Inquiry — ${product} — ${nameVal}`);
-        const body = encodeURIComponent(
-            `Name: ${nameVal}\nCompany: ${company}\nEmail: ${emailVal}\nPhone: ${phone}\nProduct Interest: ${product}\n\nMessage:\n${msgVal}`
-        );
-
-        window.location.href = `mailto:tse@tsegypt.com?subject=${subject}&body=${body}`;
-
-        // Show success state
+        // ---- Web3Forms AJAX Submission ----
         if (submitBtn) submitBtn.disabled = true;
-        setTimeout(() => {
-            form.style.transition = 'opacity 0.3s ease';
-            form.style.opacity = '0';
-            setTimeout(() => {
-                form.hidden = true;
-                if (successState) {
-                    successState.hidden = false;
-                    successState.style.opacity = '0';
-                    successState.style.transition = 'opacity 0.4s ease';
-                    requestAnimationFrame(() => {
-                        successState.style.opacity = '1';
-                    });
+
+        // Automatically captures all form fields, including your access_key and hidden product field
+        const formData = new FormData(form);
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        })
+            .then(async (response) => {
+                let res = await response.json();
+
+                if (response.status === 200) {
+                    // Smooth fade-out for the form, fade-in for success panel
+                    form.style.transition = 'opacity 0.3s ease';
+                    form.style.opacity = '0';
+                    setTimeout(() => {
+                        form.hidden = true;
+                        if (successState) {
+                            successState.hidden = false;
+                            successState.style.opacity = '0';
+                            successState.style.transition = 'opacity 0.4s ease';
+                            requestAnimationFrame(() => {
+                                successState.style.opacity = '1';
+                            });
+                        }
+                    }, 300);
+                } else {
+                    // API-level error tracking
+                    alert(res.message || "Something went wrong. Please try again.");
+                    if (submitBtn) submitBtn.disabled = false;
                 }
-            }, 300);
-        }, 400);
+            })
+            .catch(error => {
+                // Network failure fallback
+                console.error('Submission Error:', error);
+                alert("Network error. Please check your connection and try again.");
+                if (submitBtn) submitBtn.disabled = false;
+            });
     });
 
     // Live validation: clear error on input
