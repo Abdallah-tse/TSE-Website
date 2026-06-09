@@ -7,31 +7,51 @@
     <meta name="description"
         content="Contact Travel Solutions Egypt — Get in touch with our engineering team for a system demonstration.">
     <title>Contact Us | TSE — Travel Solutions Egypt</title>
-    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css" id="bootstrap-ltr">
-    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.rtl.min.css" id="bootstrap-rtl" disabled>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="contact.css">
+
+    <!-- Preload both fonts to prevent FOUT when switching -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        as="style">
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap"
+        as="style">
+
+    <!-- Load both CSS frameworks upfront (no disabled attribute) -->
+    <!-- LTR is default, RTL loads inert but ready -->
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css" id="bootstrap-ltr">
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.rtl.min.css" id="bootstrap-rtl" media="none"
+        onload="if(this.media!=='none')this.media='none'">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
+
+    <!-- Critical: Language applied before ANY rendering -->
     <script>
         (function () {
             const savedLang = localStorage.getItem('selectedLang') || 'en';
-            if (savedLang === 'ar') {
-                // 1. Set document attributes immediately
-                document.documentElement.setAttribute('lang', 'ar');
-                document.documentElement.setAttribute('dir', 'rtl');
-                document.documentElement.classList.add('lang-loading');
+            const html = document.documentElement;
 
-                // 2. Disable LTR and enable RTL CSS immediately before layout builds
-                const ltrCss = document.getElementById('bootstrap-ltr');
-                const rtlCss = document.getElementById('bootstrap-rtl');
-                if (ltrCss) ltrCss.setAttribute('disabled', 'true');
-                if (rtlCss) rtlCss.removeAttribute('disabled');
+            if (savedLang === 'ar') {
+                html.setAttribute('lang', 'ar');
+                html.setAttribute('dir', 'rtl');
+                html.classList.add('lang-loading');
+
+                // Swap stylesheet media synchronously before paint
+                const ltr = document.getElementById('bootstrap-ltr');
+                const rtl = document.getElementById('bootstrap-rtl');
+                if (ltr) ltr.media = 'none';
+                if (rtl) rtl.media = 'all';
+            } else {
+                html.setAttribute('lang', 'en');
+                html.setAttribute('dir', 'ltr');
             }
         })();
     </script>
 
     <style>
+        /* Prevent FOUC on AR page reload before JS runs */
         .lang-loading body {
             opacity: 0 !important;
             visibility: hidden !important;

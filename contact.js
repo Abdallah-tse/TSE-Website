@@ -46,8 +46,8 @@ if (form) {
             return; // bail out — no mailto fired
         }
 
-        const name    = document.getElementById('contact-name');
-        const email   = document.getElementById('contact-email');
+        const name = document.getElementById('contact-name');
+        const email = document.getElementById('contact-email');
         const message = document.getElementById('contact-message');
         let valid = true;
 
@@ -72,15 +72,15 @@ if (form) {
         if (!valid) return;
 
         // Build mailto href
-        const product  = hiddenProductInput ? hiddenProductInput.value : '';
-        const company  = document.getElementById('contact-company')?.value || '';
-        const phone    = document.getElementById('contact-phone')?.value || '';
-        const nameVal  = name?.value || '';
+        const product = hiddenProductInput ? hiddenProductInput.value : '';
+        const company = document.getElementById('contact-company')?.value || '';
+        const phone = document.getElementById('contact-phone')?.value || '';
+        const nameVal = name?.value || '';
         const emailVal = email?.value || '';
-        const msgVal   = message?.value || '';
+        const msgVal = message?.value || '';
 
         const subject = encodeURIComponent(`TSE Inquiry — ${product} — ${nameVal}`);
-        const body    = encodeURIComponent(
+        const body = encodeURIComponent(
             `Name: ${nameVal}\nCompany: ${company}\nEmail: ${emailVal}\nPhone: ${phone}\nProduct Interest: ${product}\n\nMessage:\n${msgVal}`
         );
 
@@ -181,8 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
         Object.assign(translations.en, contactEn);
         Object.assign(translations.ar, contactAr);
 
-        // Re-apply current language to pick up new keys
-        const currentLang = document.getElementById('theme-html')?.getAttribute('lang') || 'en';
+        // Re-apply current language to pick up the new keys
+        const currentLang = document.documentElement.getAttribute('lang') || 'en';
         if (typeof setLanguage === 'function') {
             setLanguage(currentLang, true);
         }
