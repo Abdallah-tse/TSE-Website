@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "vision-title": "منصة واحدة. كل نقطة تواصل.",
         "vision-desc": "نؤمن بأن منظمي الرحلات يجب أن يقضوا وقتهم في صياغة تجارب لا تُنسى — لا في الكفاح مع البرامج. تُزيل مجموعة TSE المتكاملة الاحتكاك عند كل نقطة تشغيلية، من أول استفسار حجز وحتى الفاتورة النهائية.",
         "vision-cta": "ابدأ المحادثة",
-        
+
         "footer-tagline": "شركة برمجيات متخصصة في حلول السفر",
         "footer-address": "القاهرة، مصر"
     };
@@ -209,8 +209,8 @@ document.addEventListener('DOMContentLoaded', () => {
     Object.assign(translations.en, productsEn);
     Object.assign(translations.ar, productsAr);
 
-    // Re-apply current language
-    const currentLang = document.getElementById('theme-html')?.getAttribute('lang') || 'en';
+    // Re-apply current language to pick up the new keys
+    const currentLang = document.documentElement.getAttribute('lang') || 'en';
     if (typeof setLanguage === 'function') {
         setLanguage(currentLang, true);
     }
