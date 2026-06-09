@@ -1,70 +1,102 @@
 // ==========================================
-// TSE INTERACTIVE ENGINE v3.0
+// TSE INTERACTIVE ENGINE v3.1 — Optimized
 // ==========================================
 
 const langToggler = document.getElementById('lang-toggler');
-const htmlTag = document.getElementById('theme-html');
+const htmlTag = document.documentElement;
 const ltrCss = document.getElementById('bootstrap-ltr');
 const rtlCss = document.getElementById('bootstrap-rtl');
 const navbar = document.getElementById('main-nav');
 const backToTop = document.getElementById('back-to-top');
 
+// Cache for translations to avoid repeated DOM queries
+let translationCache = null;
+let currentLang = 'en';
+
 // ==========================================
-// 1. LANGUAGE SYSTEM
+// 1. LANGUAGE SYSTEM — Zero-Flicker Switch
 // ==========================================
 function setLanguage(lang, immediate = false) {
     if (typeof translations === 'undefined') {
         console.error("TSE Engine Error: translations.js failed to load.");
         return;
     }
-
     if (!translations[lang]) {
         console.error(`TSE Engine Error: Language '${lang}' missing in translations.js.`);
         return;
     }
 
-    if (lang === 'ar') {
-        htmlTag.setAttribute('lang', 'ar');
-        htmlTag.setAttribute('dir', 'rtl');
-        if (rtlCss) rtlCss.removeAttribute('disabled');
-        if (ltrCss) ltrCss.setAttribute('disabled', 'true');
-    } else {
-        htmlTag.setAttribute('lang', 'en');
-        htmlTag.setAttribute('dir', 'ltr');
-        if (ltrCss) ltrCss.removeAttribute('disabled');
-        if (rtlCss) rtlCss.setAttribute('disabled', 'true');
+    // Skip if already active
+    if (currentLang === lang && !immediate) return;
+    currentLang = lang;
+
+    // 1. Hide body to prevent partial repaint (single reflow)
+    if (!immediate) {
+        htmlTag.classList.add('lang-loading');
     }
 
-    document.querySelectorAll('[data-key]').forEach(element => {
-        const key = element.getAttribute('data-key');
+    // 2. Batch all DOM reads first (avoid interleaved read/write)
+    const elements = document.querySelectorAll('[data-key]');
+    const updates = [];
+    elements.forEach(el => {
+        const key = el.getAttribute('data-key');
         if (translations[lang][key]) {
-            if (immediate) {
-                // Initial load: inject text instantly with zero flash/animation
-                element.textContent = translations[lang][key];
-            } else {
-                element.textContent = translations[lang][key];
-            }
+            updates.push({ el, text: translations[lang][key] });
         }
     });
 
+    // 3. Apply direction and stylesheet (batched)
+    requestAnimationFrame(() => {
+        if (lang === 'ar') {
+            htmlTag.setAttribute('lang', 'ar');
+            htmlTag.setAttribute('dir', 'rtl');
+            if (rtlCss) rtlCss.media = 'all';
+            if (ltrCss) ltrCss.media = 'none';
+        } else {
+            htmlTag.setAttribute('lang', 'en');
+            htmlTag.setAttribute('dir', 'ltr');
+            if (ltrCss) ltrCss.media = 'all';
+            if (rtlCss) rtlCss.media = 'none';
+        }
+
+        // 4. Batch all DOM writes (single reflow)
+        requestAnimationFrame(() => {
+            updates.forEach(({ el, text }) => {
+                el.textContent = text;
+            });
+
+            // 5. Show body again
+            if (!immediate) {
+                // Force browser to process styles first
+                htmlTag.offsetHeight; // Trigger layout flush
+                htmlTag.classList.remove('lang-loading');
+            }
+        });
+    });
+
     localStorage.setItem('selectedLang', lang);
+
+    // Update toggle button text
+    if (langToggler) {
+        const span = langToggler.querySelector('.lang-toggle-text');
+        if (span && translations[lang]['toggleBtn']) {
+            span.textContent = translations[lang]['toggleBtn'];
+        }
+    }
 }
 
 if (langToggler) {
     langToggler.addEventListener('click', () => {
-        const currentLang = htmlTag.getAttribute('lang') || 'en';
         const newLang = currentLang === 'en' ? 'ar' : 'en';
-        setLanguage(newLang, false); // false = animate the change
+        setLanguage(newLang, false);
     });
 }
-
 
 // ==========================================
 // 2. SCROLL OBSERVER & ANIMATIONS
 // ==========================================
 function initScrollAnimations() {
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
-
     const observerOptions = {
         root: null,
         rootMargin: '0px 0px -50px 0px',
@@ -109,24 +141,19 @@ window.addEventListener('scroll', () => {
 });
 
 // ==========================================
-// 4. COUNTER ANIMATION FOR STATS
+// 4. STATS DISPLAY
 // ==========================================
 function initStatsDisplay() {
     const counters = document.querySelectorAll('[data-count]');
-
     counters.forEach(element => {
         const target = parseFloat(element.getAttribute('data-count'));
         const suffix = element.getAttribute('data-suffix') || '';
-
         if (!isNaN(target)) {
-            if (Number.isInteger(target)) {
-                element.textContent = target + suffix;
-            } else {
-                element.textContent = target.toFixed(1) + suffix;
-            }
+            element.textContent = (Number.isInteger(target) ? target : target.toFixed(1)) + suffix;
         }
     });
 }
+
 // ==========================================
 // 5. BACK TO TOP BUTTON
 // ==========================================
@@ -151,7 +178,7 @@ window.addEventListener('scroll', handleBackToTop);
 // 6. SMOOTH SCROLL FOR ANCHOR LINKS
 // ==========================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
         if (href === '#') return;
         const target = document.querySelector(href);
@@ -166,14 +193,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ==========================================
 // 7. ACTIVE NAV LINK HIGHLIGHTING
 // ==========================================
-
-// If the page declares a fixed active nav link via data-active-page on <body>,
-// skip scroll-based highlighting entirely and honour that declaration.
 const activePageHref = document.body.getAttribute('data-active-page');
 
 function highlightActiveNav() {
-    if (activePageHref) return; // fixed active page — don't override on scroll
-
+    if (activePageHref) return;
     const sections = document.querySelectorAll('section[id], header[id]');
     const navLinks = document.querySelectorAll('.nav-link');
     let currentSection = '';
@@ -250,14 +273,28 @@ if (navbarToggler && navbarCollapse) {
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
-    // initCounterAnimations();
     initParallax();
+    initStatsDisplay();
 
+    // Apply saved language immediately (already set in HTML head, but ensure JS state)
     const savedLang = localStorage.getItem('selectedLang') || 'en';
-    setLanguage(savedLang, true); // true = set immediately without animation
+    currentLang = savedLang; // Set initial state without triggering switch
+
+    // Only update toggle button text, don't re-apply language (already done in head)
+    if (langToggler) {
+        const span = langToggler.querySelector('.lang-toggle-text');
+        if (span && translations[savedLang] && translations[savedLang]['toggleBtn']) {
+            span.textContent = translations[savedLang]['toggleBtn'];
+        }
+    }
 
     handleNavbarScroll();
     setFixedActiveNav();
-    document.documentElement.classList.remove('lang-loading');
-});
 
+    // Remove loading class after fonts settle
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            htmlTag.classList.remove('lang-loading');
+        });
+    });
+});
