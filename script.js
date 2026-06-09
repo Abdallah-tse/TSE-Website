@@ -42,13 +42,7 @@ function setLanguage(lang, immediate = false) {
                 // Initial load: inject text instantly with zero flash/animation
                 element.textContent = translations[lang][key];
             } else {
-                // Button click toggle: apply smooth visual transition
-                element.style.opacity = '0.7';
-                element.style.transition = 'opacity 0.15s ease';
-                setTimeout(() => {
-                    element.textContent = translations[lang][key];
-                    element.style.opacity = '1';
-                }, 150);
+                element.textContent = translations[lang][key];
             }
         }
     });

@@ -27,7 +27,7 @@ const translations = {
         "stat-3-text": "Operational Environment Uptime",
 
         // Core Standards Section
-        "standards-badge": "Core Standards",
+        "standards-badge": "Meeting needs, Empowering the industry",
         "standards-title": "Engineered for the Travel Industry",
         "standards-desc": "Built with enterprise-grade architecture to handle the complexities of modern travel operations.",
         "feat-1-title": "High Performance",
@@ -49,7 +49,7 @@ const translations = {
         "itoms-sub-2-desc": "Live dashboards tracking bookings, revenue, and operational metrics.",
 
         // Verification Strip
-        "customers-subtitle": "Trusted Architecture",
+        "customers-subtitle": "Serving customers is our motto",
         "customers-title": "Our Customers",
 
         "about-eyebrow": "About Us",
@@ -119,7 +119,7 @@ const translations = {
         "stat-3-text": "جاهزية تشغيلية مستمرة للنظام",
 
         // Core Standards Section
-        "standards-badge": "المعايير الأساسية",
+        "standards-badge": "تلبية الاحتياجات، لتمكين الصناعة",
         "standards-title": "مُصممة خصيصاً لقطاع السياحة والسفر",
         "standards-desc": "تم تصميمها ببنية تحتية متطورة للتعامل مع تعقيدات عمليات السفر الحديثة",
         "feat-1-title": "أداء فائق السرعة",
@@ -141,7 +141,7 @@ const translations = {
         "itoms-sub-2-desc": "لوحات تحكم مباشرة تتبع الحجوزات والإيرادات والبيانات التشغيلية.",
 
         // Verification Strip
-        "customers-subtitle": "بنية برمجية موثوقة",
+        "customers-subtitle": "خدمة العملاء هي شعارنا",
         "customers-title": "عملاؤنا",
 
         "about-eyebrow": "من نحن",
