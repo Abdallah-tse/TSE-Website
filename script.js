@@ -14,7 +14,7 @@ let translationCache = null;
 let currentLang = 'en';
 
 // ==========================================
-// 1. LANGUAGE SYSTEM — Zero-Flicker Switch
+// 1. LANGUAGE SYSTEM — Instant Synchronous Switch
 // ==========================================
 function setLanguage(lang, immediate = false) {
     if (typeof translations === 'undefined') {
@@ -30,59 +30,27 @@ function setLanguage(lang, immediate = false) {
     if (currentLang === lang && !immediate) return;
     currentLang = lang;
 
-    // 1. Hide body to prevent partial repaint (single reflow)
-    if (!immediate) {
-        htmlTag.classList.add('lang-loading');
-    }
+    const t = translations[lang];
+    const isRTL = lang === 'ar';
 
-    // 2. Batch all DOM reads first (avoid interleaved read/write)
-    const elements = document.querySelectorAll('[data-key]');
-    const updates = [];
-    elements.forEach(el => {
-        const key = el.getAttribute('data-key');
-        if (translations[lang][key]) {
-            updates.push({ el, text: translations[lang][key] });
-        }
-    });
+    // --- Everything is one synchronous batch: zero rAF, zero timeouts ---
+    // The browser won't paint mid-batch, so there is no visible intermediate state.
 
-    // 3. Apply direction and stylesheet (batched)
-    requestAnimationFrame(() => {
-        if (lang === 'ar') {
-            htmlTag.setAttribute('lang', 'ar');
-            htmlTag.setAttribute('dir', 'rtl');
-            if (rtlCss) rtlCss.media = 'all';
-            if (ltrCss) ltrCss.media = 'none';
-        } else {
-            htmlTag.setAttribute('lang', 'en');
-            htmlTag.setAttribute('dir', 'ltr');
-            if (ltrCss) ltrCss.media = 'all';
-            if (rtlCss) rtlCss.media = 'none';
-        }
+    // 1. Direction + lang attribute
+    htmlTag.setAttribute('lang', isRTL ? 'ar' : 'en');
+    htmlTag.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
 
-        // 4. Batch all DOM writes (single reflow)
-        requestAnimationFrame(() => {
-            updates.forEach(({ el, text }) => {
-                el.textContent = text;
-            });
+    // 2. Bootstrap stylesheet swap via media (already parsed, just toggled)
+    if (ltrCss) ltrCss.media = isRTL ? 'none' : 'all';
+    if (rtlCss) rtlCss.media = isRTL ? 'all' : 'none';
 
-            // 5. Show body again
-            if (!immediate) {
-                // Force browser to process styles first
-                htmlTag.offsetHeight; // Trigger layout flush
-                htmlTag.classList.remove('lang-loading');
-            }
-        });
+    // 3. All text updates in one pass
+    document.querySelectorAll('[data-key]').forEach(el => {
+        const val = t[el.getAttribute('data-key')];
+        if (val) el.textContent = val;
     });
 
     localStorage.setItem('selectedLang', lang);
-
-    // Update toggle button text
-    if (langToggler) {
-        const span = langToggler.querySelector('.lang-toggle-text');
-        if (span && translations[lang]['toggleBtn']) {
-            span.textContent = translations[lang]['toggleBtn'];
-        }
-    }
 }
 
 if (langToggler) {
@@ -276,25 +244,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initParallax();
     initStatsDisplay();
 
-    // Apply saved language immediately (already set in HTML head, but ensure JS state)
     const savedLang = localStorage.getItem('selectedLang') || 'en';
-    currentLang = savedLang; // Set initial state without triggering switch
-
-    // Only update toggle button text, don't re-apply language (already done in head)
-    if (langToggler) {
-        const span = langToggler.querySelector('.lang-toggle-text');
-        if (span && translations[savedLang] && translations[savedLang]['toggleBtn']) {
-            span.textContent = translations[savedLang]['toggleBtn'];
-        }
-    }
+    setLanguage(savedLang, true); // instant, no animation
 
     handleNavbarScroll();
     setFixedActiveNav();
-
-    // Remove loading class after fonts settle
-    requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-            htmlTag.classList.remove('lang-loading');
-        });
-    });
+    htmlTag.classList.remove('lang-loading');
 });

@@ -53,16 +53,11 @@
     </script>
 
     <style>
-        /* Prevent FOUC (Flash of Unstyled Content) */
+        /* Prevent FOUC on AR page reload before JS runs */
         .lang-loading body {
             opacity: 0 !important;
             visibility: hidden !important;
             transition: none !important;
-        }
-
-        /* Smooth fade-in once ready */
-        html:not(.lang-loading) body {
-            transition: opacity 0.01s ease;
         }
     </style>
 </head>
