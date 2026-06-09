@@ -26,15 +26,16 @@ function setLanguage(lang, immediate = false) {
         return;
     }
 
-    // Skip if already active
+    // Skip if already active (but never skip when called with immediate=true,
+    // so page-specific scripts can force a re-apply after merging new keys)
     if (currentLang === lang && !immediate) return;
     currentLang = lang;
 
     const t = translations[lang];
     const isRTL = lang === 'ar';
 
-    // --- Everything is one synchronous batch: zero rAF, zero timeouts ---
-    // The browser won't paint mid-batch, so there is no visible intermediate state.
+    // Everything is one synchronous batch — no rAF, no timeouts, no hiding.
+    // The browser won't paint mid-script so there is no visible intermediate state.
 
     // 1. Direction + lang attribute
     htmlTag.setAttribute('lang', isRTL ? 'ar' : 'en');

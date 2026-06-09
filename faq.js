@@ -5,7 +5,7 @@
 // ── ACCORDION ──
 document.querySelectorAll('.faq-question').forEach(btn => {
     btn.addEventListener('click', () => {
-        const item   = btn.closest('.faq-item');
+        const item = btn.closest('.faq-item');
         const answer = item.querySelector('.faq-answer');
         const isOpen = item.classList.contains('open');
 
@@ -35,7 +35,7 @@ sidebarBtns.forEach(btn => {
         btn.classList.add('active');
 
         const targetId = btn.getAttribute('data-target');
-        const target   = document.getElementById(targetId);
+        const target = document.getElementById(targetId);
         if (target) {
             const offsetTop = target.getBoundingClientRect().top + window.scrollY - 96;
             window.scrollTo({ top: offsetTop, behavior: 'smooth' });
@@ -62,7 +62,7 @@ window.addEventListener('scroll', updateSidebarSpy, { passive: true });
 
 // ── SEARCH / FILTER ──
 const searchInput = document.getElementById('faq-search');
-const noResults   = document.getElementById('faq-no-results');
+const noResults = document.getElementById('faq-no-results');
 
 function escapeRegex(str) {
     return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -103,8 +103,8 @@ if (searchInput) {
             let groupVisible = 0;
 
             group.querySelectorAll('.faq-item').forEach(item => {
-                const qText   = item.querySelector('.faq-q-text').textContent.toLowerCase();
-                const aText   = item.querySelector('.faq-answer-inner').textContent.toLowerCase();
+                const qText = item.querySelector('.faq-q-text').textContent.toLowerCase();
+                const aText = item.querySelector('.faq-answer-inner').textContent.toLowerCase();
                 const matches = !q || qText.includes(q) || aText.includes(q);
 
                 item.style.display = matches ? '' : 'none';
@@ -132,7 +132,7 @@ if (searchInput) {
 function patchSearchPlaceholder() {
     if (!searchInput) return;
     const lang = document.documentElement.getAttribute('lang') || 'en';
-    
+
     // Dynamically pulls from the newly merged translations dictionary
     if (typeof translations !== 'undefined' && translations[lang]) {
         searchInput.placeholder = translations[lang]['faq-search-placeholder'] || 'Search...';
@@ -151,14 +151,18 @@ langObserver.observe(document.documentElement, {
 });
 
 
-// ── LOCAL DICTIONARIES & RUNTIME INGESTION (Contact-Style) ──
-const faqEn = {
-    "faq-search-placeholder": "Search questions…",
-    "faq-main-title": "Frequently Asked Questions",
-    "faq-sub-title": "Find answers to common questions about our system modules.",
-    "footer-tagline": "Software House Specialised in Travel Solutions.",
-    // Move any other FAQ-specific keys from translations.js into here
-    // FAQ Page
+// ── LOCAL DICTIONARIES & RUNTIME INGESTION ──
+// Wrapped in DOMContentLoaded so it runs after script.js's DOMContentLoaded handler
+// (which calls setLanguage for the initial load). This way the merge + re-apply
+// happens in the correct order with no rAF race.
+document.addEventListener('DOMContentLoaded', () => {
+    const faqEn = {
+        "faq-search-placeholder": "Search questions…",
+        "faq-main-title": "Frequently Asked Questions",
+        "faq-sub-title": "Find answers to common questions about our system modules.",
+        "footer-tagline": "Software House Specialised in Travel Solutions.",
+        // Move any other FAQ-specific keys from translations.js into here
+        // FAQ Page
         "faq-hero-badge": "Help Center",
         "faq-hero-title": "Frequently Asked Questions",
         "faq-hero-desc": "Everything you need to know about TSE's products, implementation process, and support options.",
@@ -231,15 +235,15 @@ const faqEn = {
         "faq-t5-q": "How do I request a demo or get started?",
         "faq-t5-a": "Contact our engineering team at tse@tsegypt.com, call or WhatsApp +201555729580, or submit a message on our contact page. We'll schedule a session tailored to your operational requirements.",
         "footer-address": "Cairo, Egypt"
-};
+    };
 
-const faqAr = {
-    "faq-search-placeholder": "ابحث في الأسئلة…",
-    "faq-main-title": "الأسئلة الشائعة",
-    "faq-sub-title": "ابحث عن إجابات للأسئلة الشائعة حول وحدات النظام.",
-    "footer-tagline": "شركة برمجيات متخصصة في حلول السفر.",
-    // Add the matching Arabic values here
-    // FAQ Page (Arabic)
+    const faqAr = {
+        "faq-search-placeholder": "ابحث في الأسئلة…",
+        "faq-main-title": "الأسئلة الشائعة",
+        "faq-sub-title": "ابحث عن إجابات للأسئلة الشائعة حول وحدات النظام.",
+        "footer-tagline": "شركة برمجيات متخصصة في حلول السفر.",
+        // Add the matching Arabic values here
+        // FAQ Page (Arabic)
         "faq-hero-badge": "مركز المساعدة",
         "faq-hero-title": "الأسئلة الشائعة",
         "faq-hero-desc": "كل ما تحتاج معرفته عن منتجات TSE وعملية التنفيذ وخيارات الدعم.",
@@ -312,17 +316,18 @@ const faqAr = {
         "faq-t5-q": "كيف أطلب عرضاً توضيحياً أو أبدأ؟",
         "faq-t5-a": "تواصل مع الفريق الهندسي عبر tse@tsegypt.com أو الهاتف/واتساب +201555729580 أو عبر صفحة التواصل. سنحدد موعداً مخصصاً لمتطلبات مؤسستك التشغيلية.",
         "footer-address": "القاهرة، مصر"
-    
-};
 
-// 1. Inject local pairs into the global translations scope dynamically
-if (typeof translations !== 'undefined') {
-    Object.assign(translations.en, faqEn);
-    Object.assign(translations.ar, faqAr);
-}
+    };
 
-// 2. Force an immediate engine re-run to catch the new keys right after launch
-const currentLang = document.documentElement.getAttribute('lang') || 'en';
-if (typeof setLanguage === 'function') {
-    setLanguage(currentLang, true); // true avoids visual fade animations on initial load
-}
+    // 1. Inject local pairs into the global translations scope dynamically
+    if (typeof translations !== 'undefined') {
+        Object.assign(translations.en, faqEn);
+        Object.assign(translations.ar, faqAr);
+    }
+
+    // 2. Re-apply current language to pick up the newly merged keys
+    const currentLang = document.documentElement.getAttribute('lang') || 'en';
+    if (typeof setLanguage === 'function') {
+        setLanguage(currentLang, true);
+    }
+}); // end DOMContentLoaded
