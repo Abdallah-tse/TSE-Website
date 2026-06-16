@@ -21,8 +21,8 @@ const translations = {
         // Metrics
         "stat-1-num": "20+",
         "stat-1-text": "Years Enterprise Experience",
-        "stat-2-num": "50+",
-        "stat-2-text": "Tour Operators Automated",
+        "stat-2-num": "90%",
+        "stat-2-text": "Manual Operations Automated",
         "stat-3-num": "99.9%",
         "stat-3-text": "Operational Environment Uptime",
 
@@ -41,7 +41,7 @@ const translations = {
 
         // Bento Display Area
         "itoms-title": "Built for Dynamic Tour Operators",
-        "itoms-desc": "Our primary ERP suite automates booking requests, client manifest handling, hotel allotments, and field guide distributions within one single application ecosystem.",
+        "itoms-desc": "Our primary ERP suite automates booking requests, client manifest handling, hotel/cruise allotments, and field guide distributions within one single application ecosystem.",
         "itoms-btn": "Explore ITOMS Platform",
         "itoms-sub-1": "Modular Architecture",
         "itoms-sub-1-desc": "Deploy only the modules your operation needs. Scale effortlessly as you grow.",
@@ -50,7 +50,7 @@ const translations = {
 
         // Verification Strip
         "customers-subtitle": "Serving customers is our motto",
-        "customers-title": "Our Customers",
+        "customers-title": "Our Valued Customers",
 
         "about-eyebrow": "About Us",
         "about-title-main": "Company Profile",
@@ -69,7 +69,7 @@ const translations = {
         "tech-desc-main": "Enterprise processing engines deployed to maintain transactional stability across systems.",
         "tech-cell-1": ".NET Framework",
         "tech-cell-2": "Windows Forms",
-        "tech-cell-3": "MySQL",
+        "tech-cell-3": "SQL",
         "tech-cell-4": "IIS Server",
         "tech-cell-5": "Locally Hosted",
         "tech-cell-6": "SSL/TLS",
@@ -113,8 +113,8 @@ const translations = {
         // Metrics
         "stat-1-num": "+٢٠",
         "stat-1-text": "عاماً من الخبرة في قطاع المؤسسات",
-        "stat-2-num": "+٥٠",
-        "stat-2-text": "شركة سياحة تمت أتمتتها بالكامل",
+        "stat-2-num": "٩٠٪",
+        "stat-2-text": "العمليات اليدوية المميكنة",
         "stat-3-num": "٩٩.٩٪",
         "stat-3-text": "جاهزية تشغيلية مستمرة للنظام",
 
@@ -133,7 +133,7 @@ const translations = {
 
         // Bento Display Area
         "itoms-title": "مُصمم لمنظمي الرحلات الديناميكية",
-        "itoms-desc": "يقوم نظام إدارة الموارد الأساسي (ERP) لدينا بأتمتة طلبات الحجز، ومعالجة كشوفات العملاء، وحصص الفنادق، وتوزيعات المرشدين الميدانيين ضمن بيئة تطبيق موحدة.",
+        "itoms-desc": "يقوم نظام إدارة الموارد الأساسي (ERP) لدينا بأتمتة طلبات الحجز، ومعالجة كشوفات العملاء، وحصص الفنادق/الرحلات البحريّة، وتوزيعات المرشدين الميدانيين ضمن بيئة تطبيق موحدة.",
         "itoms-btn": "استكشف منصة ITOMS",
         "itoms-sub-1": "بنية معيارية",
         "itoms-sub-1-desc": "قم بنشر الوحدات التي يحتاجها عملك فقط. قم بالتوسع بسهولة مع نمو عملك.",
@@ -142,7 +142,7 @@ const translations = {
 
         // Verification Strip
         "customers-subtitle": "خدمة العملاء هي شعارنا",
-        "customers-title": "عملاؤنا",
+        "customers-title": "عملاؤنا المميزون",
 
         "about-eyebrow": "من نحن",
         "about-title-main": "عن الشركة",
@@ -160,7 +160,7 @@ const translations = {
         "tech-desc-main": "محركات معالجة مخصصة للمؤسسات يتم نشرها للحفاظ على استقرار العمليات عبر جميع الأنظمة.",
         "tech-cell-1": ".NET Framework",
         "tech-cell-2": "Windows Forms",
-        "tech-cell-3": "MySQL",
+        "tech-cell-3": "SQL",
         "tech-cell-4": "IIS Server",
         "tech-cell-5": "الاستضافة المحلية",
         "tech-cell-6": "SSL/TLS",
