@@ -310,8 +310,11 @@
     font-size: 0.72rem;
     font-weight: 600;
     color: var(--itoms-teal);
-    opacity: 0;
-    transform: translateY(2px);
+    
+    /* Change these two lines to make it always visible */
+    opacity: 1;
+    transform: translateY(0); 
+    
     transition: opacity var(--duration-fast) var(--ease-out-expo), transform var(--duration-fast) var(--ease-out-expo);
 }
 
@@ -321,11 +324,11 @@
     flex-shrink: 0;
 }
 
-.cap-card-clickable:hover .cap-card-link-hint,
+/* .cap-card-clickable:hover .cap-card-link-hint,
 .cap-card-clickable:focus-visible .cap-card-link-hint {
     opacity: 1;
     transform: translateY(0);
-}
+} */
 
 .cap-card-clickable:hover {
     border-color: rgba(0, 164, 166, 0.5);
@@ -411,7 +414,7 @@ html[dir="rtl"] .arch-modal-close {
 .itoms-architecture-block {
     background: linear-gradient(160deg, #060a14 0%, #080d18 45%, #0a111f 100%);
     border-radius: var(--radius-xl);
-    padding: 2.5rem 2rem 2rem;
+    padding: 1.5rem 2rem 2rem;
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.06);
@@ -419,7 +422,7 @@ html[dir="rtl"] .arch-modal-close {
 }
 
 .arch-modal-dialog .itoms-architecture-block {
-    padding-top: 2.5rem;
+    padding-top: 1.5rem;
 }
 
 .itoms-architecture-block::before {
@@ -427,8 +430,11 @@ html[dir="rtl"] .arch-modal-close {
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse 700px 350px at 15% 10%, rgba(0, 164, 166, 0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 600px 300px at 90% 90%, rgba(211, 30, 36, 0.06) 0%, transparent 70%);
+        radial-gradient(ellipse 650px 320px at 10% 8%, rgba(0, 164, 166, 0.1) 0%, transparent 70%),
+        radial-gradient(ellipse 550px 300px at 90% 15%, rgba(245, 158, 11, 0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 320px at 8% 55%, rgba(139, 92, 246, 0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 320px at 92% 60%, rgba(244, 63, 94, 0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 700px 350px at 50% 95%, rgba(59, 130, 246, 0.07) 0%, transparent 70%);
     pointer-events: none;
 }
 
@@ -437,7 +443,7 @@ html[dir="rtl"] .arch-modal-close {
     z-index: 2;
     text-align: center;
     max-width: 640px;
-    margin: 0 auto 2.5rem;
+    margin: 0 auto 0.5rem;
 }
 
 .arch-block-eyebrow {
@@ -479,40 +485,66 @@ html[dir="rtl"] .arch-modal-close {
 }
 
 .arch-line line {
-    stroke: rgba(0, 164, 166, 0.32);
+    stroke: rgba(255, 255, 255, 0.32);
     stroke-width: 1.5;
 }
 
 .arch-node {
-    fill: rgba(255, 255, 255, 0.04);
-    stroke: rgba(0, 164, 166, 0.4);
-    stroke-width: 1.5;
+    fill: rgba(255, 255, 255, 0.03);
+    stroke: rgba(255, 255, 255, 0.5);
+    stroke-width: 1.75;
     transition: fill 0.25s ease, stroke 0.25s ease;
 }
 
-.arch-node-red {
-    stroke: rgba(211, 30, 36, 0.45);
-}
-
-.arch-node-accent {
-    fill: rgba(211, 30, 36, 0.07);
-    stroke: rgba(211, 30, 36, 0.35);
-}
-
-.arch-node-core {
+/* Database tier — teal */
+.arch-node-teal {
     fill: rgba(0, 164, 166, 0.14);
-    stroke: #00A4A6;
-    stroke-width: 2.25;
+    stroke: rgba(0, 164, 166, 0.65);
 }
 
+.arch-node-teal-strong {
+    fill: rgba(0, 164, 166, 0.22);
+    stroke: #00C9CC;
+    stroke-width: 2.25;
+    filter: drop-shadow(0 0 14px rgba(0, 164, 166, 0.3));
+}
+
+/* Source modules — amber */
+.arch-node-amber {
+    fill: rgba(245, 158, 11, 0.14);
+    stroke: rgba(245, 158, 11, 0.65);
+}
+
+/* Support systems — violet */
+.arch-node-violet {
+    fill: rgba(139, 92, 246, 0.14);
+    stroke: rgba(167, 139, 250, 0.65);
+}
+
+/* Reservations hub — bright teal, the visual anchor */
 .arch-node-hub {
-    filter: drop-shadow(0 0 18px rgba(0, 164, 166, 0.25));
+    fill: rgba(0, 201, 204, 0.2);
+    stroke: #00E5E8;
+    stroke-width: 2.5;
+    filter: drop-shadow(0 0 22px rgba(0, 201, 204, 0.35));
+}
+
+/* Connectivity layer — rose */
+.arch-node-rose {
+    fill: rgba(244, 63, 94, 0.14);
+    stroke: rgba(251, 113, 133, 0.65);
+}
+
+/* Output layer — blue */
+.arch-node-blue {
+    fill: rgba(59, 130, 246, 0.14);
+    stroke: rgba(96, 165, 250, 0.65);
 }
 
 .arch-label {
     font-size: 14px;
     font-weight: 700;
-    fill: rgba(255, 255, 255, 0.82);
+    fill: rgba(255, 255, 255, 0.92);
 }
 
 .arch-label-core {
