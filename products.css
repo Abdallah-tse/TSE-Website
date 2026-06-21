@@ -292,6 +292,265 @@
     line-height: 1.5;
 }
 
+/* Clickable capability card (e.g. Reservations → opens architecture diagram) */
+.cap-card-clickable {
+    cursor: pointer;
+    position: relative;
+}
+
+.cap-card-clickable:focus-visible {
+    outline: 2px solid var(--itoms-teal);
+    outline-offset: 2px;
+}
+
+.cap-card-link-hint {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--itoms-teal);
+    opacity: 0;
+    transform: translateY(2px);
+    transition: opacity var(--duration-fast) var(--ease-out-expo), transform var(--duration-fast) var(--ease-out-expo);
+}
+
+.cap-card-link-hint svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+}
+
+.cap-card-clickable:hover .cap-card-link-hint,
+.cap-card-clickable:focus-visible .cap-card-link-hint {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cap-card-clickable:hover {
+    border-color: rgba(0, 164, 166, 0.5);
+}
+
+/* ========================================== */
+/* ITOMS ARCHITECTURE — MODAL                 */
+/* ========================================== */
+.arch-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1.25rem;
+    background: rgba(4, 7, 14, 0.78);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--duration-fast) var(--ease-out-expo);
+}
+
+.arch-modal-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.arch-modal-dialog {
+    position: relative;
+    width: 100%;
+    max-width: 980px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: var(--radius-xl);
+    transform: translateY(14px) scale(0.98);
+    opacity: 0;
+    transition: transform var(--duration-fast) var(--ease-out-expo), opacity var(--duration-fast) var(--ease-out-expo);
+}
+
+.arch-modal-overlay.is-open .arch-modal-dialog {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.arch-modal-close {
+    position: absolute;
+    top: 1.1rem;
+    right: 1.1rem;
+    z-index: 5;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-out-expo);
+}
+
+.arch-modal-close svg {
+    width: 16px;
+    height: 16px;
+}
+
+.arch-modal-close:hover {
+    border-color: var(--itoms-teal);
+    background: rgba(0, 164, 166, 0.15);
+    color: #fff;
+}
+
+html[dir="rtl"] .arch-modal-close {
+    right: auto;
+    left: 1.1rem;
+}
+
+/* ========================================== */
+/* ITOMS — SYSTEM ARCHITECTURE DIAGRAM        */
+/* ========================================== */
+.itoms-architecture-block {
+    background: linear-gradient(160deg, #060a14 0%, #080d18 45%, #0a111f 100%);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem 2rem 2rem;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: var(--shadow-xl);
+}
+
+.arch-modal-dialog .itoms-architecture-block {
+    padding-top: 2.5rem;
+}
+
+.itoms-architecture-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 700px 350px at 15% 10%, rgba(0, 164, 166, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 300px at 90% 90%, rgba(211, 30, 36, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.arch-block-header {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 2.5rem;
+}
+
+.arch-block-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(0, 164, 166, 0.9);
+    margin-bottom: 0.6rem;
+}
+
+.arch-block-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.85rem;
+    line-height: 1.25;
+}
+
+.arch-block-desc {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.75;
+    margin: 0;
+}
+
+.arch-diagram-wrap {
+    position: relative;
+    z-index: 2;
+}
+
+.arch-diagram-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+}
+
+.arch-line line {
+    stroke: rgba(0, 164, 166, 0.32);
+    stroke-width: 1.5;
+}
+
+.arch-node {
+    fill: rgba(255, 255, 255, 0.04);
+    stroke: rgba(0, 164, 166, 0.4);
+    stroke-width: 1.5;
+    transition: fill 0.25s ease, stroke 0.25s ease;
+}
+
+.arch-node-red {
+    stroke: rgba(211, 30, 36, 0.45);
+}
+
+.arch-node-accent {
+    fill: rgba(211, 30, 36, 0.07);
+    stroke: rgba(211, 30, 36, 0.35);
+}
+
+.arch-node-core {
+    fill: rgba(0, 164, 166, 0.14);
+    stroke: #00A4A6;
+    stroke-width: 2.25;
+}
+
+.arch-node-hub {
+    filter: drop-shadow(0 0 18px rgba(0, 164, 166, 0.25));
+}
+
+.arch-label {
+    font-size: 14px;
+    font-weight: 700;
+    fill: rgba(255, 255, 255, 0.82);
+}
+
+.arch-label-core {
+    font-size: 16px;
+    font-weight: 800;
+    fill: #ffffff;
+    letter-spacing: 0.01em;
+}
+
+@media (max-width: 991px) {
+    .itoms-architecture-block {
+        padding: 2.5rem 1.5rem 2rem;
+    }
+
+    .arch-modal-dialog .itoms-architecture-block {
+        padding-top: 3.5rem;
+    }
+
+    .arch-block-title {
+        font-size: 1.35rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .itoms-architecture-block {
+        padding: 2rem 1rem 1.5rem;
+        border-radius: var(--radius-lg);
+    }
+
+    .arch-modal-dialog .itoms-architecture-block {
+        padding-top: 3rem;
+    }
+
+    .arch-block-desc {
+        font-size: 0.88rem;
+    }
+}
+
 /* ========================================== */
 /* ARCHIVING — FLOW DIAGRAM                   */
 /* ========================================== */
@@ -846,6 +1105,15 @@
 html[dir="rtl"] .archive-flow {
     direction: ltr;
     /* keep diagram layout consistent */
+}
+
+html[dir="rtl"] .itoms-architecture-block {
+    direction: ltr;
+    /* diagram geometry stays fixed regardless of language */
+}
+
+html[dir="rtl"] .arch-block-header {
+    direction: rtl;
 }
 
 html[dir="rtl"] .product-section-header {

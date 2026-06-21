@@ -251,7 +251,9 @@
                             <div class="cap-card-desc" data-key="cap-allotment-desc">Automated hotel & cruise
                                 allotment tracking across your entire operation.</div>
                         </div>
-                        <div class="cap-card">
+                        <div class="cap-card cap-card-clickable" id="cap-card-reservations" role="button" tabindex="0"
+                            aria-haspopup="dialog" aria-controls="itoms-arch-modal"
+                            aria-label="Reservations — view system architecture diagram">
                             <div class="cap-card-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round">
@@ -262,6 +264,15 @@
                                 </svg>
                             </div>
                             <div class="cap-card-label" data-key="cap-reservations">Reservations</div>
+                            <div class="cap-card-link-hint">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8" />
+                                    <path d="M21 21l-3.8-3.8" />
+                                    <path d="M11 8v3l2 2" />
+                                </svg>
+                                <span data-key="cap-reservations-hint-text">View architecture</span>
+                            </div>
                         </div>
                         <div class="cap-card">
                             <div class="cap-card-icon cap-icon-red">
@@ -306,6 +317,138 @@
             </div>
         </div>
     </section>
+
+    <!-- ========================================== -->
+    <!--  ITOMS ARCHITECTURE MODAL (triggered by     -->
+    <!--  clicking the "Reservations" capability     -->
+    <!--  card above)                                -->
+    <!-- ========================================== -->
+    <div class="arch-modal-overlay" id="itoms-arch-modal" role="dialog" aria-modal="true"
+        aria-labelledby="itoms-arch-modal-title" hidden>
+        <div class="arch-modal-dialog">
+            <button type="button" class="arch-modal-close" id="itoms-arch-modal-close" aria-label="Close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </button>
+
+            <div class="itoms-architecture-block">
+                <div class="arch-block-header">
+                    <span class="arch-block-eyebrow" data-key="itoms-arch-eyebrow">System Architecture</span>
+                    <h3 class="arch-block-title" id="itoms-arch-modal-title" data-key="itoms-arch-title">How ITOMS
+                        Connects Every Operation</h3>
+                    <p class="arch-block-desc" data-key="itoms-arch-desc">
+                        At the core sits a single, unified database feeding every operational module. Flights, land
+                        services, packages, and pricing all flow into Reservations — the central hub that drives
+                        management reporting, document printing, and accounting in real time.
+                    </p>
+                </div>
+
+                <div class="arch-diagram-wrap">
+                    <svg class="arch-diagram-svg" viewBox="0 0 1180 740" xmlns="http://www.w3.org/2000/svg" role="img"
+                        aria-label="ITOMS system architecture diagram">
+                        <!-- Connectors -->
+                        <g class="arch-line" fill="none">
+                            <line x1="220" y1="78" x2="495" y2="78" />
+                            <line x1="685" y1="78" x2="955" y2="78" />
+                            <line x1="590" y1="108" x2="160" y2="222" />
+                            <line x1="590" y1="108" x2="395" y2="222" />
+                            <line x1="590" y1="108" x2="620" y2="222" />
+                            <line x1="590" y1="108" x2="1020" y2="212" />
+                            <line x1="160" y1="286" x2="590" y2="438" />
+                            <line x1="395" y1="286" x2="590" y2="438" />
+                            <line x1="620" y1="286" x2="590" y2="438" />
+                            <line x1="260" y1="402" x2="520" y2="438" />
+                            <line x1="920" y1="402" x2="660" y2="438" />
+                            <line x1="450" y1="470" x2="280" y2="470" />
+                            <line x1="730" y1="470" x2="900" y2="470" />
+                            <line x1="540" y1="518" x2="300" y2="642" />
+                            <line x1="590" y1="518" x2="590" y2="642" />
+                            <line x1="640" y1="518" x2="880" y2="642" />
+                        </g>
+
+                        <!-- Database triplet -->
+                        <g>
+                            <rect class="arch-node arch-node-accent" x="40" y="48" width="180" height="60" rx="10" />
+                            <text class="arch-label" x="130" y="73" text-anchor="middle">General</text>
+                            <text class="arch-label" x="130" y="91" text-anchor="middle">Information</text>
+                        </g>
+                        <g>
+                            <rect class="arch-node arch-node-core" x="495" y="38" width="190" height="70" rx="10" />
+                            <text class="arch-label arch-label-core" x="590" y="80" text-anchor="middle">Database</text>
+                        </g>
+                        <g>
+                            <rect class="arch-node arch-node-accent" x="955" y="48" width="180" height="60" rx="10" />
+                            <text class="arch-label" x="1045" y="84" text-anchor="middle">Tables</text>
+                        </g>
+
+                        <!-- Module row -->
+                        <g>
+                            <rect class="arch-node" x="40" y="222" width="200" height="64" rx="10" />
+                            <text class="arch-label" x="140" y="260" text-anchor="middle">Flights</text>
+                        </g>
+                        <g>
+                            <rect class="arch-node" x="280" y="222" width="230" height="64" rx="10" />
+                            <text class="arch-label" x="395" y="260" text-anchor="middle">Land Services</text>
+                        </g>
+                        <g>
+                            <rect class="arch-node" x="540" y="222" width="200" height="64" rx="10" />
+                            <text class="arch-label" x="640" y="260" text-anchor="middle">Packages</text>
+                        </g>
+                        <g>
+                            <rect class="arch-node arch-node-red" x="900" y="212" width="240" height="78" rx="10" />
+                            <text class="arch-label" x="1020" y="246" text-anchor="middle">Pricing &amp;</text>
+                            <text class="arch-label" x="1020" y="266" text-anchor="middle">Quotations</text>
+                        </g>
+
+                        <!-- Side feeders -->
+                        <g>
+                            <rect class="arch-node" x="40" y="368" width="220" height="64" rx="10" />
+                            <text class="arch-label" x="150" y="406" text-anchor="middle">Web APIs</text>
+                        </g>
+                        <g>
+                            <rect class="arch-node" x="920" y="368" width="220" height="64" rx="10" />
+                            <text class="arch-label" x="1030" y="406" text-anchor="middle">Filing</text>
+                        </g>
+
+                        <!-- Hub row -->
+                        <g>
+                            <rect class="arch-node" x="40" y="440" width="240" height="64" rx="10" />
+                            <text class="arch-label" x="160" y="468" text-anchor="middle">Communication</text>
+                            <text class="arch-label" x="160" y="487" text-anchor="middle">&amp; Connectivity</text>
+                        </g>
+                        <g>
+                            <rect class="arch-node arch-node-core arch-node-hub" x="450" y="438" width="280" height="80" rx="12" />
+                            <text class="arch-label arch-label-core" x="590" y="485" text-anchor="middle">Reservations</text>
+                        </g>
+                        <g>
+                            <rect class="arch-node arch-node-red" x="900" y="440" width="240" height="64" rx="10" />
+                            <text class="arch-label" x="1020" y="478" text-anchor="middle">Inventory Control</text>
+                        </g>
+
+                        <!-- Output row -->
+                        <g>
+                            <rect class="arch-node" x="180" y="642" width="240" height="72" rx="10" />
+                            <text class="arch-label" x="300" y="674" text-anchor="middle">Management</text>
+                            <text class="arch-label" x="300" y="694" text-anchor="middle">Reports</text>
+                        </g>
+                        <g>
+                            <rect class="arch-node" x="470" y="642" width="240" height="72" rx="10" />
+                            <text class="arch-label" x="590" y="674" text-anchor="middle">Document</text>
+                            <text class="arch-label" x="590" y="694" text-anchor="middle">Printing</text>
+                        </g>
+                        <g>
+                            <rect class="arch-node arch-node-red" x="760" y="642" width="240" height="72" rx="10" />
+                            <text class="arch-label" x="880" y="674" text-anchor="middle">Accounting</text>
+                            <text class="arch-label" x="880" y="694" text-anchor="middle">Facilities</text>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ========================================== -->
     <!--  PRODUCT 2 — ARCHIVING                    -->

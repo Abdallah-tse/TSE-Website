@@ -26,6 +26,58 @@
     updateActivePill();
 })();
 
+// ---- Reservations card -> Architecture diagram modal ----
+(function () {
+    const trigger = document.getElementById('cap-card-reservations');
+    const modal = document.getElementById('itoms-arch-modal');
+    if (!trigger || !modal) return;
+
+    const closeBtn = document.getElementById('itoms-arch-modal-close');
+    let lastFocused = null;
+
+    function openModal() {
+        lastFocused = document.activeElement;
+        modal.hidden = false;
+        // Allow the browser to register display before transitioning opacity
+        requestAnimationFrame(() => modal.classList.add('is-open'));
+        document.body.style.overflow = 'hidden';
+        if (closeBtn) closeBtn.focus();
+    }
+
+    function closeModal() {
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
+        const onTransitionEnd = () => {
+            modal.hidden = true;
+            modal.removeEventListener('transitionend', onTransitionEnd);
+        };
+        modal.addEventListener('transitionend', onTransitionEnd);
+        if (lastFocused && typeof lastFocused.focus === 'function') {
+            lastFocused.focus();
+        }
+    }
+
+    trigger.addEventListener('click', openModal);
+    trigger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openModal();
+        }
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    // Click outside the dialog closes it
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // Escape key closes it
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.hidden) closeModal();
+    });
+})();
+
 // ---- Extend translations for products page ----
 document.addEventListener('DOMContentLoaded', () => {
     if (typeof translations === 'undefined') return;
@@ -53,9 +105,13 @@ document.addEventListener('DOMContentLoaded', () => {
         "itoms-feat-4-title": "Operational Accounting",
         "itoms-feat-4-desc": "Managed accounts payable, receivable, operational accounting, and reporting.",
         "itoms-cta": "Request ITOMS Demo",
+        "itoms-arch-eyebrow": "System Architecture",
+        "itoms-arch-title": "How ITOMS Connects Every Operation",
+        "itoms-arch-desc": "At the core sits a single, unified database feeding every operational module. Flights, land services, packages, and pricing all flow into Reservations — the central hub that drives management reporting, document printing, and accounting in real time.",
         "cap-allotment": "Allotment Control",
         "cap-allotment-desc": "Automated hotel & cruise allotment tracking across your entire operation.",
         "cap-reservations": "Reservations",
+        "cap-reservations-hint-text": "View architecture",
         "cap-costing": "Costing & Pricing",
         "cap-traffic": "Traffic Dept.",
         "cap-guides": "Guide Management",
@@ -141,9 +197,13 @@ document.addEventListener('DOMContentLoaded', () => {
         "itoms-feat-4-title": "محاسبة تشغيلية",
         "itoms-feat-4-desc": "إدارة الحسابات الدائنة والمدينة والمحاسبة التشغيلية وإعداد التقارير.",
         "itoms-cta": "طلب عرض توضيحي لـ ITOMS",
+        "itoms-arch-eyebrow": "البنية التقنية للنظام",
+        "itoms-arch-title": "كيف يربط ITOMS كل عمليات التشغيل",
+        "itoms-arch-desc": "في جوهر النظام قاعدة بيانات موحدة واحدة تغذّي كل وحدة تشغيلية. تتدفق الطيران والخدمات البرية والباقات والتسعير جميعها إلى الحجوزات — المحور المركزي الذي يقود التقارير الإدارية وطباعة الوثائق والمحاسبة في الوقت الفعلي.",
         "cap-allotment": "التحكم بالحصص",
         "cap-allotment-desc": "تتبع تلقائي لحصص الفنادق والرحلات البحريّة عبر العملية بأكملها.",
         "cap-reservations": "الحجوزات",
+        "cap-reservations-hint-text": "عرض البنية التقنية",
         "cap-costing": "التكاليف والأسعار",
         "cap-traffic": "إدارة الحركة",
         "cap-guides": "إدارة المرشدين",
