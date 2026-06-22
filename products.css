@@ -334,6 +334,118 @@
     border-color: rgba(0, 164, 166, 0.5);
 }
 
+/* Reservations — visual core of the ITOMS capability grid */
+.cap-card-core {
+    background: var(--light-card);
+    /* border: 1.5px solid rgba(0, 164, 166, 0.55); */
+    box-shadow: 0 0 0 1px rgba(0, 164, 166, 0.12), 0 12px 32px rgba(0, 164, 166, 0.16);
+    animation: cap-core-breathe 3.6s ease-in-out infinite;
+    padding-top: 1.5rem;
+}
+
+.cap-card-core::after {
+    background: var(--itoms-teal);
+    transform: scaleX(1);
+}
+
+.cap-card-core:hover,
+.cap-card-core:focus-visible {
+    border-color: var(--itoms-teal);
+    box-shadow: 0 0 0 1px rgba(0, 164, 166, 0.25), 0 16px 40px rgba(0, 164, 166, 0.28);
+    transform: translateY(-3px);
+}
+
+.cap-card-core-badge {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(135deg, var(--itoms-teal), #00C9CC);
+    padding: 0.25rem 0.55rem;
+    border-radius: var(--radius-full);
+    box-shadow: 0 2px 8px rgba(0, 164, 166, 0.4);
+}
+
+html[dir="rtl"] .cap-card-core-badge {
+    right: auto;
+    left: 0.85rem;
+}
+
+.cap-card-icon-core {
+    width: 46px;
+    height: 46px;
+    background: linear-gradient(135deg, rgba(0, 164, 166, 0.22), rgba(0, 164, 166, 0.1));
+    color: var(--itoms-teal);
+    box-shadow: inset 0 0 0 1.5px rgba(0, 164, 166, 0.35);
+}
+
+.cap-card-icon-core svg {
+    width: 23px;
+    height: 23px;
+}
+
+.cap-card-core-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-right: 5.5rem;
+}
+
+html[dir="rtl"] .cap-card-core-body {
+    padding-right: 0;
+    padding-left: 5.5rem;
+}
+
+.cap-card-core-body .cap-card-label {
+    font-size: 0.95rem;
+}
+
+.cap-card-core-body .cap-card-link-hint {
+    margin-top: 0.2rem;
+}
+
+@keyframes cap-core-breathe {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 1px rgba(0, 164, 166, 0.12), 0 12px 32px rgba(0, 164, 166, 0.16);
+    }
+
+    50% {
+        box-shadow: 0 0 0 1px rgba(0, 164, 166, 0.22), 0 14px 38px rgba(0, 164, 166, 0.28);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cap-card-core {
+        animation: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .cap-card-core-body {
+        padding-right: 0;
+    }
+
+    html[dir="rtl"] .cap-card-core-body {
+        padding-left: 0;
+    }
+
+    .cap-card-core-badge {
+        position: static;
+        display: inline-flex;
+        margin-bottom: 0.5rem;
+    }
+
+    .cap-card-core {
+        flex-direction: column;
+    }
+}
+
 /* ========================================== */
 /* ITOMS ARCHITECTURE — MODAL                 */
 /* ========================================== */
